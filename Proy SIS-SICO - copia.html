@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekopo</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="card-container">
+        
+        <div id="inicio-screen">
+            <div class="image-wrapper">
+                <img src="imag/SIS.jpg" alt="Dos personas tomadas de la mano">
+            </div>
+
+            <div class="card-content">
+                <h1>TEKOPO</h1>
+                <h2>Cuidar tu mente también es cuidarte a vos</h2>
+                <p>App informativa sobre estrés, ansiedad y depresión para generar conciencia y promover el autocuidado.</p>
+                <h3>SALUD MENTAL</h3>
+                <button id="btn-comenzar">COMENZAR</button>
+            </div>
+        </div>
+
+        <div id="categorias-screen" style="display: none;">
+            <h1>CATEGORÍAS</h1>
+            <div class="categorias-padding">
+                <div class="categoria-btn estres">
+                    <span>Estrés</span>
+                    <img src="imag/estresimg.png" alt="Estrés">
+                </div>
+                <div class="categoria-btn ansiedad">
+                    <span>Ansiedad</span>
+                    <img src="imag/ansiedadimg.png" alt="Ansiedad">
+                </div>
+                <div class="categoria-btn depresion">
+                    <span>Depresión</span>
+                    <img src="imag\depresionimg.png" alt="Depresión">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const btnComenzar = document.getElementById('btn-comenzar');
+        const inicioScreen = document.getElementById('inicio-screen');
+        const categoriasScreen = document.getElementById('categorias-screen');
+
+        btnComenzar.addEventListener('click', () => {
+            
+            const inicioHeight = inicioScreen.offsetHeight;
+            
+            categoriasScreen.style.minHeight = inicioHeight + 'px';
+            
+            inicioScreen.style.display = 'none';
+            
+            categoriasScreen.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>
