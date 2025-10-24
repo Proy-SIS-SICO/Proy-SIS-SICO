@@ -11,20 +11,20 @@ body {
     box-sizing: border-box;
 }
 
-/* Contenedor principal (Sin cambios) */
+/* Contenedor principal (MODIFICADO) */
 .card-container {
-    width: 375px; 
-    max-width: 100%;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    overflow: hidden; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    display: flex; 
-    flex-direction: column;
-    background-color: #cacaca;
-    position: relative; 
+    width: 375px; 
+    max-width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex; 
+    flex-direction: column;
+    background-color: #F5EFE6; /* CAMBIO: Fondo beige unificado */
+    position: relative; 
 }
 
 /* Contenedor de imagen (Sin cambios) */
@@ -45,16 +45,16 @@ body {
     object-fit: cover; 
 }
 
-/* Contenido de texto (Sin cambios) */
+/* Contenido de texto (MODIFICADO) */
 .card-content {
-    background-color: #cacaca; 
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    padding: 30px;
-    padding-bottom: 40px; 
-    text-align: center;
+    background-color: #F5EFE6; /* CAMBIO: Fondo beige unificado */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 30px;
+    padding-bottom: 40px; 
+    text-align: center;
 }
 
 .card-content h1 {
@@ -108,28 +108,21 @@ body {
 }
 
 
-/* Estilos para la pantalla de Categorías (Sin cambios) */
+/* Estilos para la pantalla de Categorías (MODIFICADO) */
 #categorias-screen {
-    background-color: #ffffff; 
-    padding: 0; 
-    border-bottom-left-radius: 30px; 
-    border-bottom-right-radius: 30px; 
+    background-color: #F5EFE6; /* CAMBIO: Fondo beige unificado */
+    padding: 0; 
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px; 
 }
 
 #categorias-screen h1 {
-    background-color: #191970; 
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 900;
-    margin: 0 0 30px 0; 
-    border-bottom-left-radius: 35px;
-    border-bottom-right-radius: 35px;
+    display: none; /* CAMBIO: Ocultamos el título "CATEGORÍAS" */
 }
 
 .categorias-padding {
-    padding: 0 30px 30px 30px; 
+    /* CAMBIO: Añadimos padding superior para compensar el título oculto */
+    padding: 40px 30px 30px 30px; 
 }
 
 .categoria-btn {
@@ -265,4 +258,5 @@ body {
 
 .popup-menu-container li:hover i {
     color: white; 
+
 }
