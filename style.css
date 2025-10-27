@@ -11,20 +11,19 @@ body {
     box-sizing: border-box;
 }
 
-/* Contenedor principal (MODIFICADO) */
+/* Contenedor principal (Sin cambios) */
 .card-container {
-    width: 375px; 
-    max-width: 100%;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    overflow: hidden; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    display: flex; 
-    flex-direction: column;
-    background-color: #F5EFE6; /* CAMBIO: Fondo beige unificado */
-    position: relative; 
+    width: 375px; 
+    max-width: 100%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex; 
+    flex-direction: column;
+    background-color: #cacaca;
 }
 
 /* Contenedor de imagen (Sin cambios) */
@@ -45,16 +44,16 @@ body {
     object-fit: cover; 
 }
 
-/* Contenido de texto (MODIFICADO) */
+/* Contenido de texto (Sin cambios) */
 .card-content {
-    background-color: #F5EFE6; /* CAMBIO: Fondo beige unificado */
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    padding: 30px;
-    padding-bottom: 40px; 
-    text-align: center;
+    background-color: #cacaca; 
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 30px;
+    padding-bottom: 40px; 
+    text-align: center;
 }
 
 .card-content h1 {
@@ -108,30 +107,38 @@ body {
 }
 
 
-/* Estilos para la pantalla de Categorías (MODIFICADO) */
+/* Estilos para la pantalla de Categorías (Sin cambios) */
 #categorias-screen {
-    background-color: #F5EFE6; /* CAMBIO: Fondo beige unificado */
-    padding: 0; 
-    border-bottom-left-radius: 30px; 
-    border-bottom-right-radius: 30px; 
+    background-color: #ffffff; 
+    padding: 0; 
+    border-bottom-left-radius: 30px; 
+    border-bottom-right-radius: 30px; 
 }
 
 #categorias-screen h1 {
-    display: none; /* CAMBIO: Ocultamos el título "CATEGORÍAS" */
+    background-color: #191970; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 0 30px 0; 
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
 }
 
 .categorias-padding {
-    /* CAMBIO: Añadimos padding superior para compensar el título oculto */
-    padding: 40px 30px 30px 30px; 
+    padding: 0 30px 30px 30px; 
 }
 
+/* (Estilo de botón base sin cambios) */
 .categoria-btn {
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 40px;
     position: relative;
     min-height: 160px; 
-    color: white; 
+    color: white; /* <-- CAMBIO AQUÍ (Base es blanca) */
     font-size: 2.0rem; 
     font-weight: 700;
     cursor: pointer;
@@ -142,21 +149,27 @@ body {
     transform: scale(1.03); 
 }
 
+/* --- CAMBIO AQUÍ --- */
 .categoria-btn.estres {
     background: linear-gradient(to right, #2F4156, #567C8D, #C8D9E6, #F5EFEB, #FFFFFF);
-    color: white; 
+    color: white; /* Se cambia a blanco (como se solicitó) */
 }
 
+/* (Sin cambios, ya era blanco) */
 .categoria-btn.ansiedad {
     background: linear-gradient(to right, #EC6426, #F8A91F, #FDE3CF, #632713);
-    color: white; 
+    color: white; /* (Aseguramos que sea blanco) */
 }
 
+/* --- CAMBIO AQUÍ --- */
 .categoria-btn.depresion {
     background: linear-gradient(to right, #AE90CA, #C3AEDA, #D7CBE4, #E9E0F2);
-    color: white; 
+    color: white; /* Se cambia a blanco (como se solicitó) */
 }
+/* --- FIN DEL CAMBIO --- */
 
+
+/* (Estilos de imagen sin cambios) */
 .categoria-btn img {
     width: 160px; 
     height: 160px; 
@@ -164,99 +177,4 @@ body {
     position: absolute;
     bottom: 0px; 
     right: 0px; 
-}
-
-
-/* --- ================================== --- */
-/* --- AÑADIDO: Estilos para el Menú Popup --- */
-/* --- ================================== --- */
-
-.popup-menu-container {
-    display: none; 
-    position: absolute; 
-    
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%; 
-    
-    background-color: #ffffff;
-    border-radius: 10px; 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); 
-    z-index: 100;
-    overflow: hidden;
-    border: 1px solid #e9ecef; 
-    font-family: Arial, sans-serif; 
-}
-
-.popup-menu-container h3 {
-    font-size: 1.1rem; 
-    font-weight: 600;
-    color: #212529; 
-    padding: 12px 18px;
-    margin: 0;
-    background-color: #f8f9fa; 
-    border-bottom: 1px solid #e9ecef;
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-}
-
-.popup-menu-container h3 i {
-    margin-right: 10px;
-    color: #495057; 
-}
-
-.popup-back-btn {
-    background: none;
-    border: none;
-    font-size: 2rem; 
-    color: #868e96;
-    cursor: pointer;
-    padding: 0 5px;
-    line-height: 1;
-    font-weight: 300;
-}
-.popup-back-btn:hover {
-    color: #343a40;
-}
-
-
-.popup-menu-container ul {
-    list-style: none;
-    margin: 0;
-    padding: 5px 0; 
-}
-
-.popup-menu-container li {
-    padding: 12px 20px;
-    font-size: 1rem;
-    color: #343a40; 
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.2s ease, color 0.2s ease; 
-}
-
-.popup-menu-container li:not(:last-child) {
-     border-bottom: 1px solid #f1f3f5;
-}
-
-
-.popup-menu-container li i {
-    margin-right: 15px;
-    width: 20px; 
-    text-align: center;
-    color: #868e96; 
-    transition: color 0.2s ease; 
-}
-
-.popup-menu-container li:hover {
-    background-color: #2793E8; 
-    color: white;
-}
-
-.popup-menu-container li:hover i {
-    color: white; 
-
 }

@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -32,6 +34,21 @@
 
         <div id="categorias-screen" style="display: none;">
             <h1>CATEGORÍAS</h1>
+
+            <div id="popup-menu" class="popup-menu-container">
+                <h3>
+                    <span><i class="fa-solid fa-book-open"></i> Estructura de contenidos</span>
+                    <button class="popup-back-btn">&times;</button>
+                </h3>
+                <ul>
+                    <li><i class="fa-solid fa-lightbulb"></i> Concepto</li>
+                    <li><i class="fa-solid fa-graduation-cap"></i> Grados</li>
+                    <li><i class="fa-solid fa-plus-circle"></i> Síntomas</li>
+                    <li><i class="fa-regular fa-comments"></i> Mitos y creencias</li>
+                    <li><i class="fa-solid fa-wrench"></i> Instrumento</li>
+                </ul>
+            </div>
+
             <div class="categorias-padding">
                 <div class="categoria-btn estres">
                     <span>Estrés</span>
@@ -50,23 +67,7 @@
 
     </div>
 
-    <script>
-        const btnComenzar = document.getElementById('btn-comenzar');
-        const inicioScreen = document.getElementById('inicio-screen');
-        const categoriasScreen = document.getElementById('categorias-screen');
-
-        btnComenzar.addEventListener('click', () => {
-            
-            const inicioHeight = inicioScreen.offsetHeight;
-            
-            categoriasScreen.style.minHeight = inicioHeight + 'px';
-            
-            inicioScreen.style.display = 'none';
-            
-            categoriasScreen.style.display = 'block';
-        });
-    </script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
