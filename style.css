@@ -176,7 +176,7 @@ body {
     /* Padding vertical */
     padding-top: 50px;
     padding-bottom: 50px;
-    /* Padding horizontal por defecto */
+    /* Padding horizontal base */
     padding-left: 30px;
     padding-right: 30px;
     
@@ -187,13 +187,11 @@ body {
     transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease;
     
     /* --- AJUSTE DE ANCHO --- */
-    width: 85%; /* Más anchos */
-    max-width: 700px; /* Ancho máximo aumentado */
+    width: 95%; /* Aún más anchos */
+    max-width: 900px; /* Ancho máximo aumentado */
     
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; 
-    
-    /* El text-align se define en las clases específicas */
 }
 
 .categoria-btn:hover {
@@ -211,22 +209,25 @@ body {
 .categoria-btn.estres {
     background: #5a8a9e; 
     align-self: flex-end; /* Alinea el botón a la derecha */
-    text-align: right; /* Alinea el texto a la derecha */
-    padding-right: 60px; /* Más padding en el lado del texto */
+    text-align: left; /* Alinea el texto a la izquierda (extremo contrario) */
+    padding-left: 60px; /* Más padding en el lado del texto */
+    padding-right: 30px; /* Padding base en el otro lado */
 }
 
 .categoria-btn.ansiedad {
     background: #e9a11a; 
     align-self: flex-start; /* Alinea el botón a la izquierda */
-    text-align: left; /* Alinea el texto a la izquierda */
-    padding-left: 60px; /* Más padding en el lado del texto */
+    text-align: right; /* Alinea el texto a la derecha (extremo contrario) */
+    padding-right: 60px; /* Más padding en el lado del texto */
+    padding-left: 30px; /* Padding base en el otro lado */
 }
 
 .categoria-btn.depresion {
     background: #b99dce; 
     align-self: flex-end; /* Alinea el botón a la derecha */
-    text-align: right; /* Alinea el texto a la derecha */
-    padding-right: 60px; /* Más padding en el lado del texto */
+    text-align: left; /* Alinea el texto a la izquierda (extremo contrario) */
+    padding-left: 60px; /* Más padding en el lado del texto */
+    padding-right: 30px; /* Padding base en el otro lado */
 }
 
 
@@ -236,16 +237,18 @@ body {
 
 @media (min-width: 768px) {
     .categoria-btn {
-        width: 80%;
-        max-width: 800px; /* Ancho máximo aumentado */
+        width: 90%;
+        max-width: 950px; /* Ancho máximo aumentado */
     }
     
     .categoria-btn.estres,
     .categoria-btn.depresion {
-        padding-right: 80px; /* Más padding en pantallas grandes */
+        padding-left: 80px; /* Más padding en pantallas grandes */
+        padding-right: 30px;
     }
     .categoria-btn.ansiedad {
-        padding-left: 80px; /* Más padding en pantallas grandes */
+        padding-right: 80px; /* Más padding en pantallas grandes */
+        padding-left: 30px;
     }
 }
 
