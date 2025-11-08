@@ -173,17 +173,17 @@ body {
 
 .categoria-btn {
     border-radius: 10px; 
-    padding: 50px 20px; 
+    padding: 50px 20px; /* Mantener padding vertical */
     margin-bottom: 40px; 
     min-height: 0; 
     color: white; 
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease;
     
-    width: 80%; /* <-- CLAVE: Ancho como en la imagen */
-    max-width: 550px; /* <-- CLAVE: Ancho máximo */
+    /* --- AJUSTES PARA PARECERSE A LA IMAGEN --- */
+    width: 90%; /* Más ancho */
+    max-width: 650px; /* Un poco más de max-width */
     
-    text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; 
 }
@@ -197,22 +197,29 @@ body {
     font-size: 3.8rem; 
     font-weight: 700;
     letter-spacing: 1px;
+    display: block; /* Para que el text-align funcione correctamente en el span */
 }
 
 /* --- CLAVE: Alineaciones para el diseño de la imagen --- */
 .categoria-btn.estres {
     background: #5a8a9e; 
     align-self: flex-end; /* A la derecha */
+    text-align: right; /* Alinea el texto a la derecha */
+    padding-right: 50px; /* Espacio desde el borde derecho */
 }
 
 .categoria-btn.ansiedad {
     background: #e9a11a; 
     align-self: flex-start; /* A la izquierda */
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding-left: 50px; /* Espacio desde el borde izquierdo */
 }
 
 .categoria-btn.depresion {
     background: #b99dce; 
     align-self: flex-end; /* A la derecha */
+    text-align: right; /* Alinea el texto a la derecha */
+    padding-right: 50px; /* Espacio desde el borde derecho */
 }
 
 
@@ -222,8 +229,15 @@ body {
 
 @media (min-width: 768px) {
     .categoria-btn {
-        width: 70%; /* Ajuste para pantallas grandes */
-        max-width: 650px; /* Ajuste para pantallas grandes */
+        width: 80%; /* Ajuste para pantallas grandes, un poco más ancho */
+        max-width: 750px; /* Ajuste para pantallas grandes */
+    }
+    .categoria-btn.estres,
+    .categoria-btn.depresion {
+        padding-right: 80px; /* Más espacio a la derecha en pantallas grandes */
+    }
+    .categoria-btn.ansiedad {
+        padding-left: 80px; /* Más espacio a la izquierda en pantallas grandes */
     }
 }
 
@@ -256,11 +270,11 @@ body {
     z-index: 0;
 }
 
-.menu-screen::before {
+#menu-screen::before {
     left: -100px; 
 }
 
-.menu-screen::after {
+#menu-screen::after {
     right: -100px; 
 }
 
