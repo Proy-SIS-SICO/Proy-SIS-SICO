@@ -324,18 +324,19 @@ body {
 }
 
 /* Colores específicos de los botones (basados en tu imagen) */
-.menu-btn.concepto { background-color: #5a8a9e; }
-.menu-btn.grados { background-color: #3a506b; }
-.menu-btn.sintomas { background-color: #8db5ca; }
-.menu-btn.mitos { background-color: #f0d9b5; color: #3a506b; } /* Color crema, texto oscuro */
-.menu-btn.instrumento { background-color: #abc4d2; } /* Color azul claro */
-
-/* ===== NUEVO ESTILO PARA RECURSOS ===== */
+/* --- COLORES ACTUALIZADOS SEGÚN LA IMAGEN --- */
+.menu-btn.concepto { background-color: #5a8a9e; } /* Azul verdoso */
+.menu-btn.grados { background-color: #3a506b; }    /* Azul oscuro */
+.menu-btn.sintomas { background-color: #8db5ca; }  /* Azul claro */
+/* La imagen tiene dos botones "Síntomas". Asumo que quieres este orden: */
+.menu-btn.mitos { background-color: #f0d9b5; color: #3a506b; } /* Crema, texto oscuro */
+.menu-btn.instrumento { background-color: #abc4d2; } /* Azul medio */
+/* El color de recursos se mantiene como el anterior, ya que no estaba en la imagen original */
 .menu-btn.recursos { 
     background-color: #f0d9b5; 
     color: #3a506b; /* Reutiliza el color crema */
 }
-/* ======================================= */
+/* =========================================== */
 
 
 /* --- ================================== --- */
