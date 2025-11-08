@@ -112,7 +112,7 @@ body {
 #categorias-screen {
     background-color: #fcf9f6; 
     padding: 0; 
-    display: flex; 
+    display: flex; /* <-- CORREGIDO: Se quitó el !important */
     flex-direction: column;
     flex-grow: 1;
     position: relative; 
@@ -329,3 +329,40 @@ body {
 .menu-btn.sintomas { background-color: #8db5ca; }
 .menu-btn.mitos { background-color: #f0d9b5; color: #3a506b; } /* Color crema, texto oscuro */
 .menu-btn.instrumento { background-color: #abc4d2; } /* Color azul claro */
+
+
+/* --- ================================== --- */
+/* --- BOTÓN VOLVER (Estilo Portada) --- */
+/* --- ================================== --- */
+.btn-volver-portada-style {
+    /* Colores adaptados al fondo claro */
+    background-color: #6b4632; /* Color del título */
+    color: #ffffff;
+    border: 3px solid #6b4632; 
+    
+    /* Mismo diseño de la portada */
+    border-radius: 50px; 
+    padding: 30px 65px; 
+    font-size: 2rem; 
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    width: auto; 
+    transition: all 0.3s ease; 
+    max-width: 500px; 
+    
+    /* Ajustes de margen para el menú */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px; /* Espacio extra arriba */
+    margin-bottom: 40px; /* Espacio abajo */
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-volver-portada-style:hover {
+    background-color: #ffffff; 
+    color: #6b4632; /* Invertir colores */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
+    transform: translateY(-2px); 
+}
