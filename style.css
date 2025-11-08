@@ -112,7 +112,7 @@ body {
 #categorias-screen {
     background-color: #fcf9f6; 
     padding: 0; 
-    display: flex !important; 
+    display: flex; /* <-- CORREGIDO: Se quitó el !important */
     flex-direction: column;
     flex-grow: 1;
     position: relative; 
@@ -180,8 +180,8 @@ body {
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease;
     
-    width: 50%; /* Ancho simétrico */
-    max-width: 400px; /* Ancho máximo simétrico */
+    width: 70%; /* <-- CORREGIDO: Ancho simétrico */
+    max-width: 500px; /* <-- CORREGIDO: Ancho máximo simétrico */
     
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -209,7 +209,7 @@ body {
 
 .categoria-btn.estres {
     background: #5a8a9e; 
-    align-self: flex-end;  /* <-- ALINEAR A LA DERECHA */
+    align-self: flex-end;   /* <-- ALINEAR A LA DERECHA */
 }
 
 .categoria-btn.ansiedad {
@@ -219,7 +219,7 @@ body {
 
 .categoria-btn.depresion {
     background: #b99dce; 
-    align-self: flex-end;  /* <-- ALINEAR A LA DERECHA */
+    align-self: flex-end;   /* <-- ALINEAR A LA DERECHA */
 }
 
 
@@ -235,8 +235,8 @@ body {
     /* Solo cambiamos el ANCHO. Las reglas de 'align-self' se heredan */
     /* y siguen funcionando perfectamente. */
     .categoria-btn {
-        width: 65%; /* Se vuelve más ancho */
-        max-width: 500px; /* Se permite que crezca más */
+        width: 75%; /* <-- CORREGIDO: Se vuelve más ancho */
+        max-width: 650px; /* <-- CORREGIDO: Se permite que crezca más */
     }
 
     /* Ya no necesitamos re-declarar los márgenes o alineaciones aquí */

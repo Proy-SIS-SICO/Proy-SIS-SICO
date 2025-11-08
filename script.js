@@ -1,5 +1,5 @@
 /* --- ================================== --- */
-/* ---  Lógica de la pantalla de inicio   --- */
+/* ---  Lógica de la pantalla de inicio   --- */
 /* --- ================================== --- */
 
 // 1. Seleccionar los elementos de la pantalla de inicio
@@ -20,7 +20,7 @@ if (btnComenzar) {
         categoriasScreen.style.minHeight = inicioHeight + 'px';
         
         // Muestra la pantalla de categorías
-        categoriasScreen.style.display = 'block';
+        categoriasScreen.style.display = 'flex'; // <-- CORREGIDO
     });
 }
 
