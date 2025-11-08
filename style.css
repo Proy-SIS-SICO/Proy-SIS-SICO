@@ -226,3 +226,106 @@ body {
         max-width: 650px; /* Ajuste para pantallas grandes */
     }
 }
+
+/* --- ================================== --- */
+/* --- PANTALLA DE MENÚ (Estrés, Ansiedad, etc.) --- */
+/* --- ================================== --- */
+
+/* Estilo base para CUALQUIER pantalla de menú */
+.menu-screen {
+    background-color: #fcf9f6; 
+    padding: 0; 
+    display: flex; /* Se activará con JS */
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative; 
+    overflow: hidden; 
+    min-height: 100vh; /* Asegura que llene la pantalla */
+}
+
+/* Círculos decorativos del fondo (iguales a los de categorías) */
+.menu-screen::before,
+.menu-screen::after {
+    content: '';
+    position: absolute;
+    background-color: #6b4632; 
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    bottom: -100px; 
+    z-index: 0;
+}
+
+.menu-screen::before {
+    left: -100px; 
+}
+
+.menu-screen::after {
+    right: -100px; 
+}
+
+/* Título (ej: "ESTRÉS") - Mismo estilo que "CATEGORÍAS" */
+.menu-screen h1 {
+    background-color: #6b4632; 
+    color: white;
+    padding: 22px 55px;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 40px auto 30px auto; 
+    border-radius: 10px;
+    width: auto; 
+    display: inline-block; 
+    z-index: 1; 
+    position: relative; 
+}
+
+/* Contenedor de los botones */
+.menu-padding {
+    padding: 0 5% 30px 5%;
+    flex-grow: 1;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* <-- CLAVE: Centra los botones verticalmente */
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1; 
+    position: relative; 
+}
+
+/* Estilo para los botones del menú */
+.menu-btn {
+    border-radius: 10px; 
+    padding: 25px 20px; /* Un poco menos de padding vertical */
+    margin-bottom: 30px; /* Espacio entre botones */
+    min-height: 0; 
+    color: white; 
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    width: 80%; /* Ancho de los botones */
+    max-width: 500px; /* Ancho máximo */
+    
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; 
+}
+
+.menu-btn:hover {
+    transform: scale(1.03); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.menu-btn span {
+    font-size: 2.5rem; /* Letra un poco más pequeña */
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Colores específicos de los botones (basados en tu imagen) */
+.menu-btn.concepto { background-color: #5a8a9e; }
+.menu-btn.grados { background-color: #3a506b; }
+.menu-btn.sintomas { background-color: #8db5ca; }
+.menu-btn.mitos { background-color: #f0d9b5; color: #3a506b; } /* Color crema, texto oscuro */
+.menu-btn.instrumento { background-color: #abc4d2; } /* Color azul claro */
