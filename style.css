@@ -323,18 +323,34 @@ body {
     letter-spacing: 1px;
 }
 
-/* Colores específicos de los botones (basados en tu imagen) */
-/* --- COLORES ACTUALIZADOS SEGÚN LA IMAGEN --- */
-.menu-btn.concepto { background-color: #5a8a9e; } /* Azul verdoso */
-.menu-btn.grados { background-color: #3a506b; }    /* Azul oscuro */
-.menu-btn.sintomas { background-color: #8db5ca; }  /* Azul claro */
-/* La imagen tiene dos botones "Síntomas". Asumo que quieres este orden: */
-.menu-btn.mitos { background-color: #f0d9b5; color: #3a506b; } /* Crema, texto oscuro */
-.menu-btn.instrumento { background-color: #abc4d2; } /* Azul medio */
-/* El color de recursos se mantiene como el anterior, ya que no estaba en la imagen original */
-.menu-btn.recursos { 
+/* --- ======================================= --- */
+/* --- COLORES ESPECÍFICOS DE LOS BOTONES (NUEVOS) --- */
+/* --- ======================================= --- */
+.menu-btn.concepto { 
+    background-color: #5a8a9e; 
+}
+
+.menu-btn.grados { 
+    background-color: #3a506b; 
+}
+
+.menu-btn.sintomas { 
+    background-color: #8db5ca; 
+}
+
+.menu-btn.mitos { 
+    background-color: #abc4d2; 
+}
+
+.menu-btn.instrumento { 
     background-color: #f0d9b5; 
-    color: #3a506b; /* Reutiliza el color crema */
+    color: #3a506b; /* Texto oscuro para fondo claro */
+}
+
+.menu-btn.recursos { 
+    background-color: #FFFFFF; 
+    color: #6b4632; /* Texto oscuro para fondo blanco */
+    border: 1px solid #eee; /* Borde sutil opcional */
 }
 /* =========================================== */
 
