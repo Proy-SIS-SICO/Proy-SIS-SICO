@@ -158,12 +158,11 @@ body {
 
 /* Contenedor de los botones */
 .categorias-padding {
-    padding: 0 5% 30px 5%; /* Padding de 5% a los lados, 0 arriba, 30px abajo */
+    padding: 0 5% 30px 5%; /* Padding de 5% a los lados */
     flex-grow: 1;
     overflow-y: auto; 
     display: flex;
-    flex-direction: column; /* <-- MODIFICADO: De nuevo a vertical */
-    /* Se eliminaron 'flex-wrap', 'justify-content', 'align-items', 'gap' */
+    flex-direction: column; /* <-- CLAVE: Los apila verticalmente */
     width: 100%;
     box-sizing: border-box;
     z-index: 1; 
@@ -175,20 +174,18 @@ body {
 .categoria-btn {
     border-radius: 10px; 
     padding: 50px 20px; 
-    margin-bottom: 40px; /* <-- MODIFICADO: Espacio entre botones */
+    margin-bottom: 40px; 
     min-height: 0; 
     color: white; 
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease;
     
-    width: 80%; /* <-- Ajuste de ancho para coincidir con la imagen */
-    max-width: 550px; /* <-- Ajuste de ancho máximo */
+    width: 80%; /* <-- CLAVE: Ancho como en la imagen */
+    max-width: 550px; /* <-- CLAVE: Ancho máximo */
     
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; 
-    
-    /* Para el centrado horizontal se usará align-self en las clases específicas */
 }
 
 .categoria-btn:hover {
@@ -202,22 +199,20 @@ body {
     letter-spacing: 1px;
 }
 
-/* --- Alineaciones para el diseño de la imagen --- */
-/* 'flex-end' lo alinea al borde DERECHO del padding del contenedor */
-/* 'flex-start' lo alinea al borde IZQUIERDO del padding del contenedor */
+/* --- CLAVE: Alineaciones para el diseño de la imagen --- */
 .categoria-btn.estres {
     background: #5a8a9e; 
-    align-self: flex-end; /* A la derecha como en la imagen */
+    align-self: flex-end; /* A la derecha */
 }
 
 .categoria-btn.ansiedad {
     background: #e9a11a; 
-    align-self: flex-start; /* A la izquierda como en la imagen */
+    align-self: flex-start; /* A la izquierda */
 }
 
 .categoria-btn.depresion {
     background: #b99dce; 
-    align-self: flex-end; /* A la derecha como en la imagen */
+    align-self: flex-end; /* A la derecha */
 }
 
 
@@ -225,7 +220,6 @@ body {
 /* --- MEDIA QUERY (Para pantallas más grandes) --- */
 /* --- ================================== --- */
 
-/* Cuando la pantalla sea 768px o más ancha... */
 @media (min-width: 768px) {
     .categoria-btn {
         width: 70%; /* Ajuste para pantallas grandes */
