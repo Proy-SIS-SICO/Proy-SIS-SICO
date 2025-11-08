@@ -112,7 +112,7 @@ body {
 #categorias-screen {
     background-color: #fcf9f6; 
     padding: 0; 
-    display: flex; /* <-- CORREGIDO: Se quitó el !important */
+    display: flex; 
     flex-direction: column;
     flex-grow: 1;
     position: relative; 
@@ -329,6 +329,13 @@ body {
 .menu-btn.sintomas { background-color: #8db5ca; }
 .menu-btn.mitos { background-color: #f0d9b5; color: #3a506b; } /* Color crema, texto oscuro */
 .menu-btn.instrumento { background-color: #abc4d2; } /* Color azul claro */
+
+/* ===== NUEVO ESTILO PARA RECURSOS ===== */
+.menu-btn.recursos { 
+    background-color: #f0d9b5; 
+    color: #3a506b; /* Reutiliza el color crema */
+}
+/* ======================================= */
 
 
 /* --- ================================== --- */
