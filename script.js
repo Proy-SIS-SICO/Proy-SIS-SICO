@@ -31,7 +31,6 @@ const genericMenuScreen = document.getElementById('generic-menu-screen');
 const menuScreenTitle = document.getElementById('menu-screen-title');
 
 // 3. Añadir un evento a CADA botón de categoría
-// (Se agregan validaciones por si algún elemento no se encuentra)
 if (allCategoryButtons.length > 0 && genericMenuScreen && menuScreenTitle && categoriasScreen) {
     
     allCategoryButtons.forEach(button => {
@@ -55,14 +54,13 @@ if (allCategoryButtons.length > 0 && genericMenuScreen && menuScreenTitle && cat
 
 
 /* --- ================================== --- */
-/* ---  Lógica del Botón de Volver    --- */
+/* ---  Lógica del Botón de Volver (Menú) --- */
 /* --- ================================== --- */
 
-// 1. Seleccionar el nuevo botón de volver
+// 1. Seleccionar el botón de volver del MENÚ
 const btnMenuVolver = document.getElementById('btn-menu-volver');
 
 // 2. Asignar el evento
-// (genericMenuScreen y categoriasScreen ya están definidos arriba)
 if (btnMenuVolver && genericMenuScreen && categoriasScreen) {
     
     btnMenuVolver.addEventListener('click', () => {
@@ -72,5 +70,27 @@ if (btnMenuVolver && genericMenuScreen && categoriasScreen) {
         
         // 2. Mostrar la pantalla de categorías
         categoriasScreen.style.display = 'flex';
+    });
+}
+
+
+/* --- ================================== --- */
+/* --- Lógica del Botón de Volver (Categorías) --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar el nuevo botón de volver de CATEGORÍAS
+const btnCategoriasVolver = document.getElementById('btn-categorias-volver');
+
+// 2. Asignar el evento
+// (inicioScreen y categoriasScreen ya están definidos arriba)
+if (btnCategoriasVolver && categoriasScreen && inicioScreen) {
+    
+    btnCategoriasVolver.addEventListener('click', () => {
+        
+        // 1. Ocultar la pantalla de categorías
+        categoriasScreen.style.display = 'none';
+        
+        // 2. Mostrar la pantalla de inicio
+        inicioScreen.style.display = 'flex';
     });
 }
