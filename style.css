@@ -8,6 +8,9 @@ body {
     min-height: 100vh;
     margin: 0;
     box-sizing: border-box;
+    /* Mejora el renderizado del texto en móviles */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .card-container {
@@ -56,24 +59,22 @@ body {
     box-sizing: border-box; 
 }
 
+/* --- ESTILOS MÓVIL (Por defecto) --- */
 .card-content h1 {
     color: #ffffff;
-    font-size: 4.5rem; 
+    font-size: 2.8rem; /* Más pequeño */
     font-weight: 700; 
     margin: 0; 
     text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
     letter-spacing: normal; 
     line-height: 1.1; 
-    margin-left: auto; 
-    margin-right: auto; 
-    margin-top: auto; 
-    margin-bottom: auto; 
+    margin: auto;
 }
 
 .card-content h3 {
     font-family: 'Alfa Slab One', cursive;
     color: #000000; 
-    font-size: 7.5rem;
+    font-size: 4.5rem; /* Más pequeño */
     margin: 0;
     font-weight: 400; 
 }
@@ -83,8 +84,8 @@ body {
     color: #ffffff;
     border: 3px solid #ffffff; 
     border-radius: 50px; 
-    padding: 30px 65px; 
-    font-size: 2rem; 
+    padding: 20px 40px; /* Más pequeño */
+    font-size: 1.5rem; /* Más pequeño */
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
@@ -93,7 +94,7 @@ body {
     max-width: 500px; 
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px; 
+    margin-bottom: 80px; /* Menos margen */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
 }
 
@@ -131,22 +132,16 @@ body {
     bottom: -100px; 
     z-index: 0;
 }
-
-#categorias-screen::before {
-    left: -100px; 
-}
-
-#categorias-screen::after {
-    right: -100px; 
-}
+#categorias-screen::before { left: -100px; }
+#categorias-screen::after { right: -100px; }
 
 /* Título "CATEGORIAS" */
 #categorias-screen h1 {
     background-color: #6b4632; 
     color: white;
-    padding: 22px 55px;
+    padding: 20px 40px; /* Más pequeño */
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 2rem; /* Más pequeño */
     font-weight: 700;
     margin: 40px auto 30px auto; 
     border-radius: 10px;
@@ -158,40 +153,36 @@ body {
 
 /* Contenedor de los botones */
 .categorias-padding {
-    padding: 0 5% 30px 5%; /* Padding de 5% a los lados */
+    padding: 0 5% 30px 5%;
     flex-grow: 1;
     overflow-y: auto; 
     display: flex;
-    flex-direction: column; /* <-- CLAVE: Los apila verticalmente */
+    flex-direction: column;
     width: 100%;
     box-sizing: border-box;
     z-index: 1; 
     position: relative; 
 }
 
-/* --- ESTILOS BASE (MINIMIZADO / SIMÉTRICO) --- */
-
+/* --- ESTILOS MÓVIL (Por defecto) --- */
 .categoria-btn {
     border-radius: 10px; 
-    /* Padding vertical */
-    padding-top: 50px;
-    padding-bottom: 50px;
-    /* Padding horizontal base */
-    padding-left: 30px;
-    padding-right: 30px;
-    
-    margin-bottom: 40px; 
+    padding: 30px 20px; /* Menos padding vertical */
+    margin-bottom: 25px; /* Menos espacio */
     min-height: 0; 
     color: white; 
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease;
     
-    /* --- AJUSTE DE ANCHO --- */
-    width: 95%; /* Aún más anchos */
-    max-width: 900px; /* Ancho máximo aumentado */
+    width: 95%; /* Ancho para móvil */
+    max-width: 400px; /* Max-width para móvil */
     
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; 
+    
+    /* En móvil, todos centrados para simplicidad */
+    align-self: center;
+    text-align: center;
 }
 
 .categoria-btn:hover {
@@ -200,75 +191,31 @@ body {
 }
 
 .categoria-btn span {
-    font-size: 3.8rem; 
+    font-size: 2.2rem; /* Más pequeño */
     font-weight: 700;
     letter-spacing: 1px;
 }
 
-/* --- CLAVE: Alineaciones para el diseño de la imagen --- */
-.categoria-btn.estres {
-    background: #5a8a9e; 
-    align-self: flex-end; /* Alinea el botón a la derecha */
-    text-align: left; /* Alinea el texto a la izquierda (extremo contrario) */
-    padding-left: 60px; /* Más padding en el lado del texto */
-    padding-right: 30px; /* Padding base en el otro lado */
-}
+/* Colores base */
+.categoria-btn.estres { background: #5a8a9e; }
+.categoria-btn.ansiedad { background: #e9a11a; }
+.categoria-btn.depresion { background: #b99dce; }
 
-.categoria-btn.ansiedad {
-    background: #e9a11a; 
-    align-self: flex-start; /* Alinea el botón a la izquierda */
-    text-align: right; /* Alinea el texto a la derecha (extremo contrario) */
-    padding-right: 60px; /* Más padding en el lado del texto */
-    padding-left: 30px; /* Padding base en el otro lado */
-}
-
-.categoria-btn.depresion {
-    background: #b99dce; 
-    align-self: flex-end; /* Alinea el botón a la derecha */
-    text-align: left; /* Alinea el texto a la izquierda (extremo contrario) */
-    padding-left: 60px; /* Más padding en el lado del texto */
-    padding-right: 30px; /* Padding base en el otro lado */
-}
-
-
-/* --- ================================== --- */
-/* --- MEDIA QUERY (Para pantallas más grandes) --- */
-/* --- ================================== --- */
-
-@media (min-width: 768px) {
-    .categoria-btn {
-        width: 90%;
-        max-width: 950px; /* Ancho máximo aumentado */
-    }
-    
-    .categoria-btn.estres,
-    .categoria-btn.depresion {
-        padding-left: 80px; /* Más padding en pantallas grandes */
-        padding-right: 30px;
-    }
-    .categoria-btn.ansiedad {
-        padding-right: 80px; /* Más padding en pantallas grandes */
-        padding-left: 30px;
-    }
-}
 
 /* --- ================================== --- */
 /* --- PANTALLA DE MENÚ (Estrés, Ansiedad, etc.) --- */
 /* --- ================================== --- */
 
-/* Estilo base para CUALQUIER pantalla de menú */
 .menu-screen {
     background-color: #fcf9f6; 
     padding: 0; 
-    display: flex; /* Se activará con JS */
+    display: flex; 
     flex-direction: column;
     flex-grow: 1;
     position: relative; 
     overflow: hidden; 
-    min-height: 100vh; /* Asegura que llene la pantalla */
+    min-height: 100vh;
 }
-
-/* Círculos decorativos del fondo (iguales a los de categorías) */
 .menu-screen::before,
 .menu-screen::after {
     content: '';
@@ -280,22 +227,16 @@ body {
     bottom: -100px; 
     z-index: 0;
 }
+.menu-screen::before { left: -100px; }
+.menu-screen::after { right: -100px; }
 
-#menu-screen::before {
-    left: -100px; 
-}
-
-#menu-screen::after {
-    right: -100px; 
-}
-
-/* Título (ej: "ESTRÉS") - Mismo estilo que "CATEGORÍAS" */
+/* Título (ej: "ESTRÉS") */
 .menu-screen h1 {
     background-color: #6b4632; 
     color: white;
-    padding: 22px 55px;
+    padding: 20px 40px; /* Más pequeño */
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 2rem; /* Más pequeño */
     font-weight: 700;
     margin: 40px auto 30px auto; 
     border-radius: 10px;
@@ -312,7 +253,7 @@ body {
     overflow-y: auto; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* <-- CLAVE: Centra los botones verticalmente */
+    align-items: center; 
     width: 100%;
     box-sizing: border-box;
     z-index: 1; 
@@ -322,16 +263,14 @@ body {
 /* Estilo para los botones del menú */
 .menu-btn {
     border-radius: 10px; 
-    padding: 25px 20px; /* Un poco menos de padding vertical */
-    margin-bottom: 30px; /* Espacio entre botones */
+    padding: 20px; /* Más pequeño */
+    margin-bottom: 20px; /* Menos espacio */
     min-height: 0; 
     color: white; 
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    
-    width: 80%; /* Ancho de los botones */
-    max-width: 500px; /* Ancho máximo */
-    
+    width: 90%; /* Ancho para móvil */
+    max-width: 450px; /* Max-width para móvil */
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; 
@@ -343,75 +282,132 @@ body {
 }
 
 .menu-btn span {
-    font-size: 2.5rem; /* Letra un poco más pequeña */
+    font-size: 1.8rem; /* Más pequeño */
     font-weight: 700;
     letter-spacing: 1px;
 }
 
-/* --- ======================================= --- */
-/* --- COLORES ESPECÍFICOS DE LOS BOTONES (ÚLTIMOS) --- */
-/* --- ======================================= --- */
-.menu-btn.concepto { 
-    background-color: #5a8a9e; 
-}
-
-.menu-btn.grados { 
-    background-color: #3a506b; 
-}
-
-.menu-btn.sintomas { 
-    background-color: #8db5ca; 
-}
-
-.menu-btn.mitos { 
-    background-color: #abc4d2; 
-}
-
-.menu-btn.instrumento { 
-    background-color: #f0d9b5; 
-    color: #3a506b; /* Texto oscuro para fondo claro */
-}
-
-.menu-btn.recursos { 
-    background-color: #FFFFFF; 
-    color: #6b4632; /* Texto oscuro para fondo blanco */
-    border: 1px solid #eee; /* Borde sutil opcional */
-}
-/* =========================================== */
+/* Colores de los botones del menú */
+.menu-btn.concepto { background-color: #5a8a9e; }
+.menu-btn.grados { background-color: #3a506b; }
+.menu-btn.sintomas { background-color: #8db5ca; }
+.menu-btn.mitos { background-color: #abc4d2; }
+.menu-btn.instrumento { background-color: #f0d9b5; color: #3a506b; }
+.menu-btn.recursos { background-color: #FFFFFF; color: #6b4632; border: 1px solid #eee; }
 
 
 /* --- ================================== --- */
 /* --- BOTÓN VOLVER (Estilo Portada) --- */
 /* --- ================================== --- */
 .btn-volver-portada-style {
-    /* Colores adaptados al fondo claro */
-    background-color: #6b4632; /* Color del título */
+    background-color: #6b4632; 
     color: #ffffff;
     border: 3px solid #6b4632; 
-    
-    /* Mismo diseño de la portada */
     border-radius: 50px; 
-    padding: 30px 65px; 
-    font-size: 2rem; 
+    padding: 20px 40px; /* Más pequeño */
+    font-size: 1.5rem; /* Más pequeño */
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
     width: auto; 
     transition: all 0.3s ease; 
     max-width: 500px; 
-    
-    /* Ajustes de margen para el menú */
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px; /* Espacio extra arriba */
-    margin-bottom: 40px; /* Espacio abajo */
-    
+    margin-top: 20px; 
+    margin-bottom: 40px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
 }
 
 .btn-volver-portada-style:hover {
     background-color: #ffffff; 
-    color: #6b4632; /* Invertir colores */
+    color: #6b4632; 
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
     transform: translateY(-2px); 
+}
+
+
+/* --- ================================== --- */
+/* --- MEDIA QUERY (ESTILOS ESCRITORIO) --- */
+/* --- ================================== --- */
+
+/* Cuando la pantalla sea 768px o más ancha... */
+@media (min-width: 768px) {
+    
+    /* Restauramos los tamaños grandes de la Portada */
+    .card-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .card-content h3 {
+        font-size: 7.5rem;
+    }
+
+    .card-content button {
+        padding: 30px 65px;
+        font-size: 2rem;
+        margin-bottom: 100px;
+    }
+
+    /* Restauramos los tamaños grandes de Categorías */
+    #categorias-screen h1 {
+        font-size: 3.5rem;
+        padding: 22px 55px;
+    }
+    
+    .categoria-btn {
+        width: 95%; /* Ancho como querías */
+        max-width: 900px; /* Ancho máximo */
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .categoria-btn span {
+        font-size: 3.8rem;
+    }
+    
+    /* Restauramos el diseño ZIGZAG y alineación de texto (SOLO en escritorio) */
+    .categoria-btn.estres {
+        align-self: flex-end;
+        text-align: left;
+        padding-left: 60px;
+        padding-right: 30px;
+    }
+
+    .categoria-btn.ansiedad {
+        align-self: flex-start;
+        text-align: right;
+        padding-right: 60px;
+        padding-left: 30px;
+    }
+
+    .categoria-btn.depresion {
+        align-self: flex-end;
+        text-align: left;
+        padding-left: 60px;
+        padding-right: 30px;
+    }
+
+    /* Restauramos los tamaños grandes del Menú */
+    .menu-screen h1 {
+        font-size: 3.5rem;
+        padding: 22px 55px;
+    }
+    
+    .menu-btn {
+        width: 80%;
+        max-width: 500px;
+        padding: 25px 20px;
+        margin-bottom: 30px;
+    }
+
+    .menu-btn span {
+        font-size: 2.5rem;
+    }
+    
+    /* Restauramos los tamaños grandes del botón Volver */
+    .btn-volver-portada-style {
+        padding: 30px 65px;
+        font-size: 2rem;
+    }
 }
