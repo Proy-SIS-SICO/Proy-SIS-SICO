@@ -8,9 +8,6 @@ body {
     min-height: 100vh;
     margin: 0;
     box-sizing: border-box;
-    /* Mejora el renderizado del texto en móviles */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 .card-container {
@@ -59,22 +56,25 @@ body {
     box-sizing: border-box; 
 }
 
-/* --- ESTILOS MÓVIL (Por defecto) --- */
+/* --- ESTILOS PC (POR DEFECTO) --- */
 .card-content h1 {
     color: #ffffff;
-    font-size: 2.8rem; /* Tamaño para móvil */
+    font-size: 4.5rem; 
     font-weight: 700; 
     margin: 0; 
     text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
     letter-spacing: normal; 
     line-height: 1.1; 
-    margin: auto;
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: auto; 
+    margin-bottom: auto; 
 }
 
 .card-content h3 {
     font-family: 'Alfa Slab One', cursive;
     color: #000000; 
-    font-size: 3.8rem; /* AJUSTADO: Más pequeño en móvil */
+    font-size: 7.5rem;
     margin: 0;
     font-weight: 400; 
 }
@@ -84,8 +84,8 @@ body {
     color: #ffffff;
     border: 3px solid #ffffff; 
     border-radius: 50px; 
-    padding: 20px 40px; /* Tamaño para móvil */
-    font-size: 1.5rem; /* Tamaño para móvil */
+    padding: 30px 65px; 
+    font-size: 2rem; 
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
@@ -94,7 +94,7 @@ body {
     max-width: 500px; 
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 80px; 
+    margin-bottom: 100px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
 }
 
@@ -139,9 +139,9 @@ body {
 #categorias-screen h1 {
     background-color: #6b4632; 
     color: white;
-    padding: 20px 40px; /* Tamaño para móvil */
+    padding: 22px 55px;
     text-align: center;
-    font-size: 2rem; /* Tamaño para móvil */
+    font-size: 3.5rem;
     font-weight: 700;
     margin: 40px auto 30px auto; 
     border-radius: 10px;
@@ -153,36 +153,34 @@ body {
 
 /* Contenedor de los botones */
 .categorias-padding {
-    padding: 0 5% 30px 5%;
+    padding: 0 5% 30px 5%; /* Padding de 5% a los lados */
     flex-grow: 1;
     overflow-y: auto; 
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* <-- CLAVE: Los apila verticalmente */
     width: 100%;
     box-sizing: border-box;
     z-index: 1; 
     position: relative; 
 }
 
-/* --- ESTILOS MÓVIL (Por defecto) --- */
+
+/* --- ESTILOS PC (POR DEFECTO) --- */
 .categoria-btn {
     border-radius: 10px; 
-    padding: 25px 20px; /* AJUSTADO: Un poco más delgado */
-    margin-bottom: 25px; 
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 40px; 
     min-height: 0; 
     color: white; 
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease;
-    
-    width: 95%; /* Ancho para móvil */
-    max-width: 400px; /* Max-width para móvil */
-    
+    width: 95%; 
+    max-width: 900px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; 
-    
-    /* En móvil, todo centrado para mejor legibilidad */
-    align-self: center;
-    text-align: center;
 }
 
 .categoria-btn:hover {
@@ -191,16 +189,51 @@ body {
 }
 
 .categoria-btn span {
-    font-size: 2.2rem; /* Tamaño para móvil */
+    font-size: 3.8rem; 
     font-weight: 700;
     letter-spacing: 1px;
 }
 
-/* Colores base */
-.categoria-btn.estres { background: #5a8a9e; }
-.categoria-btn.ansiedad { background: #e9a11a; }
-.categoria-btn.depresion { background: #b99dce; }
+/* Alineaciones para PC */
+.categoria-btn.estres {
+    background: #5a8a9e; 
+    align-self: flex-end; 
+    text-align: left; 
+    padding-left: 60px; 
+    padding-right: 30px;
+}
+.categoria-btn.ansiedad {
+    background: #e9a11a; 
+    align-self: flex-start; 
+    text-align: right; 
+    padding-right: 60px; 
+    padding-left: 30px;
+}
+.categoria-btn.depresion {
+    background: #b99dce; 
+    align-self: flex-end; 
+    text-align: left; 
+    padding-left: 60px; 
+    padding-right: 30px;
+}
 
+/* Media Query para pantallas más grandes (ajustes finos de PC) */
+@media (min-width: 768px) {
+    .categoria-btn {
+        width: 90%;
+        max-width: 950px; 
+    }
+    
+    .categoria-btn.estres,
+    .categoria-btn.depresion {
+        padding-left: 80px; 
+        padding-right: 30px;
+    }
+    .categoria-btn.ansiedad {
+        padding-right: 80px; 
+        padding-left: 30px;
+    }
+}
 
 /* --- ================================== --- */
 /* --- PANTALLA DE MENÚ (Estrés, Ansiedad, etc.) --- */
@@ -209,12 +242,12 @@ body {
 .menu-screen {
     background-color: #fcf9f6; 
     padding: 0; 
-    display: flex; 
+    display: flex; /* Se activará con JS */
     flex-direction: column;
     flex-grow: 1;
     position: relative; 
     overflow: hidden; 
-    min-height: 100vh;
+    min-height: 100vh; /* Asegura que llene la pantalla */
 }
 .menu-screen::before,
 .menu-screen::after {
@@ -230,13 +263,13 @@ body {
 .menu-screen::before { left: -100px; }
 .menu-screen::after { right: -100px; }
 
-/* Título (ej: "ESTRÉS") */
+/* Título (ej: "ESTRÉS") - Mismo estilo que "CATEGORÍAS" */
 .menu-screen h1 {
     background-color: #6b4632; 
     color: white;
-    padding: 20px 40px; /* Tamaño para móvil */
+    padding: 22px 55px;
     text-align: center;
-    font-size: 2rem; /* Tamaño para móvil */
+    font-size: 3.5rem;
     font-weight: 700;
     margin: 40px auto 30px auto; 
     border-radius: 10px;
@@ -253,7 +286,7 @@ body {
     overflow-y: auto; 
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center; /* <-- CLAVE: Centra los botones verticalmente */
     width: 100%;
     box-sizing: border-box;
     z-index: 1; 
@@ -263,31 +296,27 @@ body {
 /* Estilo para los botones del menú */
 .menu-btn {
     border-radius: 10px; 
-    padding: 20px 15px; /* AJUSTADO: Un poco más delgado */
-    margin-bottom: 20px; 
+    padding: 25px 20px; /* Un poco menos de padding vertical */
+    margin-bottom: 30px; /* Espacio entre botones */
     min-height: 0; 
     color: white; 
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 90%; 
-    max-width: 450px; 
+    width: 80%; /* Ancho de los botones */
+    max-width: 500px; /* Ancho máximo */
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     box-sizing: border-box; 
 }
-
 .menu-btn:hover {
     transform: scale(1.03); 
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
-
 .menu-btn span {
-    font-size: 1.8rem; /* Tamaño para móvil */
+    font-size: 2.5rem; /* Letra un poco más pequeña */
     font-weight: 700;
     letter-spacing: 1px;
 }
-
-/* Colores de los botones del menú */
 .menu-btn.concepto { background-color: #5a8a9e; }
 .menu-btn.grados { background-color: #3a506b; }
 .menu-btn.sintomas { background-color: #8db5ca; }
@@ -300,12 +329,12 @@ body {
 /* --- BOTÓN VOLVER (Estilo Portada) --- */
 /* --- ================================== --- */
 .btn-volver-portada-style {
-    background-color: #6b4632; 
+    background-color: #6b4632; /* Color del título */
     color: #ffffff;
     border: 3px solid #6b4632; 
     border-radius: 50px; 
-    padding: 18px 35px; /* AJUSTADO: Un poco más pequeño */
-    font-size: 1.3rem; /* AJUSTADO: Un poco más pequeño */
+    padding: 30px 65px; 
+    font-size: 2rem; 
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
@@ -314,100 +343,83 @@ body {
     max-width: 500px; 
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px; 
-    margin-bottom: 40px; 
+    margin-top: 20px; /* Espacio extra arriba */
+    margin-bottom: 40px; /* Espacio abajo */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
 }
-
 .btn-volver-portada-style:hover {
     background-color: #ffffff; 
-    color: #6b4632; 
+    color: #6b4632; /* Invertir colores */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
     transform: translateY(-2px); 
 }
 
-
 /* --- ================================== --- */
-/* --- MEDIA QUERY (ESTILOS ESCRITORIO) --- */
+/* --- ¡NUEVO! MEDIA QUERY PARA MÓVILES --- */
 /* --- ================================== --- */
 
-/* Cuando la pantalla sea 768px o más ancha... */
-@media (min-width: 768px) {
-    
-    /* Restauramos los tamaños grandes de la Portada */
+/* Cuando la pantalla sea 767px o más PEQUEÑA... */
+@media (max-width: 767px) {
+
+    /* --- Ajustes de PANTALLA DE INICIO --- */
     .card-content h1 {
-        font-size: 4.5rem;
+        font-size: 2.8rem; /* Más pequeño */
     }
-
     .card-content h3 {
-        font-size: 7.5rem;
+        font-size: 3.8rem; /* Más pequeño */
     }
-
     .card-content button {
-        padding: 30px 65px;
-        font-size: 2rem;
-        margin-bottom: 100px;
+        padding: 20px 40px; /* Más pequeño */
+        font-size: 1.5rem; /* Más pequeño */
+        margin-bottom: 80px;
     }
 
-    /* Restauramos los tamaños grandes de Categorías */
+    /* --- Ajustes de PANTALLA DE CATEGORÍAS --- */
     #categorias-screen h1 {
-        font-size: 3.5rem;
-        padding: 22px 55px;
+        font-size: 2rem; /* Más pequeño */
+        padding: 20px 40px;
     }
     
     .categoria-btn {
-        width: 95%; /* Ancho como querías */
-        max-width: 900px; /* Ancho máximo */
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-
-    .categoria-btn span {
-        font-size: 3.8rem;
+        width: 95%;
+        max-width: 400px;
+        padding: 25px 20px; /* Padding simple */
+        align-self: center; /* Centrado */
+        text-align: center; /* Centrado */
     }
     
-    /* Restauramos el diseño ZIGZAG y alineación de texto (SOLO en escritorio) */
-    .categoria-btn.estres {
-        align-self: flex-end;
-        text-align: left;
-        padding-left: 60px;
-        padding-right: 30px;
-    }
-
-    .categoria-btn.ansiedad {
-        align-self: flex-start;
-        text-align: right;
-        padding-right: 60px;
-        padding-left: 30px;
-    }
-
+    /* Sobrescribir el estilo de PC para los botones específicos */
+    .categoria-btn.estres,
+    .categoria-btn.ansiedad,
     .categoria-btn.depresion {
-        align-self: flex-end;
-        text-align: left;
-        padding-left: 60px;
-        padding-right: 30px;
+        align-self: center; /* Forzar centrado */
+        text-align: center; /* Forzar centrado */
+        padding: 25px 20px; /* Forzar padding simple */
+    }
+    
+    .categoria-btn span {
+        font-size: 2.2rem; /* Más pequeño */
     }
 
-    /* Restauramos los tamaños grandes del Menú */
+    /* --- Ajustes de PANTALLA DE MENÚ --- */
     .menu-screen h1 {
-        font-size: 3.5rem;
-        padding: 22px 55px;
+        font-size: 2rem; /* Más pequeño */
+        padding: 20px 40px;
     }
     
     .menu-btn {
-        width: 80%;
-        max-width: 500px;
-        padding: 25px 20px;
-        margin-bottom: 30px;
+        width: 90%;
+        max-width: 450px;
+        padding: 20px 15px; /* Más delgado */
+        margin-bottom: 20px;
     }
-
     .menu-btn span {
-        font-size: 2.5rem;
+        font-size: 1.8rem; /* Más pequeño */
     }
     
-    /* Restauramos los tamaños grandes del botón Volver */
+    /* --- Ajustes de BOTÓN VOLVER --- */
     .btn-volver-portada-style {
-        padding: 30px 65px;
-        font-size: 2rem;
+        padding: 18px 35px; /* Más pequeño */
+        font-size: 1.3rem; /* Más pequeño */
     }
 }
