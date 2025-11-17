@@ -366,11 +366,11 @@ body {
     margin-bottom: 10px;
 }
 
-/* --- IMAGEN FLOTANTE IZQUIERDA (MODIFICADO) --- */
+/* --- IMAGEN FLOTANTE IZQUIERDA (manos.jpg) --- */
 .content-image-left {
     display: block;
-    max-width: 25%; /* Reducido de 30% */
-    min-width: 150px; /* Reducido de 180px */
+    max-width: 25%;
+    min-width: 150px;
     height: auto; 
     margin: 15px 20px 15px 0; /* Margen a la derecha/abajo */
     border-radius: 10px; 
@@ -378,16 +378,22 @@ body {
     float: left; /* <-- ¡La clave! */
 }
 
-/* --- IMAGEN FLOTANTE DERECHA (MODIFICADO) --- */
+/* --- IMAGEN FLOTANTE DERECHA (verdura.jpg) --- */
 .content-image-right {
     display: block;
     max-width: 45%; 
     min-width: 250px;
     height: auto; 
-    margin: 80px 0 15px 20px; /* Margen superior 80px */
+    margin: 15px 0 15px 20px; 
     border-radius: 10px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     float: right; /* <-- ¡La clave! */
+}
+
+/* --- ¡NUEVO! Ajuste para hacer más grandes las imágenes izquierdas SOLO en la pantalla de Estrés --- */
+#estres-concepto-screen .content-image-left {
+    max-width: 45%; 
+    min-width: 250px;
 }
 
 
@@ -455,7 +461,6 @@ body {
     }
 
     /* --- Ajustes de PANTALLA DE CATEGORÍAS --- */
-    /* (Se ve bien en tu captura, solo ajusto tamaños) */
     #categorias-screen h1 {
         font-size: 2rem;
         padding: 20px 40px;
@@ -482,7 +487,6 @@ body {
     }
 
     /* --- Ajustes de PANTALLA DE MENÚ --- */
-    /* (Se ve bien en tu captura, solo ajusto tamaños) */
     .menu-screen h1 {
         font-size: 2rem;
         padding: 20px 40px;
@@ -510,7 +514,6 @@ body {
     }
 
     /* --- AJUSTE IMÁGENES FLOTANTES (NUEVO) --- */
-    /* Hacemos que ambas imágenes se centren y apilen */
     .content-image-left,
     .content-image-right {
         float: none; /* Quitamos el float */
@@ -518,12 +521,53 @@ body {
         max-width: 90%; /* Ancho casi total */
         min-width: 0;
     }
+    
+    /* ¡NUEVO! Sobrescribir el ajuste de estrés en móviles */
+    #estres-concepto-screen .content-image-left {
+        max-width: 90%; /* Mantener el ancho completo de móvil */
+        min-width: 0;
+    }
 
 
     /* --- Ajustes de BOTÓN VOLVER --- */
-    /* (Se ve bien en tu captura, solo ajusto tamaños) */
     .btn-volver-portada-style {
         padding: 18px 35px;
         font-size: 1.3rem;
     }
+}
+
+/* --- ================================== --- */
+/* --- ¡NUEVO! ESTILOS PARA CONTENIDO PDF --- */
+/* --- ================================== --- */
+.content-title-pdf {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.content-subtitle-pdf {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+/* --- Clases añadidas para el nuevo contenido --- */
+.content-title-pdf-blue {
+    font-size: 2rem;
+    color: #0d47a1; /* Azul oscuro de la imagen de muestra */
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.content-separator {
+    border: 0;
+    height: 1px;
+    background-color: #ccc;
+    margin: 40px 0;
 }

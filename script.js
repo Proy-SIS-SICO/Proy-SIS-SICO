@@ -1,5 +1,5 @@
 /* --- ================================== --- */
-/* ---  Lógica de la pantalla de inicio   --- */
+/* ---  Lógica de la pantalla de inicio   --- */
 /* --- ================================== --- */
 
 // 1. Seleccionar los elementos de la pantalla de inicio
@@ -20,7 +20,7 @@ if (btnComenzar && inicioScreen && categoriasScreen) {
 
 
 /* --- ================================== --- */
-/* ---  Lógica del Menú de Categorías   --- */
+/* ---  Lógica del Menú de Categorías   --- */
 /* --- ================================== --- */
 
 // 1. Seleccionar TODOS los botones de categoría
@@ -54,7 +54,7 @@ if (allCategoryButtons.length > 0 && genericMenuScreen && menuScreenTitle && cat
 
 
 /* --- ================================== --- */
-/* ---  Lógica del Botón de Volver (Menú) --- */
+/* ---  Lógica del Botón de Volver (Menú) --- */
 /* --- ================================== --- */
 
 // 1. Seleccionar el botón de volver del MENÚ
@@ -97,7 +97,6 @@ if (btnCategoriasVolver && categoriasScreen && inicioScreen) {
 
 
 /* --- ================================== --- */
-/* --- CÓDIGO NUEVO AÑADIDO --- */
 /* --- Lógica del H1 de Portada (Salud Mental) --- */
 /* --- ================================== --- */
 
@@ -118,7 +117,6 @@ if (btnSaludMentalPortada && saludMentalScreen && inicioScreen) {
 }
 
 /* --- ================================== --- */
-/* --- CÓDIGO NUEVO AÑADIDO --- */
 /* --- Lógica de Volver (Pantalla Salud Mental) --- */
 /* --- ================================== --- */
 
@@ -134,5 +132,102 @@ if (btnSaludVolver && saludMentalScreen && inicioScreen) {
         
         // 2. Mostrar la pantalla de inicio
         inicioScreen.style.display = 'flex';
+    });
+}
+
+
+/* --- ================================== --- */
+/* --- ¡ACTUALIZADO! Lógica del Menú "Concepto" --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar el botón "Concepto" y TODAS las pantallas de concepto
+const btnConcepto = document.querySelector('.menu-btn.concepto');
+const ansiedadConceptoScreen = document.getElementById('ansiedad-concepto-screen');
+const depresionConceptoScreen = document.getElementById('depresion-concepto-screen');
+const estresConceptoScreen = document.getElementById('estres-concepto-screen'); // <-- Nueva pantalla
+
+if (btnConcepto && ansiedadConceptoScreen && depresionConceptoScreen && estresConceptoScreen && genericMenuScreen && menuScreenTitle) {
+    
+    btnConcepto.addEventListener('click', () => {
+        
+        // 1. Comprobar el título actual del menú
+        const currentTitle = menuScreenTitle.textContent;
+        
+        // 2. Si el título es "ANSIEDAD", mostrar la pantalla de ansiedad
+        if (currentTitle === 'ANSIEDAD') {
+            genericMenuScreen.style.display = 'none';
+            ansiedadConceptoScreen.style.display = 'flex';
+        }
+        // 3. Si el título es "DEPRESIÓN", mostrar la pantalla de depresión
+        else if (currentTitle === 'DEPRESIÓN') {
+            genericMenuScreen.style.display = 'none';
+            depresionConceptoScreen.style.display = 'flex';
+        }
+        // 4. ¡NUEVO! Si el título es "ESTRÉS", mostrar la pantalla de estrés
+        else if (currentTitle === 'ESTRÉS') {
+            genericMenuScreen.style.display = 'none';
+            estresConceptoScreen.style.display = 'flex';
+        }
+    });
+}
+
+
+/* --- ================================== --- */
+/* --- Lógica de Volver (Concepto Ansiedad) --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar el botón de volver de la pantalla de ansiedad
+const btnAnsiedadConceptoVolver = document.getElementById('btn-ansiedad-concepto-volver');
+
+// 2. Asignar el evento
+if (btnAnsiedadConceptoVolver && ansiedadConceptoScreen && genericMenuScreen) {
+    
+    btnAnsiedadConceptoVolver.addEventListener('click', () => {
+        
+        // 1. Ocultar la pantalla de concepto de ansiedad
+        ansiedadConceptoScreen.style.display = 'none';
+        
+        // 2. Mostrar la pantalla del menú genérico
+        genericMenuScreen.style.display = 'flex';
+    });
+}
+
+/* --- ================================== --- */
+/* --- Lógica de Volver (Concepto Depresión) --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar el botón de volver de la pantalla de depresión
+const btnDepresionConceptoVolver = document.getElementById('btn-depresion-concepto-volver');
+
+// 2. Asignar el evento
+if (btnDepresionConceptoVolver && depresionConceptoScreen && genericMenuScreen) {
+    
+    btnDepresionConceptoVolver.addEventListener('click', () => {
+        
+        // 1. Ocultar la pantalla de concepto de depresión
+        depresionConceptoScreen.style.display = 'none';
+        
+        // 2. Mostrar la pantalla del menú genérico
+        genericMenuScreen.style.display = 'flex';
+    });
+}
+
+/* --- ================================== --- */
+/* --- ¡NUEVO! Lógica de Volver (Concepto Estrés) --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar el botón de volver de la pantalla de estrés
+const btnEstresConceptoVolver = document.getElementById('btn-estres-concepto-volver');
+
+// 2. Asignar el evento
+if (btnEstresConceptoVolver && estresConceptoScreen && genericMenuScreen) {
+    
+    btnEstresConceptoVolver.addEventListener('click', () => {
+        
+        // 1. Ocultar la pantalla de concepto de estrés
+        estresConceptoScreen.style.display = 'none';
+        
+        // 2. Mostrar la pantalla del menú genérico
+        genericMenuScreen.style.display = 'flex';
     });
 }
