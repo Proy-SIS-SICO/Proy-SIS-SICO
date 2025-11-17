@@ -137,14 +137,14 @@ if (btnSaludVolver && saludMentalScreen && inicioScreen) {
 
 
 /* --- ================================== --- */
-/* --- ¡ACTUALIZADO! Lógica del Menú "Concepto" --- */
+/* --- Lógica del Menú "Concepto" --- */
 /* --- ================================== --- */
 
 // 1. Seleccionar el botón "Concepto" y TODAS las pantallas de concepto
 const btnConcepto = document.querySelector('.menu-btn.concepto');
 const ansiedadConceptoScreen = document.getElementById('ansiedad-concepto-screen');
 const depresionConceptoScreen = document.getElementById('depresion-concepto-screen');
-const estresConceptoScreen = document.getElementById('estres-concepto-screen'); // <-- Nueva pantalla
+const estresConceptoScreen = document.getElementById('estres-concepto-screen');
 
 if (btnConcepto && ansiedadConceptoScreen && depresionConceptoScreen && estresConceptoScreen && genericMenuScreen && menuScreenTitle) {
     
@@ -163,11 +163,65 @@ if (btnConcepto && ansiedadConceptoScreen && depresionConceptoScreen && estresCo
             genericMenuScreen.style.display = 'none';
             depresionConceptoScreen.style.display = 'flex';
         }
-        // 4. ¡NUEVO! Si el título es "ESTRÉS", mostrar la pantalla de estrés
+        // 4. Si el título es "ESTRÉS", mostrar la pantalla de estrés
         else if (currentTitle === 'ESTRÉS') {
             genericMenuScreen.style.display = 'none';
             estresConceptoScreen.style.display = 'flex';
         }
+    });
+}
+
+/* --- ================================== --- */
+/* --- Lógica del Menú "Mitos" --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar el botón "Mitos" y su pantalla
+const btnMitos = document.querySelector('.menu-btn.mitos');
+const estresMitosScreen = document.getElementById('estres-mitos-screen');
+
+if (btnMitos && estresMitosScreen && genericMenuScreen && menuScreenTitle) {
+    
+    btnMitos.addEventListener('click', () => {
+        
+        // 1. Comprobar el título actual del menú
+        const currentTitle = menuScreenTitle.textContent;
+        
+        // 2. Si el título es "ESTRÉS", mostrar la pantalla de mitos de estrés
+        if (currentTitle === 'ESTRÉS') {
+            genericMenuScreen.style.display = 'none';
+            estresMitosScreen.style.display = 'flex';
+        }
+        // ... (Aquí podrías añadir 'else if' para mitos de ansiedad o depresión)
+    });
+}
+
+/* --- ================================== --- */
+/* --- Lógica del Menú "Síntomas" --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar el botón "Síntomas" y sus pantallas
+const btnSintomas = document.querySelector('.menu-btn.sintomas');
+const estresSintomasScreen = document.getElementById('estres-sintomas-screen');
+const ansiedadSintomasScreen = document.getElementById('ansiedad-sintomas-screen'); // <-- ¡Nuevo!
+
+if (btnSintomas && estresSintomasScreen && ansiedadSintomasScreen && genericMenuScreen && menuScreenTitle) {
+    
+    btnSintomas.addEventListener('click', () => {
+        
+        // 1. Comprobar el título actual del menú
+        const currentTitle = menuScreenTitle.textContent;
+        
+        // 2. Si el título es "ESTRÉS", mostrar la pantalla de síntomas de estrés
+        if (currentTitle === 'ESTRÉS') {
+            genericMenuScreen.style.display = 'none';
+            estresSintomasScreen.style.display = 'flex';
+        }
+        // 3. Si el título es "ANSIEDAD", mostrar la pantalla de síntomas de ansiedad
+        else if (currentTitle === 'ANSIEDAD') {
+            genericMenuScreen.style.display = 'none';
+            ansiedadSintomasScreen.style.display = 'flex';
+        }
+        // ... (Aquí podrías añadir 'else if' para síntomas de depresión)
     });
 }
 
@@ -176,18 +230,11 @@ if (btnConcepto && ansiedadConceptoScreen && depresionConceptoScreen && estresCo
 /* --- Lógica de Volver (Concepto Ansiedad) --- */
 /* --- ================================== --- */
 
-// 1. Seleccionar el botón de volver de la pantalla de ansiedad
 const btnAnsiedadConceptoVolver = document.getElementById('btn-ansiedad-concepto-volver');
-
-// 2. Asignar el evento
 if (btnAnsiedadConceptoVolver && ansiedadConceptoScreen && genericMenuScreen) {
     
     btnAnsiedadConceptoVolver.addEventListener('click', () => {
-        
-        // 1. Ocultar la pantalla de concepto de ansiedad
         ansiedadConceptoScreen.style.display = 'none';
-        
-        // 2. Mostrar la pantalla del menú genérico
         genericMenuScreen.style.display = 'flex';
     });
 }
@@ -196,38 +243,101 @@ if (btnAnsiedadConceptoVolver && ansiedadConceptoScreen && genericMenuScreen) {
 /* --- Lógica de Volver (Concepto Depresión) --- */
 /* --- ================================== --- */
 
-// 1. Seleccionar el botón de volver de la pantalla de depresión
 const btnDepresionConceptoVolver = document.getElementById('btn-depresion-concepto-volver');
-
-// 2. Asignar el evento
 if (btnDepresionConceptoVolver && depresionConceptoScreen && genericMenuScreen) {
     
     btnDepresionConceptoVolver.addEventListener('click', () => {
-        
-        // 1. Ocultar la pantalla de concepto de depresión
         depresionConceptoScreen.style.display = 'none';
-        
-        // 2. Mostrar la pantalla del menú genérico
         genericMenuScreen.style.display = 'flex';
     });
 }
 
 /* --- ================================== --- */
-/* --- ¡NUEVO! Lógica de Volver (Concepto Estrés) --- */
+/* --- Lógica de Volver (Concepto Estrés) --- */
 /* --- ================================== --- */
 
-// 1. Seleccionar el botón de volver de la pantalla de estrés
 const btnEstresConceptoVolver = document.getElementById('btn-estres-concepto-volver');
-
-// 2. Asignar el evento
 if (btnEstresConceptoVolver && estresConceptoScreen && genericMenuScreen) {
     
     btnEstresConceptoVolver.addEventListener('click', () => {
-        
-        // 1. Ocultar la pantalla de concepto de estrés
         estresConceptoScreen.style.display = 'none';
+        genericMenuScreen.style.display = 'flex';
+    });
+}
+
+/* --- ================================== --- */
+/* --- Lógica de Volver (Mitos Estrés) --- */
+/* --- ================================== --- */
+
+const btnEstresMitosVolver = document.getElementById('btn-estres-mitos-volver');
+if (btnEstresMitosVolver && estresMitosScreen && genericMenuScreen) {
+    
+    btnEstresMitosVolver.addEventListener('click', () => {
+        estresMitosScreen.style.display = 'none';
+        genericMenuScreen.style.display = 'flex';
+    });
+}
+
+/* --- ================================== --- */
+/* --- Lógica de Volver (Síntomas Estrés) --- */
+/* --- ================================== --- */
+
+const btnEstresSintomasVolver = document.getElementById('btn-estres-sintomas-volver');
+if (btnEstresSintomasVolver && estresSintomasScreen && genericMenuScreen) {
+    
+    btnEstresSintomasVolver.addEventListener('click', () => {
+        estresSintomasScreen.style.display = 'none';
+        genericMenuScreen.style.display = 'flex';
+    });
+}
+
+
+/* --- ================================== --- */
+/* --- Lógica del Menú "Grados" --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar el botón "Grados" y su pantalla
+const btnGrados = document.querySelector('.menu-btn.grados');
+const ansiedadGradosScreen = document.getElementById('ansiedad-grados-screen'); 
+
+if (btnGrados && ansiedadGradosScreen && genericMenuScreen && menuScreenTitle) {
+    
+    btnGrados.addEventListener('click', () => {
         
-        // 2. Mostrar la pantalla del menú genérico
+        // 1. Comprobar el título actual del menú
+        const currentTitle = menuScreenTitle.textContent;
+        
+        // 2. Si el título es "ANSIEDAD", mostrar la pantalla de grados de ansiedad
+        if (currentTitle === 'ANSIEDAD') {
+            genericMenuScreen.style.display = 'none';
+            ansiedadGradosScreen.style.display = 'flex';
+        }
+        // ... (Aquí podrías añadir 'else if' for grados de estrés o depresión)
+    });
+}
+
+/* --- ================================== --- */
+/* --- Lógica de Volver (Grados Ansiedad) --- */
+/* --- ================================== --- */
+
+const btnAnsiedadGradosVolver = document.getElementById('btn-ansiedad-grados-volver');
+if (btnAnsiedadGradosVolver && ansiedadGradosScreen && genericMenuScreen) {
+    
+    btnAnsiedadGradosVolver.addEventListener('click', () => {
+        ansiedadGradosScreen.style.display = 'none';
+        genericMenuScreen.style.display = 'flex';
+    });
+}
+
+/* --- ================================== --- */
+/* --- ¡NUEVO! Lógica de Volver (Síntomas Ansiedad) --- */
+/* --- ================================== --- */
+
+const btnAnsiedadSintomasVolver = document.getElementById('btn-ansiedad-sintomas-volver');
+if (btnAnsiedadSintomasVolver && ansiedadSintomasScreen && genericMenuScreen) {
+    
+    btnAnsiedadSintomasVolver.addEventListener('click', () => {
+        ansiedadSintomasScreen.style.display = 'none';
         genericMenuScreen.style.display = 'flex';
     });
 }

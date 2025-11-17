@@ -369,13 +369,13 @@ body {
 /* --- IMAGEN FLOTANTE IZQUIERDA (manos.jpg) --- */
 .content-image-left {
     display: block;
-    max-width: 25%;
-    min-width: 150px;
+    max-width: 40%; /* ANTES: 25% | AHORA: 40% para PC */
+    min-width: 200px; /* Incrementado para PC */
     height: auto; 
-    margin: 15px 20px 15px 0; /* Margen a la derecha/abajo */
+    margin: 15px 20px 15px 0; 
     border-radius: 10px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    float: left; /* <-- ¡La clave! */
+    float: left; 
 }
 
 /* --- IMAGEN FLOTANTE DERECHA (verdura.jpg) --- */
@@ -387,13 +387,38 @@ body {
     margin: 15px 0 15px 20px; 
     border-radius: 10px; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    float: right; /* <-- ¡La clave! */
+    float: right; 
 }
 
-/* --- ¡NUEVO! Ajuste para hacer más grandes las imágenes izquierdas SOLO en la pantalla de Estrés --- */
+/* --- Imagen Banner (para mitos estres1.jpg) --- */
+.content-image-banner {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto 25px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Ajuste para hacer más grandes las imágenes izquierdas SOLO en la pantalla de Estrés --- */
 #estres-concepto-screen .content-image-left {
     max-width: 45%; 
     min-width: 250px;
+}
+
+/* --- ¡NUEVO! Estilos para Síntomas Ansiedad --- */
+.content-image-right-sintomas {
+    display: block;
+    max-width: 45%; 
+    min-width: 280px; /* Un poco más grande */
+    height: auto; 
+    margin: 10px 0 15px 20px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    float: right; 
+}
+.clearfix {
+    clear: both; /* Limpia el float para que el texto continúe abajo */
 }
 
 
@@ -427,7 +452,7 @@ body {
 }
 
 /* --- ================================== --- */
-/* --- ¡NUEVO! MEDIA QUERY PARA MÓVILES --- */
+/* --- MEDIA QUERY PARA MÓVILES --- */
 /* --- ================================== --- */
 
 /* Cuando la pantalla sea 767px o más PEQUEÑA... */
@@ -513,19 +538,32 @@ body {
         font-size: 1.0rem;
     }
 
-    /* --- AJUSTE IMÁGENES FLOTANTES (NUEVO) --- */
+    /* --- AJUSTE IMÁGENES FLOTANTES (AHORA MÁS GRANDES EN MÓVIL) --- */
     .content-image-left,
-    .content-image-right {
-        float: none; /* Quitamos el float */
-        margin: 20px auto; /* Centramos */
-        max-width: 90%; /* Ancho casi total */
+    .content-image-right,
+    .content-image-right-sintomas { /* Añadida la nueva clase */
+        float: none; 
+        margin: 20px auto; 
+        max-width: 95%; /* ANTES: 90% | AHORA: 95% del ancho disponible en móvil */
         min-width: 0;
     }
+
+    /* Ajuste de imagen banner en móvil */
+    .content-image-banner {
+        margin-bottom: 20px;
+        max-width: 100%; 
+    }
     
-    /* ¡NUEVO! Sobrescribir el ajuste de estrés en móviles */
+    /* Sobrescribir el ajuste de estrés en móviles */
     #estres-concepto-screen .content-image-left {
-        max-width: 90%; /* Mantener el ancho completo de móvil */
+        max-width: 95%; /* Mantener el ancho completo de móvil */
         min-width: 0;
+    }
+
+    /* Ajustes específicos para las imágenes de síntomas de estrés */
+    #estres-sintomas-screen .content-image-left,
+    #estres-sintomas-screen .content-image-right {
+        max-width: 95%; /* Las imágenes de síntomas ahora también son más grandes */
     }
 
 
@@ -537,7 +575,7 @@ body {
 }
 
 /* --- ================================== --- */
-/* --- ¡NUEVO! ESTILOS PARA CONTENIDO PDF --- */
+/* --- ESTILOS PARA CONTENIDO PDF --- */
 /* --- ================================== --- */
 .content-title-pdf {
     font-size: 2rem;
@@ -570,4 +608,22 @@ body {
     height: 1px;
     background-color: #ccc;
     margin: 40px 0;
+}
+
+/* --- ¡NUEVO! Estilos para sub-secciones de Síntomas --- */
+.content-padding h3 {
+    font-size: 1.5rem;
+    color: #3a506b; /* Un azul/gris oscuro */
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.content-padding ul {
+    list-style-position: inside; /* Mueve las viñetas adentro */
+}
+
+.content-padding p strong { /* Para "dolor de cabeza" y "Tiempo:" */
+    font-weight: 700;
+    color: #333;
 }
