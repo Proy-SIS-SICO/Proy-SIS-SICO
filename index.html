@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=8"> 
 </head>
 <body>
 
@@ -18,7 +18,7 @@
         <div id="inicio-screen">
             <div class="card-content">
                 <h3>TEKOPO</h3>
-                <h1>SALUD<br>MENTAL</h1>
+                <h1 id="btn-salud-mental-portada">SALUD<br>MENTAL</h1>
                 <button id="btn-comenzar">COMENZAR</button>
             </div>
         </div>
@@ -70,7 +70,48 @@
                 
             </div>
         </div>
-        </div> <script src="script.js"></script>
+        
+        <div id="salud-mental-screen" class="menu-screen" style="display: none;">
+            
+            <h1 class="menu-title">CONOCE SOBRE<br>SALUD MENTAL</h1>
+
+            <div class="content-padding">
+                
+                <img src="imag/manos.jpg" alt="Cuidado de la Salud Mental" class="content-image-left">
+
+                <p>Alrededor de mil millones de personas en todo el mundo viven con un trastorno de salud mental, y las enfermedades mentales son una de las principales causas de discapacidad y muerte a nivel global, especialmente entre los jóvenes.</p>
+                <p>Se estima que aproximadamente el 13% de la población mundial tiene algún trastorno mental, siendo la depresión uno de las más comunes, afectando a más de 332 millones de personas, siendo más frecuente en mujeres que en hombres.</p>
+                
+                <h2>FACTORES QUE INFLUYEN EN TU SALUD MENTAL</h2>
+                <p>La salud mental implica la interacción armónica de factores biológicos, psicológicos y sociales que permiten el desarrollo integral de las persona.</p>
+                <ul>
+                    <li><strong>Biológicas:</strong> predisposición genética, funcionamiento neuroquímico y enfermedades de base.</li>
+                    <li><strong>Psicológicas:</strong> baja autoestima, estilos de afrontamiento inadecuados, trastornos afectivos y traumas infantiles.</li>
+                    <li><strong>Sociales:</strong> pobreza, violencia, discriminación, desempleo y limitado acceso a servicios de salud.</li>
+                </ul>
+                <p>Los trastornos de salud mental aumentan el riesgo de otras enfermedades y contribuyen a lesiones no intencionales e intencional, por lo tanto son más propensas a experimentar niveles más bajos de bienestar mental.</p>
+
+                <h2>ACTIVIDADES DIARIAS QUE FAVORECEN TU SALUD MENTAL</h2>
+                <p>Sabias que llevar una vida activa, saludable puede ayudar a mantener tus capacidades mentales intactas por mucho tiempo.</p>
+
+                <img src="imag/verdura.jpg" alt="Vida Activa y Saludable" class="content-image-right">
+
+                <p>Estás son algunas medidas que pueden ser beneficiosas para tu salud mental:</p>
+                <ul>
+                    <li><strong>Sigue una dieta saludable:</strong> como la mediterránea, rica en frutas, verduras, granos enteros y ácidos grasos omega-3.</li>
+                    <li><strong>Has ejercicio:</strong> 20 a 30 minutos por día, como caminatas o salir a correr.</li>
+                    <li><strong>Mantén tu mente activa:</strong> como leer, resolver crucigramas o juegos de palabras.</li>
+                    <li><strong>Duerme:</strong> entre 7-8 horas cada noche, ayuda a mejorar el estado de ánimo y la memoria.</li>
+                    <li><strong>Limita el tiempo frente a las pantallas:</strong> la luz azul de los dispositivos pueden dificultar conciliar el sueño.</li>
+                    <li><strong>Conecta con los demás:</strong> mantener relaciones positivas y conexiones sanas es esencial.</li>
+                </ul>
+            </div>
+
+            <button id="btn-salud-volver" class="btn-volver-portada-style">VOLVER</button>
+        </div>
+
+    </div> 
+    <script src="script.js"></script>
 
 </body>
 </html>

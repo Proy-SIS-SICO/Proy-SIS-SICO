@@ -57,7 +57,6 @@ body {
 }
 
 /* --- ESTILOS PC (POR DEFECTO) --- */
-/* (Aquí no se toca nada) */
 .card-content h1 {
     color: #ffffff;
     font-size: 4.5rem; 
@@ -70,6 +69,11 @@ body {
     margin-right: auto; 
     margin-top: auto; 
     margin-bottom: auto; 
+    cursor: pointer; 
+    transition: opacity 0.3s ease; 
+}
+.card-content h1:hover {
+    opacity: 0.9;
 }
 
 .card-content h3 {
@@ -322,6 +326,72 @@ body {
 
 
 /* --- ================================== --- */
+/* --- ESTILOS PANTALLA CONTENIDO (PDF) --- */
+/* --- ================================== --- */
+.content-padding {
+    padding: 0 5% 30px 5%;
+    flex-grow: 1;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 900px; /* Ancho máximo para legibilidad */
+    margin: 0 auto; /* Centrar el contenido */
+    box-sizing: border-box;
+    z-index: 1; 
+    position: relative; 
+    text-align: left; /* Alineado a la izquierda */
+    color: #333;
+    font-family: Arial, sans-serif; /* Fuente legible */
+    overflow: auto; /* <-- 'clearfix' para contener los floats */
+}
+.content-padding h2 {
+    font-size: 1.8rem;
+    color: #6b4632; /* Color del título */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.content-padding p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.content-padding ul {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    list-style-type: disc; /* Estilo de viñeta */
+}
+.content-padding li {
+    margin-bottom: 10px;
+}
+
+/* --- IMAGEN FLOTANTE IZQUIERDA (MODIFICADO) --- */
+.content-image-left {
+    display: block;
+    max-width: 25%; /* Reducido de 30% */
+    min-width: 150px; /* Reducido de 180px */
+    height: auto; 
+    margin: 15px 20px 15px 0; /* Margen a la derecha/abajo */
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    float: left; /* <-- ¡La clave! */
+}
+
+/* --- IMAGEN FLOTANTE DERECHA (MODIFICADO) --- */
+.content-image-right {
+    display: block;
+    max-width: 45%; 
+    min-width: 250px;
+    height: auto; 
+    margin: 80px 0 15px 20px; /* Margen superior 80px */
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    float: right; /* <-- ¡La clave! */
+}
+
+
+/* --- ================================== --- */
 /* --- BOTÓN VOLVER (Estilo Portada) --- */
 /* --- ================================== --- */
 .btn-volver-portada-style {
@@ -428,6 +498,28 @@ body {
         font-size: 1.8rem;
     }
     
+    /* --- Ajustes de PANTALLA DE CONTENIDO (PDF) --- */
+    .content-padding {
+        padding: 0 6% 30px 6%;
+    }
+    .content-padding h2 {
+        font-size: 1.5rem;
+    }
+    .content-padding p, .content-padding ul {
+        font-size: 1.0rem;
+    }
+
+    /* --- AJUSTE IMÁGENES FLOTANTES (NUEVO) --- */
+    /* Hacemos que ambas imágenes se centren y apilen */
+    .content-image-left,
+    .content-image-right {
+        float: none; /* Quitamos el float */
+        margin: 20px auto; /* Centramos */
+        max-width: 90%; /* Ancho casi total */
+        min-width: 0;
+    }
+
+
     /* --- Ajustes de BOTÓN VOLVER --- */
     /* (Se ve bien en tu captura, solo ajusto tamaños) */
     .btn-volver-portada-style {

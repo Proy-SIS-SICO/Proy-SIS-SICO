@@ -1,5 +1,5 @@
 /* --- ================================== --- */
-/* ---  Lógica de la pantalla de inicio   --- */
+/* ---  Lógica de la pantalla de inicio   --- */
 /* --- ================================== --- */
 
 // 1. Seleccionar los elementos de la pantalla de inicio
@@ -20,7 +20,7 @@ if (btnComenzar && inicioScreen && categoriasScreen) {
 
 
 /* --- ================================== --- */
-/* ---  Lógica del Menú de Categorías   --- */
+/* ---  Lógica del Menú de Categorías   --- */
 /* --- ================================== --- */
 
 // 1. Seleccionar TODOS los botones de categoría
@@ -54,7 +54,7 @@ if (allCategoryButtons.length > 0 && genericMenuScreen && menuScreenTitle && cat
 
 
 /* --- ================================== --- */
-/* ---  Lógica del Botón de Volver (Menú) --- */
+/* ---  Lógica del Botón de Volver (Menú) --- */
 /* --- ================================== --- */
 
 // 1. Seleccionar el botón de volver del MENÚ
@@ -89,6 +89,48 @@ if (btnCategoriasVolver && categoriasScreen && inicioScreen) {
         
         // 1. Ocultar la pantalla de categorías
         categoriasScreen.style.display = 'none';
+        
+        // 2. Mostrar la pantalla de inicio
+        inicioScreen.style.display = 'flex';
+    });
+}
+
+
+/* --- ================================== --- */
+/* --- CÓDIGO NUEVO AÑADIDO --- */
+/* --- Lógica del H1 de Portada (Salud Mental) --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar los nuevos elementos
+const btnSaludMentalPortada = document.getElementById('btn-salud-mental-portada');
+const saludMentalScreen = document.getElementById('salud-mental-screen');
+// (inicioScreen ya está definida arriba)
+
+// 2. Asignar evento al H1 "SALUD MENTAL"
+if (btnSaludMentalPortada && saludMentalScreen && inicioScreen) {
+    btnSaludMentalPortada.addEventListener('click', () => {
+        // 1. Ocultar la pantalla de inicio
+        inicioScreen.style.display = 'none';
+        
+        // 2. Mostrar la pantalla de Salud Mental
+        saludMentalScreen.style.display = 'flex';
+    });
+}
+
+/* --- ================================== --- */
+/* --- CÓDIGO NUEVO AÑADIDO --- */
+/* --- Lógica de Volver (Pantalla Salud Mental) --- */
+/* --- ================================== --- */
+
+// 1. Seleccionar el botón de volver
+const btnSaludVolver = document.getElementById('btn-salud-volver');
+
+// 2. Asignar evento al botón "Volver" de la pantalla de Salud Mental
+// (inicioScreen y saludMentalScreen ya están definidos)
+if (btnSaludVolver && saludMentalScreen && inicioScreen) {
+    btnSaludVolver.addEventListener('click', () => {
+        // 1. Ocultar la pantalla de Salud Mental
+        saludMentalScreen.style.display = 'none';
         
         // 2. Mostrar la pantalla de inicio
         inicioScreen.style.display = 'flex';
