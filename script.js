@@ -178,8 +178,10 @@ if (btnConcepto && ansiedadConceptoScreen && depresionConceptoScreen && estresCo
 // 1. Seleccionar el botón "Mitos" y su pantalla
 const btnMitos = document.querySelector('.menu-btn.mitos');
 const estresMitosScreen = document.getElementById('estres-mitos-screen');
+// NUEVO: Seleccionar pantalla de mitos depresión
+const depresionMitosScreen = document.getElementById('depresion-mitos-screen'); 
 
-if (btnMitos && estresMitosScreen && genericMenuScreen && menuScreenTitle) {
+if (btnMitos && estresMitosScreen && depresionMitosScreen && genericMenuScreen && menuScreenTitle) {
     
     btnMitos.addEventListener('click', () => {
         
@@ -191,7 +193,11 @@ if (btnMitos && estresMitosScreen && genericMenuScreen && menuScreenTitle) {
             genericMenuScreen.style.display = 'none';
             estresMitosScreen.style.display = 'flex';
         }
-        // ... (Aquí podrías añadir 'else if' para mitos de ansiedad o depresión)
+        // 3. NUEVO: Si el título es "DEPRESIÓN", mostrar pantalla de mitos depresión
+        else if (currentTitle === 'DEPRESIÓN') {
+            genericMenuScreen.style.display = 'none';
+            depresionMitosScreen.style.display = 'flex';
+        }
     });
 }
 
@@ -299,8 +305,9 @@ if (btnEstresSintomasVolver && estresSintomasScreen && genericMenuScreen) {
 // 1. Seleccionar el botón "Grados" y su pantalla
 const btnGrados = document.querySelector('.menu-btn.grados');
 const ansiedadGradosScreen = document.getElementById('ansiedad-grados-screen'); 
+const estresGradosScreen = document.getElementById('estres-grados-screen'); // <-- NUEVO
 
-if (btnGrados && ansiedadGradosScreen && genericMenuScreen && menuScreenTitle) {
+if (btnGrados && ansiedadGradosScreen && estresGradosScreen && genericMenuScreen && menuScreenTitle) {
     
     btnGrados.addEventListener('click', () => {
         
@@ -312,7 +319,12 @@ if (btnGrados && ansiedadGradosScreen && genericMenuScreen && menuScreenTitle) {
             genericMenuScreen.style.display = 'none';
             ansiedadGradosScreen.style.display = 'flex';
         }
-        // ... (Aquí podrías añadir 'else if' for grados de estrés o depresión)
+        // 3. NUEVO: Si el título es "ESTRÉS", mostrar pantalla de grados de estrés
+        else if (currentTitle === 'ESTRÉS') {
+            genericMenuScreen.style.display = 'none';
+            estresGradosScreen.style.display = 'flex';
+        }
+        // ... (Aquí podrías añadir 'else if' para grados de depresión)
     });
 }
 
@@ -330,6 +342,20 @@ if (btnAnsiedadGradosVolver && ansiedadGradosScreen && genericMenuScreen) {
 }
 
 /* --- ================================== --- */
+/* --- NUEVO: Lógica de Volver (Grados Estrés) --- */
+/* --- ================================== --- */
+
+const btnEstresGradosVolver = document.getElementById('btn-estres-grados-volver');
+if (btnEstresGradosVolver && estresGradosScreen && genericMenuScreen) {
+    
+    btnEstresGradosVolver.addEventListener('click', () => {
+        estresGradosScreen.style.display = 'none';
+        genericMenuScreen.style.display = 'flex';
+    });
+}
+
+
+/* --- ================================== --- */
 /* --- ¡NUEVO! Lógica de Volver (Síntomas Ansiedad) --- */
 /* --- ================================== --- */
 
@@ -338,6 +364,19 @@ if (btnAnsiedadSintomasVolver && ansiedadSintomasScreen && genericMenuScreen) {
     
     btnAnsiedadSintomasVolver.addEventListener('click', () => {
         ansiedadSintomasScreen.style.display = 'none';
+        genericMenuScreen.style.display = 'flex';
+    });
+}
+
+/* --- ================================== --- */
+/* --- NUEVO: Lógica de Volver (Mitos Depresión) --- */
+/* --- ================================== --- */
+
+const btnDepresionMitosVolver = document.getElementById('btn-depresion-mitos-volver');
+if (btnDepresionMitosVolver && depresionMitosScreen && genericMenuScreen) {
+    
+    btnDepresionMitosVolver.addEventListener('click', () => {
+        depresionMitosScreen.style.display = 'none';
         genericMenuScreen.style.display = 'flex';
     });
 }
