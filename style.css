@@ -452,6 +452,13 @@ body {
     min-width: 250px;
 }
 
+/* --- NUEVO AJUSTE: Hacer más pequeña la imagen de "manos/muñecos" SOLO en Salud Mental --- */
+#salud-mental-screen .content-image-left {
+    max-width: 15%; /* REDUCIDO AÚN MÁS (era 22%) */
+    min-width: 100px; /* SE AÑADIÓ ESTO PARA QUE EL 15% FUNCIONE EN PC */
+}
+
+
 /* --- Estilos para Síntomas Ansiedad --- */
 .content-image-right-sintomas {
     display: block;
@@ -707,6 +714,11 @@ body {
     #estres-concepto-screen .content-image-left {
         max-width: 95%; /* Mantener el ancho completo de móvil */
         min-width: 0;
+    }
+
+    /* --- NUEVO AJUSTE: Hacer más pequeña la imagen de "manos/muñecos" SOLO en Salud Mental en MÓVIL --- */
+    #salud-mental-screen .content-image-left {
+        max-width: 35%; /* REDUCIDO AÚN MÁS (era 60%) */
     }
 
     /* Ajustes específicos para las imágenes de síntomas de estrés */
