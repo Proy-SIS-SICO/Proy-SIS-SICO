@@ -97,7 +97,7 @@ body {
     width: auto; 
     transition: all 0.3s ease; 
     max-width: 500px; 
-    margin-left: auto;
+    margin-left: auto; 
     margin-right: auto;
     margin-bottom: 100px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
@@ -343,27 +343,73 @@ body {
     font-family: Arial, sans-serif; /* Fuente legible */
     overflow: auto; /* <-- 'clearfix' para contener los floats */
 }
-.content-padding h2 {
-    font-size: 1.8rem;
-    color: #6b4632; /* Color del título */
+
+/* --- ESTILO UNIFICADO PARA TÍTULOS (COLOR CAFÉ) --- */
+/* Esto reemplaza y unifica los estilos anteriores para H2, H3 y títulos PDF */
+.content-padding h2,
+.content-title-pdf,
+.content-title-pdf-blue,
+.content-padding h3 {
+    color: #6b4632 !important; /* FORZAMOS EL COLOR CAFÉ */
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Ajustes específicos de tamaño para H2 */
+.content-padding h2,
+.content-title-pdf,
+.content-title-pdf-blue {
+    font-size: 2rem;
     margin-top: 30px;
     margin-bottom: 15px;
-    font-weight: 700;
 }
+
+/* Ajustes específicos de tamaño para H3 */
+.content-padding h3 {
+    font-size: 1.6rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
 .content-padding p {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-bottom: 15px;
 }
-.content-padding ul {
+.content-padding ul, .content-padding ol {
     font-size: 1.1rem;
     line-height: 1.6;
     padding-left: 20px;
     margin-bottom: 15px;
+}
+.content-padding ul {
     list-style-type: disc; /* Estilo de viñeta */
 }
 .content-padding li {
     margin-bottom: 10px;
+}
+
+.content-padding p strong { /* Para negritas dentro de párrafos */
+    font-weight: 700;
+    color: #333; /* El texto en negrita se mantiene oscuro para legibilidad */
+}
+
+.content-subtitle-pdf {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 25px;
+    line-height: 1.4;
+}
+
+/* Separador unificado al color café */
+.content-separator {
+    border: 0;
+    height: 1px;
+    background-color: #6b4632; /* Café */
+    opacity: 0.4; /* Un poco transparente */
+    margin: 40px 0;
 }
 
 /* --- IMAGEN FLOTANTE IZQUIERDA (manos.jpg) --- */
@@ -406,11 +452,11 @@ body {
     min-width: 250px;
 }
 
-/* --- ¡NUEVO! Estilos para Síntomas Ansiedad --- */
+/* --- Estilos para Síntomas Ansiedad --- */
 .content-image-right-sintomas {
     display: block;
     max-width: 45%; 
-    min-width: 280px; /* Un poco más grande */
+    min-width: 280px; 
     height: auto; 
     margin: 10px 0 15px 20px; 
     border-radius: 10px; 
@@ -438,10 +484,10 @@ body {
     width: auto; 
     transition: all 0.3s ease; 
     max-width: 500px; 
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 40px;
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 20px; 
+    margin-bottom: 40px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
 }
 .btn-volver-portada-style:hover {
@@ -450,6 +496,102 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
     transform: translateY(-2px); 
 }
+
+/* --- ================================== --- */
+/* --- ESTILOS PARA LA SECCIÓN DE RECURSOS (VIDEOS) --- */
+/* --- ================================== --- */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna en móvil */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* En PC, mostrar 2 videos por fila */
+@media (min-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.video-card p {
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Contenedor responsivo para iframe de YouTube (Ratio 16:9) */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* --- ======================================================= --- */
+/* --- ESTILOS PARA IMAGEN CENTRADA + BOTÓN DE DESCARGA --- */
+/* --- ======================================================= --- */
+
+/* Contenedor CENTRADO para la imagen y el botón */
+.download-container-center {
+    width: 80%; /* Ancho cómodo para PC */
+    max-width: 600px; /* Límite máximo para que no se vea gigante */
+    margin: 40px auto; /* Centrado horizontalmente con margen arriba/abajo */
+    display: flex;
+    flex-direction: column; /* Apila imagen arriba, botón abajo */
+    align-items: center;    /* Centra los elementos internamente */
+    text-align: center;
+}
+
+/* Estilo de la imagen dentro del contenedor */
+.download-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    margin-bottom: 25px; /* Espacio entre imagen y botón */
+    border: 1px solid #ddd; /* Borde sutil opcional */
+}
+
+/* Estilo del botón de descarga */
+.btn-descargar {
+    background-color: #6b4632; /* Color café del diseño */
+    color: white;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-align: center;
+    border: 2px solid #6b4632;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-descargar:hover {
+    background-color: white;
+    color: #6b4632;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
 
 /* --- ================================== --- */
 /* --- MEDIA QUERY PARA MÓVILES --- */
@@ -531,17 +673,24 @@ body {
     .content-padding {
         padding: 0 6% 30px 6%;
     }
-    .content-padding h2 {
-        font-size: 1.5rem;
+    /* En móvil, ajustamos también el tamaño de los títulos café */
+    .content-padding h2,
+    .content-title-pdf,
+    .content-title-pdf-blue {
+        font-size: 1.6rem;
     }
-    .content-padding p, .content-padding ul {
+    .content-padding h3 {
+        font-size: 1.4rem;
+    }
+
+    .content-padding p, .content-padding ul, .content-padding ol {
         font-size: 1.0rem;
     }
 
     /* --- AJUSTE IMÁGENES FLOTANTES (AHORA MÁS GRANDES EN MÓVIL) --- */
     .content-image-left,
     .content-image-right,
-    .content-image-right-sintomas { /* Añadida la nueva clase */
+    .content-image-right-sintomas { 
         float: none; 
         margin: 20px auto; 
         max-width: 95%; /* ANTES: 90% | AHORA: 95% del ancho disponible en móvil */
@@ -566,6 +715,14 @@ body {
         max-width: 95%; /* Las imágenes de síntomas ahora también son más grandes */
     }
 
+    /* Ajuste para contenedor de descarga en móvil */
+    .download-container-center {
+        width: 95%; /* Ocupa casi todo el ancho en móvil */
+    }
+    .btn-descargar {
+        width: 100%; /* Botón ancho completo en móvil para fácil toque */
+        padding: 15px 0;
+    }
 
     /* --- Ajustes de BOTÓN VOLVER --- */
     .btn-volver-portada-style {
@@ -574,56 +731,46 @@ body {
     }
 }
 
-/* --- ================================== --- */
-/* --- ESTILOS PARA CONTENIDO PDF --- */
-/* --- ================================== --- */
-.content-title-pdf {
-    font-size: 2rem;
-    color: #333;
+/* --- ====================================================================== --- */
+/* --- AJUSTES DE TAMAÑO ESPECÍFICOS PARA PANTALLA DE RECURSOS --- */
+/* --- ====================================================================== --- */
+/* Se aplica a todas las pantallas de recursos (Estrés, Depresión y Ansiedad) */
+
+#estres-recursos-screen .content-title-pdf,
+#depresion-recursos-screen .content-title-pdf,
+#ansiedad-recursos-screen .content-title-pdf {
+    font-size: 2.4rem; 
+}
+
+#estres-recursos-screen h3,
+#depresion-recursos-screen h3,
+#ansiedad-recursos-screen h3 {
+    font-size: 1.8rem; 
+}
+
+#estres-recursos-screen p,
+#estres-recursos-screen ul li,
+#depresion-recursos-screen p,
+#depresion-recursos-screen ul li,
+#ansiedad-recursos-screen p,
+#ansiedad-recursos-screen ul li,
+#ansiedad-recursos-screen ol li {
+    font-size: 1.3rem; 
+}
+
+#estres-recursos-screen .video-card p,
+#depresion-recursos-screen .video-card p,
+#ansiedad-recursos-screen .video-card p {
+    font-size: 1.15rem; 
     font-weight: 700;
-    margin-top: 15px;
-    margin-bottom: 5px;
 }
 
-.content-subtitle-pdf {
-    font-size: 1.1rem;
-    color: #555;
-    font-style: italic;
-    margin-bottom: 25px;
-    line-height: 1.4;
-}
-
-/* --- Clases añadidas para el nuevo contenido --- */
-.content-title-pdf-blue {
-    font-size: 2rem;
-    color: #0d47a1; /* Azul oscuro de la imagen de muestra */
-    font-weight: 700;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    line-height: 1.2;
-}
-
-.content-separator {
-    border: 0;
-    height: 1px;
-    background-color: #ccc;
-    margin: 40px 0;
-}
-
-/* --- ¡NUEVO! Estilos para sub-secciones de Síntomas --- */
-.content-padding h3 {
-    font-size: 1.5rem;
-    color: #3a506b; /* Un azul/gris oscuro */
-    font-weight: 700;
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-
-.content-padding ul {
-    list-style-position: inside; /* Mueve las viñetas adentro */
-}
-
-.content-padding p strong { /* Para "dolor de cabeza" y "Tiempo:" */
-    font-weight: 700;
-    color: #333;
+/* --- ====================================================================== --- */
+/* --- AJUSTE: Aumentar imagen solo en Síntomas de Depresión (Versión PC) --- */
+/* --- ====================================================================== --- */
+@media (min-width: 768px) {
+    #depresion-sintomas-screen .content-image-left {
+        max-width: 55%; 
+        min-width: 320px; 
+    }
 }
