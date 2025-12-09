@@ -575,7 +575,7 @@ body {
 /* Ajuste para que el contenido inicie desde arriba al abrir */
 #estres-instrumento-screen,
 #ansiedad-instrumento-screen,
-#depresion-instrumento-screen { /* <--- AQUÍ ESTÁ EL CAMBIO PARA DEPRESIÓN */
+#depresion-instrumento-screen { 
     justify-content: flex-start !important; 
     padding-top: 10px;
 }
@@ -619,6 +619,32 @@ body {
     accent-color: #6b4632; 
 }
 
+/* --- ESTILOS ESPECÍFICOS PARA EL TEST DE DEPRESIÓN (BDI) --- */
+
+.options-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.options-vertical label {
+    display: flex;
+    align-items: flex-start; /* Alinea el radio arriba si el texto es largo */
+    font-size: 1.1rem;
+    color: #555;
+    cursor: pointer;
+    line-height: 1.4;
+    padding: 5px 0;
+}
+
+.options-vertical input[type="radio"] {
+    margin-right: 12px;
+    margin-top: 4px; /* Ajuste visual para alinear con la primera línea de texto */
+    transform: scale(1.3);
+    flex-shrink: 0; /* Evita que el radio se aplaste */
+    accent-color: #6b4632;
+}
+
 /* --- ================================== --- */
 /* --- MEDIA QUERY PARA MÓVILES --- */
 /* --- ================================== --- */
@@ -658,7 +684,7 @@ body {
     .content-padding h2, .content-title-pdf, .content-title-pdf-blue,
     #estres-instrumento-screen h2,
     #ansiedad-instrumento-screen h2,
-    #depresion-instrumento-screen h2 { /* <--- AGREGADO PARA DEPRESIÓN MÓVIL */
+    #depresion-instrumento-screen h2 {
         font-size: 1.6rem; 
     }
 
@@ -668,7 +694,7 @@ body {
     .content-padding p, .content-padding ul, .content-padding ol,
     #estres-instrumento-screen p,
     #ansiedad-instrumento-screen p,
-    #depresion-instrumento-screen p { /* <--- AGREGADO PARA DEPRESIÓN MÓVIL */
+    #depresion-instrumento-screen p { 
         font-size: 1.0rem; 
     }
 
@@ -722,7 +748,7 @@ body {
 #ansiedad-instrumento-screen h2, 
 #ansiedad-instrumento-screen .content-title-pdf,
 #depresion-instrumento-screen h2, 
-#depresion-instrumento-screen .content-title-pdf { /* <--- AGREGADO PARA DEPRESIÓN PC */
+#depresion-instrumento-screen .content-title-pdf { 
     font-size: 2.4rem;
 }
 
@@ -754,7 +780,7 @@ body {
 /* Se incluye el instrumento en el texto normal */
 #estres-instrumento-screen p,
 #ansiedad-instrumento-screen p,
-#depresion-instrumento-screen p { /* <--- AGREGADO PARA DEPRESIÓN PC */
+#depresion-instrumento-screen p {
     font-size: 1.3rem;
 }
 
@@ -764,47 +790,135 @@ body {
         min-width: 320px; 
     }
 }
-/* --- ESTILOS ESPECÍFICOS PARA EL TEST DE DEPRESIÓN (BDI) --- */
 
-.options-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+/* === ESTILOS NUEVOS PARA EL CONTACTO SOF === */
 
-.options-vertical label {
-    display: flex;
-    align-items: flex-start; /* Alinea el radio arriba si el texto es largo */
-    font-size: 1.1rem;
-    color: #555;
+/* Botón Flotante en Portada */
+.btn-contacto-flotante {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: rgba(255, 255, 255, 0.2); /* Transparente sutil */
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 15px 35px; /* AUMENTADO */
+    border-radius: 30px;
+    font-weight: 700;
     cursor: pointer;
-    line-height: 1.4;
-    padding: 5px 0;
+    z-index: 10; /* Por encima de la capa oscura */
+    font-size: 1.3rem; /* AUMENTADO */
+    backdrop-filter: blur(5px); /* Efecto borroso bonito */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    font-family: Arial, sans-serif;
 }
 
-.options-vertical input[type="radio"] {
-    margin-right: 12px;
-    margin-top: 4px; /* Ajuste visual para alinear con la primera línea de texto */
-    transform: scale(1.3);
-    flex-shrink: 0; /* Evita que el radio se aplaste */
-    accent-color: #6b4632;
+.btn-contacto-flotante:hover {
+    background-color: #fff;
+    color: #000;
+    transform: scale(1.05);
 }
 
+/* Modal (Fondo oscuro) */
+.modal-contacto-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro */
+    z-index: 9999; /* Muy por encima de todo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Caja de contenido del Modal */
+.modal-contacto-content {
+    background-color: #fcf9f6;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    border: 4px solid #000; /* Estilo borde negro tipo logo */
+}
+
+/* Botón cerrar (X) */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+    line-height: 1;
+    transition: color 0.2s;
+}
+.close-modal:hover {
+    color: #d9534f;
+}
+
+/* Estilos simulando el Logo */
+.sof-title {
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    font-size: 4rem;
+    margin: 0;
+    line-height: 1;
+    color: #000;
+    letter-spacing: -2px;
+}
+.sof-subtitle {
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #000;
+}
+.sof-separator {
+    border: 0;
+    height: 3px;
+    background: #000;
+    margin: 20px auto;
+    width: 60px;
+}
+.sof-info p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    font-family: Arial, sans-serif;
+}
+
+/* Animación simple */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Ajustes Móvil para el modal y botón contacto */
 @media (max-width: 767px) {
-    /* Ajuste el selector para incluir la pantalla de depresión en los tamaños móviles */
-    #depresion-instrumento-screen h2 { 
-        font-size: 1.6rem; 
+    .btn-contacto-flotante {
+        top: 20px;
+        right: 20px;
+        padding: 12px 25px; /* AUMENTADO */
+        font-size: 1.1rem; /* AUMENTADO */
     }
-    #depresion-instrumento-screen p { 
-        font-size: 1.0rem; 
+    .modal-contacto-content {
+        padding: 30px 20px;
     }
-}
-
-/* Ajuste el selector PC para incluir la pantalla de depresión */
-#depresion-instrumento-screen h2, 
-#depresion-instrumento-screen .content-title-pdf {
-    font-size: 2.4rem;
-}
-#depresion-instrumento-screen p {
-    font-size: 1.3rem;
+    .sof-title {
+        font-size: 3rem;
+    }
+    .sof-subtitle {
+        font-size: 1.2rem;
+    }
 }

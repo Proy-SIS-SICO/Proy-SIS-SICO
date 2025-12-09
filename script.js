@@ -33,6 +33,33 @@ if (btnSaludVolver && saludMentalScreen && inicioScreen) {
     });
 }
 
+/* --- ============================================== --- */
+/* ---  1.1 LOGICA CONTACTO SOF (NUEVO - PORTADA)     --- */
+/* --- ============================================== --- */
+
+const btnOpenContacto = document.getElementById('btn-open-contacto');
+const btnCloseContacto = document.getElementById('btn-close-contacto');
+const modalContacto = document.getElementById('modal-contacto');
+
+if (btnOpenContacto && modalContacto && btnCloseContacto) {
+    // Abrir Modal
+    btnOpenContacto.addEventListener('click', () => {
+        modalContacto.style.display = 'flex';
+    });
+
+    // Cerrar Modal con la X
+    btnCloseContacto.addEventListener('click', () => {
+        modalContacto.style.display = 'none';
+    });
+
+    // Cerrar Modal haciendo clic fuera de la caja blanca (en el fondo oscuro)
+    modalContacto.addEventListener('click', (e) => {
+        if (e.target === modalContacto) {
+            modalContacto.style.display = 'none';
+        }
+    });
+}
+
 
 /* --- ================================== --- */
 /* ---  2. Lógica del Menú de Categorías  --- */
@@ -206,7 +233,7 @@ if (btnInstrumento) {
         // TEST DEPRESIÓN
         else if (currentTitle === 'DEPRESIÓN') {
             depresionInstrumentoScreen.style.display = 'flex';
-            resetScroll(depresionInstrumentoScreen); // <-- APLICADO PARA DEPRESIÓN
+            resetScroll(depresionInstrumentoScreen);
         }
     });
 }
