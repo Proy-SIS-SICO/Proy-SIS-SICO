@@ -334,12 +334,36 @@ body {
     font-weight: 700;
     letter-spacing: 1px;
 }
+
+/* ========================================= */
+/* PALETA POR DEFECTO Y ESTRÉS (AZULES)      */
+/* ========================================= */
 .menu-btn.concepto { background-color: #5a8a9e; }
 .menu-btn.grados { background-color: #3a506b; }
 .menu-btn.sintomas { background-color: #8db5ca; }
 .menu-btn.mitos { background-color: #abc4d2; }
 .menu-btn.instrumento { background-color: #f0d9b5; color: #3a506b; }
 .menu-btn.recursos { background-color: #FFFFFF; color: #6b4632; border: 1px solid #eee; }
+
+/* ========================================= */
+/* PALETA ANSIEDAD (NUEVA)                   */
+/* ========================================= */
+.tema-ansiedad .menu-btn.concepto { background-color: #632713; }
+.tema-ansiedad .menu-btn.grados { background-color: #A64318; }
+.tema-ansiedad .menu-btn.sintomas { background-color: #EC6426; }
+.tema-ansiedad .menu-btn.mitos { background-color: #F8A91F; }
+.tema-ansiedad .menu-btn.instrumento { background-color: #FCD56A; color: #632713; } 
+.tema-ansiedad .menu-btn.recursos { background-color: #FDE3CF; color: #632713; border: none; }
+
+/* ========================================= */
+/* PALETA DEPRESIÓN (NUEVA)                  */
+/* ========================================= */
+.tema-depresion .menu-btn.concepto { background-color: #4b1c71; }
+.tema-depresion .menu-btn.grados { background-color: #7f4ca5; }
+.tema-depresion .menu-btn.sintomas { background-color: #b57edc; }
+.tema-depresion .menu-btn.mitos { background-color: #dbb6ee; }
+.tema-depresion .menu-btn.instrumento { background-color: #fff0ff; color: #4b1c71; }
+.tema-depresion .menu-btn.recursos { background-color: #ffffff; color: #4b1c71; border: 1px solid #eee; }
 
 
 /* --- ================================== --- */

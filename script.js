@@ -34,7 +34,7 @@ if (btnSaludVolver && saludMentalScreen && inicioScreen) {
 }
 
 /* --- ============================================== --- */
-/* ---  1.1 LOGICA CONTACTO SOF (NUEVO - PORTADA)     --- */
+/* ---  1.1 LOGICA CONTACTO SOF (PORTADA)             --- */
 /* --- ============================================== --- */
 
 const btnOpenContacto = document.getElementById('btn-open-contacto');
@@ -78,8 +78,21 @@ if (allCategoryButtons.length > 0 && genericMenuScreen && menuScreenTitle && cat
             
             // 2. Actualizar título del menú genérico
             menuScreenTitle.textContent = categoryName.toUpperCase();
+
+            // 3. CAMBIO DE CLASE PARA EL COLOR
+            // Primero limpiamos las clases de temas anteriores
+            genericMenuScreen.classList.remove('tema-ansiedad', 'tema-depresion', 'tema-estres');
+
+            // Agregamos la clase según la categoría seleccionada
+            if (categoryName.toLowerCase() === 'ansiedad') {
+                genericMenuScreen.classList.add('tema-ansiedad');
+            } else if (categoryName.toLowerCase() === 'depresión' || categoryName.toLowerCase() === 'depresion') {
+                genericMenuScreen.classList.add('tema-depresion');
+            } else {
+                genericMenuScreen.classList.add('tema-estres'); // Por defecto (Estrés usa azules)
+            }
             
-            // 3. Cambiar pantallas
+            // 4. Cambiar pantallas
             categoriasScreen.style.display = 'none';
             genericMenuScreen.style.display = 'flex';
         });
