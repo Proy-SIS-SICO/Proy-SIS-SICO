@@ -56,7 +56,7 @@ body {
     box-sizing: border-box; 
 }
 
-/* --- ESTILOS PC (POR DEFECTO) --- */
+/* --- TÍTULO INTERACTIVO --- */
 .card-content h1 {
     color: #ffffff;
     font-size: 4.5rem; 
@@ -69,11 +69,48 @@ body {
     margin-right: auto; 
     margin-top: auto; 
     margin-bottom: auto; 
-    cursor: pointer; 
     transition: opacity 0.3s ease; 
 }
 .card-content h1:hover {
     opacity: 0.9;
+}
+
+.title-interactive {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 1 !important; 
+}
+
+/* La etiqueta de "Leer información" */
+.click-hint {
+    display: block; 
+    font-size: 1.6rem; 
+    font-weight: 400;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.6); 
+    border-radius: 20px; 
+    padding: 8px 20px;
+    margin-top: 15px;
+    width: fit-content; 
+    margin-left: auto; 
+    margin-right: auto;
+    text-shadow: none; 
+    letter-spacing: 0.5px;
+    animation: pulse-animation 2s infinite;
+    transition: background-color 0.3s ease;
+}
+
+.title-interactive:hover .click-hint {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+}
+
+@keyframes pulse-animation {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 .card-content h3 {
@@ -138,7 +175,6 @@ body {
 #categorias-screen::before { left: -100px; }
 #categorias-screen::after { right: -100px; }
 
-/* Título "CATEGORIAS" (Estilo PC) */
 #categorias-screen h1 {
     background-color: #6b4632; 
     color: white;
@@ -154,7 +190,6 @@ body {
     position: relative; 
 }
 
-/* Contenedor de los botones */
 .categorias-padding {
     padding: 0 5% 30px 5%;
     flex-grow: 1;
@@ -167,8 +202,6 @@ body {
     position: relative; 
 }
 
-
-/* --- ESTILOS PC (POR DEFECTO) --- */
 .categoria-btn {
     border-radius: 10px; 
     padding-top: 50px;
@@ -195,7 +228,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Alineaciones para PC (Zigzag) */
 .categoria-btn.estres {
     background: #5a8a9e; 
     align-self: flex-end; 
@@ -218,39 +250,27 @@ body {
     padding-right: 30px;
 }
 
-/* Media Query para pantallas más grandes (ajustes finos de PC) */
 @media (min-width: 768px) {
-    .categoria-btn {
-        width: 90%;
-        max-width: 950px; 
-    }
-    .categoria-btn.estres,
-    .categoria-btn.depresion {
-        padding-left: 80px; 
-        padding-right: 30px;
-    }
-    .categoria-btn.ansiedad {
-        padding-right: 80px; 
-        padding-left: 30px;
-    }
+    .categoria-btn { width: 90%; max-width: 950px; }
+    .categoria-btn.estres, .categoria-btn.depresion { padding-left: 80px; padding-right: 30px; }
+    .categoria-btn.ansiedad { padding-right: 80px; padding-left: 30px; }
 }
 
 /* --- ================================== --- */
-/* --- PANTALLA DE MENÚ (Estrés, Ansiedad, etc.) --- */
+/* --- PANTALLA DE MENÚ (Estrés, Ansiedad...) --- */
 /* --- ================================== --- */
 
 .menu-screen {
     background-color: #fcf9f6; 
     padding: 0; 
-    display: flex; /* Se activará con JS */
+    display: flex;
     flex-direction: column;
     flex-grow: 1;
     position: relative; 
     overflow: hidden; 
-    min-height: 100vh; /* Asegura que llene la pantalla */
+    min-height: 100vh;
 }
-.menu-screen::before,
-.menu-screen::after {
+.menu-screen::before, .menu-screen::after {
     content: '';
     position: absolute;
     background-color: #6b4632; 
@@ -263,7 +283,6 @@ body {
 .menu-screen::before { left: -100px; }
 .menu-screen::after { right: -100px; }
 
-/* Título (ej: "ESTRÉS") - Mismo estilo que "CATEGORÍAS" */
 .menu-screen h1 {
     background-color: #6b4632; 
     color: white;
@@ -279,7 +298,6 @@ body {
     position: relative; 
 }
 
-/* Contenedor de los botones */
 .menu-padding {
     padding: 0 5% 30px 5%;
     flex-grow: 1;
@@ -293,7 +311,6 @@ body {
     position: relative; 
 }
 
-/* Estilo para los botones del menú */
 .menu-btn {
     border-radius: 10px; 
     padding: 25px 20px;
@@ -333,30 +350,28 @@ body {
     flex-grow: 1;
     overflow-y: auto;
     width: 100%;
-    max-width: 900px; /* Ancho máximo para legibilidad */
-    margin: 0 auto; /* Centrar el contenido */
+    max-width: 900px; 
+    margin: 0 auto; 
     box-sizing: border-box;
     z-index: 1; 
     position: relative; 
-    text-align: left; /* Alineado a la izquierda */
+    text-align: left; 
     color: #333;
-    font-family: Arial, sans-serif; /* Fuente legible */
-    overflow: auto; /* <-- 'clearfix' para contener los floats */
+    font-family: Arial, sans-serif; 
+    overflow: auto; 
 }
 
-/* --- ESTILO UNIFICADO PARA TÍTULOS (COLOR CAFÉ) --- */
-/* Esto reemplaza y unifica los estilos anteriores para H2, H3 y títulos PDF */
+/* Títulos y Subtítulos */
 .content-padding h2,
 .content-title-pdf,
 .content-title-pdf-blue,
 .content-padding h3 {
-    color: #6b4632 !important; /* FORZAMOS EL COLOR CAFÉ */
+    color: #6b4632 !important; 
     font-family: Arial, sans-serif;
     font-weight: 700;
     line-height: 1.2;
 }
 
-/* Ajustes específicos de tamaño para H2 */
 .content-padding h2,
 .content-title-pdf,
 .content-title-pdf-blue {
@@ -365,7 +380,6 @@ body {
     margin-bottom: 15px;
 }
 
-/* Ajustes específicos de tamaño para H3 */
 .content-padding h3 {
     font-size: 1.6rem;
     margin-top: 25px;
@@ -383,17 +397,9 @@ body {
     padding-left: 20px;
     margin-bottom: 15px;
 }
-.content-padding ul {
-    list-style-type: disc; /* Estilo de viñeta */
-}
-.content-padding li {
-    margin-bottom: 10px;
-}
-
-.content-padding p strong { /* Para negritas dentro de párrafos */
-    font-weight: 700;
-    color: #333; /* El texto en negrita se mantiene oscuro para legibilidad */
-}
+.content-padding ul { list-style-type: disc; }
+.content-padding li { margin-bottom: 10px; }
+.content-padding p strong { font-weight: 700; color: #333; }
 
 .content-subtitle-pdf {
     font-size: 1.1rem;
@@ -403,20 +409,19 @@ body {
     line-height: 1.4;
 }
 
-/* Separador unificado al color café */
 .content-separator {
     border: 0;
     height: 1px;
-    background-color: #6b4632; /* Café */
-    opacity: 0.4; /* Un poco transparente */
+    background-color: #6b4632; 
+    opacity: 0.4; 
     margin: 40px 0;
 }
 
-/* --- IMAGEN FLOTANTE IZQUIERDA (manos.jpg) --- */
+/* Imágenes */
 .content-image-left {
     display: block;
-    max-width: 40%; /* ANTES: 25% | AHORA: 40% para PC */
-    min-width: 200px; /* Incrementado para PC */
+    max-width: 40%; 
+    min-width: 200px; 
     height: auto; 
     margin: 15px 20px 15px 0; 
     border-radius: 10px; 
@@ -424,7 +429,6 @@ body {
     float: left; 
 }
 
-/* --- IMAGEN FLOTANTE DERECHA (verdura.jpg) --- */
 .content-image-right {
     display: block;
     max-width: 45%; 
@@ -436,7 +440,6 @@ body {
     float: right; 
 }
 
-/* --- Imagen Banner (para mitos estres1.jpg) --- */
 .content-image-banner {
     display: block;
     max-width: 100%;
@@ -446,20 +449,9 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* --- Ajuste para hacer más grandes las imágenes izquierdas SOLO en la pantalla de Estrés --- */
-#estres-concepto-screen .content-image-left {
-    max-width: 45%; 
-    min-width: 250px;
-}
-
-/* --- NUEVO AJUSTE: Hacer más pequeña la imagen de "manos/muñecos" SOLO en Salud Mental --- */
-#salud-mental-screen .content-image-left {
-    max-width: 15%; /* REDUCIDO AÚN MÁS (era 22%) */
-    min-width: 100px; /* SE AÑADIÓ ESTO PARA QUE EL 15% FUNCIONE EN PC */
-}
-
-
-/* --- Estilos para Síntomas Ansiedad --- */
+/* Ajustes específicos de imágenes */
+#estres-concepto-screen .content-image-left { max-width: 45%; min-width: 250px; }
+#salud-mental-screen .content-image-left { max-width: 30%; min-width: 100px; }
 .content-image-right-sintomas {
     display: block;
     max-width: 45%; 
@@ -470,14 +462,10 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     float: right; 
 }
-.clearfix {
-    clear: both; /* Limpia el float para que el texto continúe abajo */
-}
+.clearfix { clear: both; }
 
 
-/* --- ================================== --- */
-/* --- BOTÓN VOLVER (Estilo Portada) --- */
-/* --- ================================== --- */
+/* --- BOTÓN VOLVER GENÉRICO --- */
 .btn-volver-portada-style {
     background-color: #6b4632;
     color: #ffffff;
@@ -504,82 +492,64 @@ body {
     transform: translateY(-2px); 
 }
 
-/* --- ================================== --- */
-/* --- ESTILOS PARA LA SECCIÓN DE RECURSOS (VIDEOS) --- */
-/* --- ================================== --- */
-
+/* --- SECCIÓN DE RECURSOS (VIDEOS) --- */
 .video-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Una columna en móvil */
-    gap: 30px;
-    margin-top: 20px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 40px; 
+    margin-top: 30px;
+    width: 100%; 
 }
-
-/* En PC, mostrar 2 videos por fila */
-@media (min-width: 768px) {
-    .video-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+.video-card {
+    width: 100%; 
+    max-width: 700px; 
+    margin: 0 auto; 
 }
-
 .video-card p {
     font-size: 0.95rem;
     text-align: center;
     margin-bottom: 10px;
     color: #333;
 }
-
-/* Contenedor responsivo para iframe de YouTube (Ratio 16:9) */
 .video-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%; /* 16:9 */
     height: 0;
     background-color: #000;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-
 .video-wrapper iframe {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
 }
 
-
-/* --- ======================================================= --- */
-/* --- ESTILOS PARA IMAGEN CENTRADA + BOTÓN DE DESCARGA --- */
-/* --- ======================================================= --- */
-
-/* Contenedor CENTRADO para la imagen y el botón */
+/* --- SECCIÓN DESCARGAS --- */
 .download-container-center {
-    width: 80%; /* Ancho cómodo para PC */
-    max-width: 600px; /* Límite máximo para que no se vea gigante */
-    margin: 40px auto; /* Centrado horizontalmente con margen arriba/abajo */
+    width: 80%; 
+    max-width: 600px; 
+    margin: 40px auto; 
     display: flex;
-    flex-direction: column; /* Apila imagen arriba, botón abajo */
-    align-items: center;    /* Centra los elementos internamente */
+    flex-direction: column; 
+    align-items: center; 
     text-align: center;
 }
-
-/* Estilo de la imagen dentro del contenedor */
 .download-image {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Sombra suave */
-    margin-bottom: 25px; /* Espacio entre imagen y botón */
-    border: 1px solid #ddd; /* Borde sutil opcional */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
+    margin-bottom: 25px; 
+    border: 1px solid #ddd; 
 }
-
-/* Estilo del botón de descarga */
 .btn-descargar {
-    background-color: #6b4632; /* Color café del diseño */
+    background-color: #6b4632; 
     color: white;
-    text-decoration: none; /* Quita el subrayado del enlace */
+    text-decoration: none; 
     padding: 15px 35px;
     border-radius: 50px;
     font-weight: 700;
@@ -591,7 +561,6 @@ body {
     display: inline-block;
     cursor: pointer;
 }
-
 .btn-descargar:hover {
     background-color: white;
     color: #6b4632;
@@ -599,190 +568,243 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* --- ====================================================================== --- */
+/* --- ESTILOS DEL FORMULARIO DE ESTRÉS Y ANSIEDAD (INSTRUMENTOS) --- */
+/* --- ====================================================================== --- */
+
+/* Ajuste para que el contenido inicie desde arriba al abrir */
+#estres-instrumento-screen,
+#ansiedad-instrumento-screen,
+#depresion-instrumento-screen { /* <--- AQUÍ ESTÁ EL CAMBIO PARA DEPRESIÓN */
+    justify-content: flex-start !important; 
+    padding-top: 10px;
+}
+
+.question-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* AQUÍ SE IGUALA EL TAMAÑO DE LA PREGUNTA AL TEXTO GENERAL (1.3rem) */
+.question-block p {
+    font-size: 1.3rem; 
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.options-group {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin: 0 auto; 
+}
+
+.options-group label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    color: #6b4632;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.options-group input[type="radio"] {
+    margin-bottom: 5px;
+    transform: scale(1.3); 
+    cursor: pointer;
+    accent-color: #6b4632; 
+}
 
 /* --- ================================== --- */
 /* --- MEDIA QUERY PARA MÓVILES --- */
 /* --- ================================== --- */
-
-/* Cuando la pantalla sea 767px o más PEQUEÑA... */
 @media (max-width: 767px) {
 
-    /* --- AJUSTE DE PANTALLA DE INICIO (SEGÚN LA IMAGEN) --- */
-    .card-content {
-        justify-content: space-evenly; /* Centra el contenido */
-        padding: 20px; /* Padding general para móvil */
-    }
-    .card-content h1 {
-        font-size: 3.0rem; /* Más grande */
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    .card-content h3 {
-        font-size: 2.5rem; /* Más pequeño */
-        margin-top: 20px; /* Espacio superior */
-    }
+    /* Portada */
+    .card-content { justify-content: space-evenly; padding: 20px; }
+    .card-content h1 { font-size: 3.0rem; margin: 0; }
+    .click-hint { font-size: 1.4rem; padding: 8px 20px; margin-top: 15px; }
+    .card-content h3 { font-size: 2.5rem; margin-top: 20px; }
     .card-content button {
-        background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro */
-        color: #ffffff;
+        background-color: rgba(0, 0, 0, 0.6); 
         border: none;
-        border-radius: 0; /* Bordes rectos */
+        border-radius: 0; 
         padding: 20px 40px;
         font-size: 1.5rem;
-        margin: 0 auto 20px auto; /* Margen para que no se pegue */
-        width: 100%; /* Ancho completo */
-        max-width: 100%;
+        margin: 0 auto 20px auto; 
+        width: 100%; 
         box-shadow: none;
     }
 
-    /* --- Ajustes de PANTALLA DE CATEGORÍAS --- */
-    #categorias-screen h1 {
-        font-size: 2rem;
-        padding: 20px 40px;
-    }
+    /* Categorías */
+    #categorias-screen h1 { font-size: 2rem; padding: 20px 40px; }
+    .categoria-btn { width: 95%; max-width: 400px; padding: 25px 20px; align-self: center; text-align: center; }
+    .categoria-btn.estres, .categoria-btn.ansiedad, .categoria-btn.depresion { align-self: center; text-align: center; padding: 25px 20px; }
+    .categoria-btn span { font-size: 2.2rem; }
+
+    /* Menú */
+    .menu-screen h1 { font-size: 2rem; padding: 20px 40px; }
+    .menu-btn { width: 90%; max-width: 450px; padding: 20px 15px; margin-bottom: 20px; }
+    .menu-btn span { font-size: 1.8rem; }
     
-    .categoria-btn {
-        width: 95%;
-        max-width: 400px;
-        padding: 25px 20px;
-        align-self: center;
-        text-align: center;
-    }
+    /* Contenido General */
+    .content-padding { padding: 0 6% 30px 6%; }
     
-    .categoria-btn.estres,
-    .categoria-btn.ansiedad,
-    .categoria-btn.depresion {
-        align-self: center;
-        text-align: center;
-        padding: 25px 20px;
+    /* SE AGREGA EL SELECTOR DEL INSTRUMENTO PARA TÍTULOS MÓVILES */
+    .content-padding h2, .content-title-pdf, .content-title-pdf-blue,
+    #estres-instrumento-screen h2,
+    #ansiedad-instrumento-screen h2,
+    #depresion-instrumento-screen h2 { /* <--- AGREGADO PARA DEPRESIÓN MÓVIL */
+        font-size: 1.6rem; 
     }
+
+    .content-padding h3 { font-size: 1.4rem; }
     
-    .categoria-btn span {
-        font-size: 2.2rem;
+    /* SE AGREGA EL SELECTOR DEL INSTRUMENTO PARA TEXTO MÓVIL */
+    .content-padding p, .content-padding ul, .content-padding ol,
+    #estres-instrumento-screen p,
+    #ansiedad-instrumento-screen p,
+    #depresion-instrumento-screen p { /* <--- AGREGADO PARA DEPRESIÓN MÓVIL */
+        font-size: 1.0rem; 
     }
 
-    /* --- Ajustes de PANTALLA DE MENÚ --- */
-    .menu-screen h1 {
-        font-size: 2rem;
-        padding: 20px 40px;
+    /* Imágenes Móvil */
+    .content-image-left, .content-image-right, .content-image-right-sintomas { 
+        float: none; margin: 20px auto; max-width: 95%; 
     }
-    
-    .menu-btn {
-        width: 90%;
-        max-width: 450px;
-        padding: 20px 15px;
-        margin-bottom: 20px;
-    }
-    .menu-btn span {
-        font-size: 1.8rem;
-    }
-    
-    /* --- Ajustes de PANTALLA DE CONTENIDO (PDF) --- */
-    .content-padding {
-        padding: 0 6% 30px 6%;
-    }
-    /* En móvil, ajustamos también el tamaño de los títulos café */
-    .content-padding h2,
-    .content-title-pdf,
-    .content-title-pdf-blue {
-        font-size: 1.6rem;
-    }
-    .content-padding h3 {
-        font-size: 1.4rem;
-    }
+    .content-image-banner { margin-bottom: 20px; max-width: 100%; }
+    #estres-concepto-screen .content-image-left { max-width: 95%; }
+    #salud-mental-screen .content-image-left { max-width: 65%; }
+    #estres-sintomas-screen .content-image-left, 
+    #estres-sintomas-screen .content-image-right { max-width: 95%; }
 
-    .content-padding p, .content-padding ul, .content-padding ol {
-        font-size: 1.0rem;
-    }
+    /* Descargas y Botones */
+    .download-container-center { width: 95%; }
+    .btn-descargar { width: 100%; padding: 15px 0; }
+    .btn-volver-portada-style { padding: 18px 35px; font-size: 1.3rem; }
 
-    /* --- AJUSTE IMÁGENES FLOTANTES (AHORA MÁS GRANDES EN MÓVIL) --- */
-    .content-image-left,
-    .content-image-right,
-    .content-image-right-sintomas { 
-        float: none; 
-        margin: 20px auto; 
-        max-width: 95%; /* ANTES: 90% | AHORA: 95% del ancho disponible en móvil */
-        min-width: 0;
+    /* Ajustes Instrumento Móvil */
+    .options-group { max-width: 100%; padding: 0 10px; }
+    .buttons-row {
+        flex-direction: column; 
+        gap: 15px;
     }
-
-    /* Ajuste de imagen banner en móvil */
-    .content-image-banner {
-        margin-bottom: 20px;
-        max-width: 100%; 
-    }
-    
-    /* Sobrescribir el ajuste de estrés en móviles */
-    #estres-concepto-screen .content-image-left {
-        max-width: 95%; /* Mantener el ancho completo de móvil */
-        min-width: 0;
-    }
-
-    /* --- NUEVO AJUSTE: Hacer más pequeña la imagen de "manos/muñecos" SOLO en Salud Mental en MÓVIL --- */
-    #salud-mental-screen .content-image-left {
-        max-width: 35%; /* REDUCIDO AÚN MÁS (era 60%) */
-    }
-
-    /* Ajustes específicos para las imágenes de síntomas de estrés */
-    #estres-sintomas-screen .content-image-left,
-    #estres-sintomas-screen .content-image-right {
-        max-width: 95%; /* Las imágenes de síntomas ahora también son más grandes */
-    }
-
-    /* Ajuste para contenedor de descarga en móvil */
-    .download-container-center {
-        width: 95%; /* Ocupa casi todo el ancho en móvil */
-    }
-    .btn-descargar {
-        width: 100%; /* Botón ancho completo en móvil para fácil toque */
-        padding: 15px 0;
-    }
-
-    /* --- Ajustes de BOTÓN VOLVER --- */
-    .btn-volver-portada-style {
-        padding: 18px 35px;
-        font-size: 1.3rem;
+    .buttons-row button {
+        width: 100%;
+        margin: 0 !important;
     }
 }
 
-/* --- ====================================================================== --- */
-/* --- AJUSTES DE TAMAÑO ESPECÍFICOS PARA PANTALLA DE RECURSOS --- */
-/* --- ====================================================================== --- */
-/* Se aplica a todas las pantallas de recursos (Estrés, Depresión y Ansiedad) */
-
+/* --- ESTANDARIZACIÓN DE TAMAÑOS (Títulos Grandes en PC) --- */
+#salud-mental-screen h2, #salud-mental-screen .content-title-pdf,
+#ansiedad-concepto-screen h2, #ansiedad-concepto-screen .content-title-pdf,
+#ansiedad-grados-screen h2, #ansiedad-grados-screen .content-title-pdf,
+#ansiedad-sintomas-screen h2, #ansiedad-sintomas-screen .content-title-pdf,
+#ansiedad-mitos-screen h2, #ansiedad-mitos-screen .content-title-pdf,
+#depresion-concepto-screen h2, #depresion-concepto-screen .content-title-pdf, #depresion-concepto-screen .content-title-pdf-blue,
+#depresion-grados-screen h2, #depresion-grados-screen .content-title-pdf,
+#depresion-sintomas-screen h2, #depresion-sintomas-screen .content-title-pdf,
+#depresion-mitos-screen h2, #depresion-mitos-screen .content-title-pdf,
+#estres-concepto-screen h2, #estres-concepto-screen .content-title-pdf,
+#estres-grados-screen h2, #estres-grados-screen .content-title-pdf,
+#estres-sintomas-screen h2, #estres-sintomas-screen .content-title-pdf,
+#estres-mitos-screen h2, #estres-mitos-screen .content-title-pdf,
 #estres-recursos-screen .content-title-pdf,
 #depresion-recursos-screen .content-title-pdf,
-#ansiedad-recursos-screen .content-title-pdf {
-    font-size: 2.4rem; 
+#ansiedad-recursos-screen .content-title-pdf,
+/* Se incluye el instrumento en los títulos grandes */
+#estres-instrumento-screen h2, 
+#estres-instrumento-screen .content-title-pdf,
+#ansiedad-instrumento-screen h2, 
+#ansiedad-instrumento-screen .content-title-pdf,
+#depresion-instrumento-screen h2, 
+#depresion-instrumento-screen .content-title-pdf { /* <--- AGREGADO PARA DEPRESIÓN PC */
+    font-size: 2.4rem;
 }
 
-#estres-recursos-screen h3,
-#depresion-recursos-screen h3,
-#ansiedad-recursos-screen h3 {
-    font-size: 1.8rem; 
+#salud-mental-screen h3,
+#ansiedad-concepto-screen h3, #ansiedad-grados-screen h3, #ansiedad-sintomas-screen h3, #ansiedad-mitos-screen h3,
+#depresion-concepto-screen h3, #depresion-grados-screen h3, #depresion-sintomas-screen h3, #depresion-mitos-screen h3,
+#estres-concepto-screen h3, #estres-grados-screen h3, #estres-sintomas-screen h3, #estres-mitos-screen h3,
+#estres-recursos-screen h3, #depresion-recursos-screen h3, #ansiedad-recursos-screen h3 {
+    font-size: 1.8rem;
 }
 
-#estres-recursos-screen p,
-#estres-recursos-screen ul li,
-#depresion-recursos-screen p,
-#depresion-recursos-screen ul li,
-#ansiedad-recursos-screen p,
-#ansiedad-recursos-screen ul li,
-#ansiedad-recursos-screen ol li {
-    font-size: 1.3rem; 
+/* Texto de Contenido y Listas PC */
+#salud-mental-screen p, #salud-mental-screen li,
+#ansiedad-concepto-screen p, #ansiedad-concepto-screen li,
+#ansiedad-grados-screen p, #ansiedad-grados-screen li,
+#ansiedad-sintomas-screen p, #ansiedad-sintomas-screen li,
+#ansiedad-mitos-screen p, #ansiedad-mitos-screen li,
+#depresion-concepto-screen p, #depresion-concepto-screen li,
+#depresion-grados-screen p, #depresion-grados-screen li,
+#depresion-sintomas-screen p, #depresion-sintomas-screen li,
+#depresion-mitos-screen p, #depresion-mitos-screen li,
+#estres-concepto-screen p, #estres-concepto-screen li,
+#estres-grados-screen p, #estres-grados-screen li,
+#estres-sintomas-screen p, #estres-sintomas-screen li,
+#estres-mitos-screen p, #estres-mitos-screen li,
+#estres-recursos-screen p, #estres-recursos-screen ul li,
+#depresion-recursos-screen p, #depresion-recursos-screen ul li,
+#ansiedad-recursos-screen p, #ansiedad-recursos-screen ul li, #ansiedad-recursos-screen ol li,
+/* Se incluye el instrumento en el texto normal */
+#estres-instrumento-screen p,
+#ansiedad-instrumento-screen p,
+#depresion-instrumento-screen p { /* <--- AGREGADO PARA DEPRESIÓN PC */
+    font-size: 1.3rem;
 }
 
-#estres-recursos-screen .video-card p,
-#depresion-recursos-screen .video-card p,
-#ansiedad-recursos-screen .video-card p {
-    font-size: 1.15rem; 
-    font-weight: 700;
-}
-
-/* --- ====================================================================== --- */
-/* --- AJUSTE: Aumentar imagen solo en Síntomas de Depresión (Versión PC) --- */
-/* --- ====================================================================== --- */
 @media (min-width: 768px) {
     #depresion-sintomas-screen .content-image-left {
         max-width: 55%; 
         min-width: 320px; 
     }
+}
+/* --- ESTILOS ESPECÍFICOS PARA EL TEST DE DEPRESIÓN (BDI) --- */
+
+.options-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.options-vertical label {
+    display: flex;
+    align-items: flex-start; /* Alinea el radio arriba si el texto es largo */
+    font-size: 1.1rem;
+    color: #555;
+    cursor: pointer;
+    line-height: 1.4;
+    padding: 5px 0;
+}
+
+.options-vertical input[type="radio"] {
+    margin-right: 12px;
+    margin-top: 4px; /* Ajuste visual para alinear con la primera línea de texto */
+    transform: scale(1.3);
+    flex-shrink: 0; /* Evita que el radio se aplaste */
+    accent-color: #6b4632;
+}
+
+@media (max-width: 767px) {
+    /* Ajuste el selector para incluir la pantalla de depresión en los tamaños móviles */
+    #depresion-instrumento-screen h2 { 
+        font-size: 1.6rem; 
+    }
+    #depresion-instrumento-screen p { 
+        font-size: 1.0rem; 
+    }
+}
+
+/* Ajuste el selector PC para incluir la pantalla de depresión */
+#depresion-instrumento-screen h2, 
+#depresion-instrumento-screen .content-title-pdf {
+    font-size: 2.4rem;
+}
+#depresion-instrumento-screen p {
+    font-size: 1.3rem;
 }

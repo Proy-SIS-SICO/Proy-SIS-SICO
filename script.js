@@ -1,438 +1,485 @@
 /* --- ================================== --- */
-/* ---  Lógica de la pantalla de inicio   --- */
+/* ---  1. Lógica de la pantalla de inicio --- */
 /* --- ================================== --- */
 
-// 1. Seleccionar los elementos de la pantalla de inicio
 const btnComenzar = document.getElementById('btn-comenzar');
 const inicioScreen = document.getElementById('inicio-screen');
 const categoriasScreen = document.getElementById('categorias-screen');
+const btnSaludMentalPortada = document.getElementById('btn-salud-mental-portada');
+const saludMentalScreen = document.getElementById('salud-mental-screen');
 
-// 2. Asignar el evento al botón "COMENZAR"
+// Botón COMENZAR
 if (btnComenzar && inicioScreen && categoriasScreen) {
     btnComenzar.addEventListener('click', () => {
-        // Oculta la pantalla de inicio
         inicioScreen.style.display = 'none';
-        
-        // Muestra la pantalla de categorías
         categoriasScreen.style.display = 'flex';
+    });
+}
+
+// Botón Título "SALUD MENTAL" (Portada)
+if (btnSaludMentalPortada && saludMentalScreen && inicioScreen) {
+    btnSaludMentalPortada.addEventListener('click', () => {
+        inicioScreen.style.display = 'none';
+        saludMentalScreen.style.display = 'flex';
+    });
+}
+
+// Volver de "Salud Mental" a Portada
+const btnSaludVolver = document.getElementById('btn-salud-volver');
+if (btnSaludVolver && saludMentalScreen && inicioScreen) {
+    btnSaludVolver.addEventListener('click', () => {
+        saludMentalScreen.style.display = 'none';
+        inicioScreen.style.display = 'flex';
     });
 }
 
 
 /* --- ================================== --- */
-/* ---  Lógica del Menú de Categorías   --- */
+/* ---  2. Lógica del Menú de Categorías  --- */
 /* --- ================================== --- */
 
-// 1. Seleccionar TODOS los botones de categoría
 const allCategoryButtons = document.querySelectorAll('.categoria-btn');
-
-// 2. Seleccionar la pantalla de menú genérica y su título
 const genericMenuScreen = document.getElementById('generic-menu-screen');
 const menuScreenTitle = document.getElementById('menu-screen-title');
 
-// 3. Añadir un evento a CADA botón de categoría
+// Click en una categoría (Estrés, Ansiedad, Depresión)
 if (allCategoryButtons.length > 0 && genericMenuScreen && menuScreenTitle && categoriasScreen) {
-    
     allCategoryButtons.forEach(button => {
-        
         button.addEventListener('click', () => {
-            
-            // 1. Obtener el texto del botón (ej: "Estrés")
+            // 1. Obtener nombre (ej: "Estrés")
             const categoryName = button.querySelector('span').textContent;
             
-            // 2. Poner ese texto en el título del menú (y en mayúsculas)
+            // 2. Actualizar título del menú genérico
             menuScreenTitle.textContent = categoryName.toUpperCase();
             
-            // 3. Ocultar la pantalla de categorías
+            // 3. Cambiar pantallas
             categoriasScreen.style.display = 'none';
-            
-            // 4. Mostrar la pantalla de menú genérica
             genericMenuScreen.style.display = 'flex';
         });
     });
 }
 
-
-/* --- ================================== --- */
-/* ---  Lógica del Botón de Volver (Menú) --- */
-/* --- ================================== --- */
-
-// 1. Seleccionar el botón de volver del MENÚ
+// Volver del Menú Genérico a Categorías
 const btnMenuVolver = document.getElementById('btn-menu-volver');
-
-// 2. Asignar el evento
 if (btnMenuVolver && genericMenuScreen && categoriasScreen) {
-    
     btnMenuVolver.addEventListener('click', () => {
-        
-        // 1. Ocultar el menú genérico
         genericMenuScreen.style.display = 'none';
-        
-        // 2. Mostrar la pantalla de categorías
         categoriasScreen.style.display = 'flex';
     });
 }
 
-
-/* --- ================================== --- */
-/* --- Lógica del Botón de Volver (Categorías) --- */
-/* --- ================================== --- */
-
-// 1. Seleccionar el nuevo botón de volver de CATEGORÍAS
+// Volver de Categorías a Inicio
 const btnCategoriasVolver = document.getElementById('btn-categorias-volver');
-
-// 2. Asignar el evento
 if (btnCategoriasVolver && categoriasScreen && inicioScreen) {
-    
     btnCategoriasVolver.addEventListener('click', () => {
-        
-        // 1. Ocultar la pantalla de categorías
         categoriasScreen.style.display = 'none';
-        
-        // 2. Mostrar la pantalla de inicio
         inicioScreen.style.display = 'flex';
     });
 }
 
 
-/* --- ================================== --- */
-/* --- Lógica del H1 de Portada (Salud Mental) --- */
-/* --- ================================== --- */
+/* --- ============================================== --- */
+/* ---  3. Enrutador del Menú Genérico (Navegación)   --- */
+/* --- ============================================== --- */
 
-// 1. Seleccionar los nuevos elementos
-const btnSaludMentalPortada = document.getElementById('btn-salud-mental-portada');
-const saludMentalScreen = document.getElementById('salud-mental-screen');
-
-// 2. Asignar evento al H1 "SALUD MENTAL"
-if (btnSaludMentalPortada && saludMentalScreen && inicioScreen) {
-    btnSaludMentalPortada.addEventListener('click', () => {
-        // 1. Ocultar la pantalla de inicio
-        inicioScreen.style.display = 'none';
-        
-        // 2. Mostrar la pantalla de Salud Mental
-        saludMentalScreen.style.display = 'flex';
-    });
-}
-
-/* --- ================================== --- */
-/* --- Lógica de Volver (Pantalla Salud Mental) --- */
-/* --- ================================== --- */
-
-// 1. Seleccionar el botón de volver
-const btnSaludVolver = document.getElementById('btn-salud-volver');
-
-// 2. Asignar evento al botón "Volver"
-if (btnSaludVolver && saludMentalScreen && inicioScreen) {
-    btnSaludVolver.addEventListener('click', () => {
-        // 1. Ocultar la pantalla de Salud Mental
-        saludMentalScreen.style.display = 'none';
-        
-        // 2. Mostrar la pantalla de inicio
-        inicioScreen.style.display = 'flex';
-    });
-}
-
-
-/* --- ================================== --- */
-/* --- Lógica del Menú "Concepto" --- */
-/* --- ================================== --- */
-
-// 1. Seleccionar el botón "Concepto" y TODAS las pantallas de concepto
+// --- BOTÓN CONCEPTO ---
 const btnConcepto = document.querySelector('.menu-btn.concepto');
 const ansiedadConceptoScreen = document.getElementById('ansiedad-concepto-screen');
 const depresionConceptoScreen = document.getElementById('depresion-concepto-screen');
 const estresConceptoScreen = document.getElementById('estres-concepto-screen');
 
-if (btnConcepto && ansiedadConceptoScreen && depresionConceptoScreen && estresConceptoScreen && genericMenuScreen && menuScreenTitle) {
-    
+if (btnConcepto) {
     btnConcepto.addEventListener('click', () => {
-        
-        // 1. Comprobar el título actual del menú
         const currentTitle = menuScreenTitle.textContent;
-        
-        // 2. Si el título es "ANSIEDAD", mostrar la pantalla de ansiedad
-        if (currentTitle === 'ANSIEDAD') {
-            genericMenuScreen.style.display = 'none';
-            ansiedadConceptoScreen.style.display = 'flex';
-        }
-        // 3. Si el título es "DEPRESIÓN", mostrar la pantalla de depresión
-        else if (currentTitle === 'DEPRESIÓN') {
-            genericMenuScreen.style.display = 'none';
-            depresionConceptoScreen.style.display = 'flex';
-        }
-        // 4. Si el título es "ESTRÉS", mostrar la pantalla de estrés
-        else if (currentTitle === 'ESTRÉS') {
-            genericMenuScreen.style.display = 'none';
-            estresConceptoScreen.style.display = 'flex';
-        }
+        genericMenuScreen.style.display = 'none';
+
+        if (currentTitle === 'ANSIEDAD') ansiedadConceptoScreen.style.display = 'flex';
+        else if (currentTitle === 'DEPRESIÓN') depresionConceptoScreen.style.display = 'flex';
+        else if (currentTitle === 'ESTRÉS') estresConceptoScreen.style.display = 'flex';
     });
 }
 
-/* --- ================================== --- */
-/* --- Lógica del Menú "Mitos" --- */
-/* --- ================================== --- */
+// --- BOTÓN GRADOS ---
+const btnGrados = document.querySelector('.menu-btn.grados');
+const ansiedadGradosScreen = document.getElementById('ansiedad-grados-screen'); 
+const estresGradosScreen = document.getElementById('estres-grados-screen'); 
+const depresionGradosScreen = document.getElementById('depresion-grados-screen'); 
 
-// 1. Seleccionar el botón "Mitos" y sus pantallas
-const btnMitos = document.querySelector('.menu-btn.mitos');
-const estresMitosScreen = document.getElementById('estres-mitos-screen');
-const depresionMitosScreen = document.getElementById('depresion-mitos-screen'); 
-const ansiedadMitosScreen = document.getElementById('ansiedad-mitos-screen');
-
-if (btnMitos && estresMitosScreen && depresionMitosScreen && ansiedadMitosScreen && genericMenuScreen && menuScreenTitle) {
-    
-    btnMitos.addEventListener('click', () => {
-        
-        // 1. Comprobar el título actual del menú
+if (btnGrados) {
+    btnGrados.addEventListener('click', () => {
         const currentTitle = menuScreenTitle.textContent;
-        
-        // 2. Si el título es "ESTRÉS", mostrar la pantalla de mitos de estrés
-        if (currentTitle === 'ESTRÉS') {
-            genericMenuScreen.style.display = 'none';
-            estresMitosScreen.style.display = 'flex';
-        }
-        // 3. Si el título es "DEPRESIÓN", mostrar pantalla de mitos depresión
-        else if (currentTitle === 'DEPRESIÓN') {
-            genericMenuScreen.style.display = 'none';
-            depresionMitosScreen.style.display = 'flex';
-        }
-        // 4. Si el título es "ANSIEDAD", mostrar pantalla de mitos ansiedad
-        else if (currentTitle === 'ANSIEDAD') {
-            genericMenuScreen.style.display = 'none';
-            ansiedadMitosScreen.style.display = 'flex';
-        }
+        genericMenuScreen.style.display = 'none';
+
+        if (currentTitle === 'ANSIEDAD') ansiedadGradosScreen.style.display = 'flex';
+        else if (currentTitle === 'ESTRÉS') estresGradosScreen.style.display = 'flex';
+        else if (currentTitle === 'DEPRESIÓN') depresionGradosScreen.style.display = 'flex';
     });
 }
 
-/* --- ================================== --- */
-/* --- Lógica del Menú "Síntomas" --- */
-/* --- ================================== --- */
-
-// 1. Seleccionar el botón "Síntomas" y sus pantallas
+// --- BOTÓN SÍNTOMAS ---
 const btnSintomas = document.querySelector('.menu-btn.sintomas');
 const estresSintomasScreen = document.getElementById('estres-sintomas-screen');
 const ansiedadSintomasScreen = document.getElementById('ansiedad-sintomas-screen'); 
 const depresionSintomasScreen = document.getElementById('depresion-sintomas-screen');
 
-if (btnSintomas && estresSintomasScreen && ansiedadSintomasScreen && depresionSintomasScreen && genericMenuScreen && menuScreenTitle) {
-    
+if (btnSintomas) {
     btnSintomas.addEventListener('click', () => {
-        
-        // 1. Comprobar el título actual del menú
         const currentTitle = menuScreenTitle.textContent;
-        
-        // 2. Si el título es "ESTRÉS", mostrar la pantalla de síntomas de estrés
-        if (currentTitle === 'ESTRÉS') {
-            genericMenuScreen.style.display = 'none';
-            estresSintomasScreen.style.display = 'flex';
-        }
-        // 3. Si el título es "ANSIEDAD", mostrar la pantalla de síntomas de ansiedad
-        else if (currentTitle === 'ANSIEDAD') {
-            genericMenuScreen.style.display = 'none';
-            ansiedadSintomasScreen.style.display = 'flex';
-        }
-        // 4. Si el título es "DEPRESIÓN", mostrar la pantalla de síntomas de depresión
-        else if (currentTitle === 'DEPRESIÓN') {
-            genericMenuScreen.style.display = 'none';
-            depresionSintomasScreen.style.display = 'flex';
-        }
+        genericMenuScreen.style.display = 'none';
+
+        if (currentTitle === 'ESTRÉS') estresSintomasScreen.style.display = 'flex';
+        else if (currentTitle === 'ANSIEDAD') ansiedadSintomasScreen.style.display = 'flex';
+        else if (currentTitle === 'DEPRESIÓN') depresionSintomasScreen.style.display = 'flex';
     });
 }
 
+// --- BOTÓN MITOS ---
+const btnMitos = document.querySelector('.menu-btn.mitos');
+const estresMitosScreen = document.getElementById('estres-mitos-screen');
+const depresionMitosScreen = document.getElementById('depresion-mitos-screen'); 
+const ansiedadMitosScreen = document.getElementById('ansiedad-mitos-screen');
 
-/* --- ================================== --- */
-/* --- Lógica de Volver (Pantallas Específicas) --- */
-/* --- ================================== --- */
-
-// --- Concepto ---
-const btnAnsiedadConceptoVolver = document.getElementById('btn-ansiedad-concepto-volver');
-if (btnAnsiedadConceptoVolver && ansiedadConceptoScreen && genericMenuScreen) {
-    btnAnsiedadConceptoVolver.addEventListener('click', () => {
-        ansiedadConceptoScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-
-const btnDepresionConceptoVolver = document.getElementById('btn-depresion-concepto-volver');
-if (btnDepresionConceptoVolver && depresionConceptoScreen && genericMenuScreen) {
-    btnDepresionConceptoVolver.addEventListener('click', () => {
-        depresionConceptoScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-
-const btnEstresConceptoVolver = document.getElementById('btn-estres-concepto-volver');
-if (btnEstresConceptoVolver && estresConceptoScreen && genericMenuScreen) {
-    btnEstresConceptoVolver.addEventListener('click', () => {
-        estresConceptoScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-
-// --- Mitos ---
-const btnEstresMitosVolver = document.getElementById('btn-estres-mitos-volver');
-if (btnEstresMitosVolver && estresMitosScreen && genericMenuScreen) {
-    btnEstresMitosVolver.addEventListener('click', () => {
-        estresMitosScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-const btnDepresionMitosVolver = document.getElementById('btn-depresion-mitos-volver');
-if (btnDepresionMitosVolver && depresionMitosScreen && genericMenuScreen) {
-    btnDepresionMitosVolver.addEventListener('click', () => {
-        depresionMitosScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-const btnAnsiedadMitosVolver = document.getElementById('btn-ansiedad-mitos-volver');
-if (btnAnsiedadMitosVolver && ansiedadMitosScreen && genericMenuScreen) {
-    btnAnsiedadMitosVolver.addEventListener('click', () => {
-        ansiedadMitosScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-
-// --- Síntomas ---
-const btnEstresSintomasVolver = document.getElementById('btn-estres-sintomas-volver');
-if (btnEstresSintomasVolver && estresSintomasScreen && genericMenuScreen) {
-    btnEstresSintomasVolver.addEventListener('click', () => {
-        estresSintomasScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-const btnAnsiedadSintomasVolver = document.getElementById('btn-ansiedad-sintomas-volver');
-if (btnAnsiedadSintomasVolver && ansiedadSintomasScreen && genericMenuScreen) {
-    btnAnsiedadSintomasVolver.addEventListener('click', () => {
-        ansiedadSintomasScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-const btnDepresionSintomasVolver = document.getElementById('btn-depresion-sintomas-volver');
-if (btnDepresionSintomasVolver && depresionSintomasScreen && genericMenuScreen) {
-    btnDepresionSintomasVolver.addEventListener('click', () => {
-        depresionSintomasScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-
-
-/* --- ================================== --- */
-/* --- Lógica del Menú "Grados" --- */
-/* --- ================================== --- */
-
-// 1. Seleccionar el botón "Grados" y su pantalla
-const btnGrados = document.querySelector('.menu-btn.grados');
-const ansiedadGradosScreen = document.getElementById('ansiedad-grados-screen'); 
-const estresGradosScreen = document.getElementById('estres-grados-screen'); 
-const depresionGradosScreen = document.getElementById('depresion-grados-screen'); // NUEVO
-
-if (btnGrados && ansiedadGradosScreen && estresGradosScreen && depresionGradosScreen && genericMenuScreen && menuScreenTitle) {
-    
-    btnGrados.addEventListener('click', () => {
-        
-        // 1. Comprobar el título actual del menú
+if (btnMitos) {
+    btnMitos.addEventListener('click', () => {
         const currentTitle = menuScreenTitle.textContent;
-        
-        // 2. Si el título es "ANSIEDAD", mostrar la pantalla de grados de ansiedad
-        if (currentTitle === 'ANSIEDAD') {
-            genericMenuScreen.style.display = 'none';
-            ansiedadGradosScreen.style.display = 'flex';
-        }
-        // 3. Si el título es "ESTRÉS", mostrar pantalla de grados de estrés
-        else if (currentTitle === 'ESTRÉS') {
-            genericMenuScreen.style.display = 'none';
-            estresGradosScreen.style.display = 'flex';
-        }
-        // 4. NUEVO: Si el título es "DEPRESIÓN"
-        else if (currentTitle === 'DEPRESIÓN') {
-            genericMenuScreen.style.display = 'none';
-            depresionGradosScreen.style.display = 'flex';
-        }
+        genericMenuScreen.style.display = 'none';
+
+        if (currentTitle === 'ESTRÉS') estresMitosScreen.style.display = 'flex';
+        else if (currentTitle === 'DEPRESIÓN') depresionMitosScreen.style.display = 'flex';
+        else if (currentTitle === 'ANSIEDAD') ansiedadMitosScreen.style.display = 'flex';
     });
 }
 
-// --- Volver Grados ---
-const btnAnsiedadGradosVolver = document.getElementById('btn-ansiedad-grados-volver');
-if (btnAnsiedadGradosVolver && ansiedadGradosScreen && genericMenuScreen) {
-    btnAnsiedadGradosVolver.addEventListener('click', () => {
-        ansiedadGradosScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-const btnEstresGradosVolver = document.getElementById('btn-estres-grados-volver');
-if (btnEstresGradosVolver && estresGradosScreen && genericMenuScreen) {
-    btnEstresGradosVolver.addEventListener('click', () => {
-        estresGradosScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-// --- NUEVO: Volver Grados Depresión ---
-const btnDepresionGradosVolver = document.getElementById('btn-depresion-grados-volver');
-if (btnDepresionGradosVolver && depresionGradosScreen && genericMenuScreen) {
-    btnDepresionGradosVolver.addEventListener('click', () => {
-        depresionGradosScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
-    });
-}
-
-
-/* --- ================================== --- */
-/* --- Lógica del Menú "Recursos" --- */
-/* --- ================================== --- */
-
-// 1. Seleccionar el botón "Recursos" y las pantallas
+// --- BOTÓN RECURSOS ---
 const btnRecursos = document.querySelector('.menu-btn.recursos');
 const estresRecursosScreen = document.getElementById('estres-recursos-screen');
 const depresionRecursosScreen = document.getElementById('depresion-recursos-screen');
-const ansiedadRecursosScreen = document.getElementById('ansiedad-recursos-screen'); // NUEVO
+const ansiedadRecursosScreen = document.getElementById('ansiedad-recursos-screen'); 
 
-if (btnRecursos && estresRecursosScreen && depresionRecursosScreen && ansiedadRecursosScreen && genericMenuScreen && menuScreenTitle) {
-    
+if (btnRecursos) {
     btnRecursos.addEventListener('click', () => {
-        
-        // 1. Comprobar el título actual del menú
         const currentTitle = menuScreenTitle.textContent;
-        
-        // 2. Si el título es "ESTRÉS", mostrar recursos de estrés
+        genericMenuScreen.style.display = 'none';
+
+        if (currentTitle === 'ESTRÉS') estresRecursosScreen.style.display = 'flex';
+        else if (currentTitle === 'DEPRESIÓN') depresionRecursosScreen.style.display = 'flex';
+        else if (currentTitle === 'ANSIEDAD') ansiedadRecursosScreen.style.display = 'flex';
+    });
+}
+
+// --- BOTÓN INSTRUMENTO (Selección de Test) ---
+const btnInstrumento = document.querySelector('.menu-btn.instrumento');
+const estresInstrumentoScreen = document.getElementById('estres-instrumento-screen');
+const ansiedadInstrumentoScreen = document.getElementById('ansiedad-instrumento-screen');
+const depresionInstrumentoScreen = document.getElementById('depresion-instrumento-screen');
+
+if (btnInstrumento) {
+    btnInstrumento.addEventListener('click', () => {
+        const currentTitle = menuScreenTitle.textContent;
+        genericMenuScreen.style.display = 'none';
+
+        // --- FUNCIÓN SOLUCIÓN: REINICIAR SCROLL AL ABRIR ---
+        const resetScroll = (screenElement) => {
+            // 1. Reinicia el scroll de la ventana
+            window.scrollTo(0, 0);
+            
+            // 2. Reinicia el scroll del contenedor principal de la pantalla
+            screenElement.scrollTop = 0;
+            
+            // 3. Reinicia el scroll de la caja interna (donde están las preguntas)
+            const internalContent = screenElement.querySelector('.content-padding');
+            if (internalContent) {
+                internalContent.scrollTop = 0;
+            }
+        };
+
+        // TEST ESTRÉS
         if (currentTitle === 'ESTRÉS') {
-            genericMenuScreen.style.display = 'none';
-            estresRecursosScreen.style.display = 'flex';
-        }
-        // 3. Si el título es "DEPRESIÓN", mostrar recursos de depresión
-        else if (currentTitle === 'DEPRESIÓN') {
-            genericMenuScreen.style.display = 'none';
-            depresionRecursosScreen.style.display = 'flex';
-        }
-        // 4. NUEVO: Si el título es "ANSIEDAD", mostrar recursos de ansiedad
+            estresInstrumentoScreen.style.display = 'flex';
+            resetScroll(estresInstrumentoScreen); 
+        } 
+        // TEST ANSIEDAD
         else if (currentTitle === 'ANSIEDAD') {
-            genericMenuScreen.style.display = 'none';
-            ansiedadRecursosScreen.style.display = 'flex';
+            ansiedadInstrumentoScreen.style.display = 'flex';
+            resetScroll(ansiedadInstrumentoScreen);
+        }
+        // TEST DEPRESIÓN
+        else if (currentTitle === 'DEPRESIÓN') {
+            depresionInstrumentoScreen.style.display = 'flex';
+            resetScroll(depresionInstrumentoScreen); // <-- APLICADO PARA DEPRESIÓN
         }
     });
 }
 
-/* --- Lógica de Volver (Recursos Estrés) --- */
-const btnEstresRecursosVolver = document.getElementById('btn-estres-recursos-volver');
-if (btnEstresRecursosVolver && estresRecursosScreen && genericMenuScreen) {
-    btnEstresRecursosVolver.addEventListener('click', () => {
-        estresRecursosScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
+
+/* --- ============================================== --- */
+/* ---  4. Lógica de "VOLVER" en pantallas de contenido --- */
+/* --- ============================================== --- */
+
+// Función auxiliar para asignar botón volver
+function assignBackBtn(btnId, screenElem) {
+    const btn = document.getElementById(btnId);
+    if (btn && screenElem) {
+        btn.addEventListener('click', () => {
+            screenElem.style.display = 'none';
+            genericMenuScreen.style.display = 'flex';
+        });
+    }
+}
+
+// Asignaciones Concepto
+assignBackBtn('btn-ansiedad-concepto-volver', ansiedadConceptoScreen);
+assignBackBtn('btn-depresion-concepto-volver', depresionConceptoScreen);
+assignBackBtn('btn-estres-concepto-volver', estresConceptoScreen);
+
+// Asignaciones Grados
+assignBackBtn('btn-ansiedad-grados-volver', ansiedadGradosScreen);
+assignBackBtn('btn-estres-grados-volver', estresGradosScreen);
+assignBackBtn('btn-depresion-grados-volver', depresionGradosScreen);
+
+// Asignaciones Síntomas
+assignBackBtn('btn-estres-sintomas-volver', estresSintomasScreen);
+assignBackBtn('btn-ansiedad-sintomas-volver', ansiedadSintomasScreen);
+assignBackBtn('btn-depresion-sintomas-volver', depresionSintomasScreen);
+
+// Asignaciones Mitos
+assignBackBtn('btn-estres-mitos-volver', estresMitosScreen);
+assignBackBtn('btn-depresion-mitos-volver', depresionMitosScreen);
+assignBackBtn('btn-ansiedad-mitos-volver', ansiedadMitosScreen);
+
+// Asignaciones Recursos
+assignBackBtn('btn-estres-recursos-volver', estresRecursosScreen);
+assignBackBtn('btn-depresion-recursos-volver', depresionRecursosScreen);
+assignBackBtn('btn-ansiedad-recursos-volver', ansiedadRecursosScreen);
+
+// Asignaciones Instrumentos (Volver al menú genérico)
+assignBackBtn('btn-estres-instrumento-volver', estresInstrumentoScreen);
+assignBackBtn('btn-ansiedad-instrumento-volver', ansiedadInstrumentoScreen);
+assignBackBtn('btn-depresion-instrumento-volver', depresionInstrumentoScreen);
+
+
+/* --- ============================================== --- */
+/* ---  5. INSTRUMENTO DE ESTRÉS (PSS-14)             --- */
+/* --- ============================================== --- */
+
+const btnCalcularEstres = document.getElementById('btn-calcular-estres');
+const btnReiniciarEstres = document.getElementById('btn-reiniciar-estres');
+const resultContainerEstres = document.getElementById('result-container'); // Ojo: en HTML es result-container a secas
+const scoreDisplayEstres = document.getElementById('score-display');
+const levelDisplayEstres = document.getElementById('level-display');
+
+if (btnCalcularEstres) {
+    btnCalcularEstres.addEventListener('click', () => {
+        let totalScore = 0;
+        let allAnswered = true;
+        
+        const normalItems = [1, 2, 3, 8, 11, 12, 14];
+        const reverseItems = [4, 5, 6, 7, 9, 10, 13];
+
+        // Suma Normal
+        normalItems.forEach(num => {
+            const radios = document.getElementsByName('p' + num);
+            let val = -1;
+            for (const radio of radios) {
+                if (radio.checked) val = parseInt(radio.value);
+            }
+            if (val === -1) allAnswered = false;
+            else totalScore += val;
+        });
+
+        // Suma Inversa (0=4, 4=0)
+        reverseItems.forEach(num => {
+            const radios = document.getElementsByName('p' + num);
+            let val = -1;
+            for (const radio of radios) {
+                if (radio.checked) val = parseInt(radio.value);
+            }
+            if (val === -1) allAnswered = false;
+            else totalScore += (4 - val);
+        });
+
+        if (!allAnswered) {
+            alert("Por favor, responde todas las preguntas para obtener un resultado preciso.");
+            return;
+        }
+
+        let nivel = "";
+        let color = "#6b4632";
+
+        if (totalScore <= 13) {
+            nivel = "NIVEL BAJO";
+            color = "#4CAF50"; 
+        } else if (totalScore <= 26) {
+            nivel = "NIVEL MEDIO";
+            color = "#FFC107"; 
+        } else if (totalScore <= 40) {
+            nivel = "NIVEL ALTO";
+            color = "#FF9800"; 
+        } else {
+            nivel = "NIVEL MUY ALTO";
+            color = "#F44336"; 
+        }
+
+        scoreDisplayEstres.textContent = "Puntuación total: " + totalScore + " puntos";
+        levelDisplayEstres.textContent = nivel;
+        levelDisplayEstres.style.color = color;
+        resultContainerEstres.style.display = 'block';
+        resultContainerEstres.scrollIntoView({ behavior: 'smooth' });
     });
 }
 
-/* --- Lógica de Volver (Recursos Depresión) --- */
-const btnDepresionRecursosVolver = document.getElementById('btn-depresion-recursos-volver');
-if (btnDepresionRecursosVolver && depresionRecursosScreen && genericMenuScreen) {
-    btnDepresionRecursosVolver.addEventListener('click', () => {
-        depresionRecursosScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
+if (btnReiniciarEstres) {
+    btnReiniciarEstres.addEventListener('click', () => {
+        document.getElementById('form-estres').reset();
+        resultContainerEstres.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        estresInstrumentoScreen.scrollTop = 0;
     });
 }
 
-/* --- NUEVO: Lógica de Volver (Recursos Ansiedad) --- */
-const btnAnsiedadRecursosVolver = document.getElementById('btn-ansiedad-recursos-volver');
-if (btnAnsiedadRecursosVolver && ansiedadRecursosScreen && genericMenuScreen) {
-    btnAnsiedadRecursosVolver.addEventListener('click', () => {
-        ansiedadRecursosScreen.style.display = 'none';
-        genericMenuScreen.style.display = 'flex';
+
+/* --- ============================================== --- */
+/* ---  6. INSTRUMENTO DE ANSIEDAD (BECK BAI)         --- */
+/* --- ============================================== --- */
+
+const btnCalcularAnsiedad = document.getElementById('btn-calcular-ansiedad');
+const btnReiniciarAnsiedad = document.getElementById('btn-reiniciar-ansiedad');
+const resultContainerAnsiedad = document.getElementById('result-container-ansiedad');
+const scoreDisplayAnsiedad = document.getElementById('score-display-ansiedad');
+const levelDisplayAnsiedad = document.getElementById('level-display-ansiedad');
+
+if (btnCalcularAnsiedad) {
+    btnCalcularAnsiedad.addEventListener('click', () => {
+        let totalScore = 0;
+        let allAnswered = true;
+        
+        // Suma simple de 21 items
+        for (let i = 1; i <= 21; i++) {
+            const radios = document.getElementsByName('bai' + i);
+            let val = -1;
+            for (const radio of radios) {
+                if (radio.checked) val = parseInt(radio.value);
+            }
+            if (val === -1) {
+                allAnswered = false;
+                break;
+            } else {
+                totalScore += val;
+            }
+        }
+
+        if (!allAnswered) {
+            alert("Por favor, responde todas las preguntas para obtener un resultado preciso.");
+            return;
+        }
+
+        let nivel = "";
+        let color = "#6b4632";
+
+        if (totalScore <= 7) {
+            nivel = "NO PRESENTA ANSIEDAD";
+            color = "#4CAF50"; 
+        } else if (totalScore <= 18) {
+            nivel = "ANSIEDAD LEVE";
+            color = "#FFEB3B"; 
+            levelDisplayAnsiedad.style.textShadow = "1px 1px 1px #555"; 
+        } else if (totalScore <= 29) {
+            nivel = "ANSIEDAD MODERADA";
+            color = "#FF9800"; 
+        } else {
+            nivel = "ANSIEDAD GRAVE";
+            color = "#F44336"; 
+        }
+
+        scoreDisplayAnsiedad.textContent = "Puntuación total: " + totalScore + " puntos";
+        levelDisplayAnsiedad.textContent = nivel;
+        levelDisplayAnsiedad.style.color = color;
+        resultContainerAnsiedad.style.display = 'block';
+        resultContainerAnsiedad.scrollIntoView({ behavior: 'smooth' });
+    });
+}
+
+if (btnReiniciarAnsiedad) {
+    btnReiniciarAnsiedad.addEventListener('click', () => {
+        document.getElementById('form-ansiedad').reset();
+        resultContainerAnsiedad.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        ansiedadInstrumentoScreen.scrollTop = 0;
+    });
+}
+
+
+/* --- ============================================== --- */
+/* ---  7. INSTRUMENTO DE DEPRESIÓN (BDI-II)          --- */
+/* --- ============================================== --- */
+
+const btnCalcularDepresion = document.getElementById('btn-calcular-depresion');
+const btnReiniciarDepresion = document.getElementById('btn-reiniciar-depresion');
+const resultContainerDepresion = document.getElementById('result-container-depresion');
+const scoreDisplayDepresion = document.getElementById('score-display-depresion');
+const levelDisplayDepresion = document.getElementById('level-display-depresion');
+
+if (btnCalcularDepresion) {
+    btnCalcularDepresion.addEventListener('click', () => {
+        let totalScore = 0;
+        let allAnswered = true;
+        
+        // El BDI-II tiene 21 items, suma simple
+        for (let i = 1; i <= 21; i++) {
+            const radios = document.getElementsByName('bdi' + i);
+            let val = -1;
+            for (const radio of radios) {
+                if (radio.checked) val = parseInt(radio.value);
+            }
+            if (val === -1) {
+                allAnswered = false;
+                break;
+            } else {
+                totalScore += val;
+            }
+        }
+
+        if (!allAnswered) {
+            alert("Por favor, selecciona una opción en cada grupo para obtener un resultado.");
+            return;
+        }
+
+        let nivel = "";
+        let color = "#6b4632";
+
+        if (totalScore <= 10) {
+            nivel = "DEPRESIÓN MÍNIMA"; 
+            color = "#4CAF50"; 
+        } else if (totalScore <= 17) {
+            nivel = "DEPRESIÓN LEVE O MEDIA"; 
+            color = "#FFEB3B"; 
+            levelDisplayDepresion.style.textShadow = "1px 1px 1px #555";
+        } else if (totalScore <= 29) {
+            nivel = "DEPRESIÓN MODERADA"; 
+            color = "#FF9800"; 
+        } else {
+            nivel = "DEPRESIÓN SEVERA"; 
+            color = "#F44336"; 
+        }
+
+        scoreDisplayDepresion.textContent = "Puntuación total: " + totalScore + " puntos";
+        levelDisplayDepresion.textContent = nivel;
+        levelDisplayDepresion.style.color = color;
+        
+        resultContainerDepresion.style.display = 'block';
+        resultContainerDepresion.scrollIntoView({ behavior: 'smooth' });
+    });
+}
+
+if (btnReiniciarDepresion) {
+    btnReiniciarDepresion.addEventListener('click', () => {
+        document.getElementById('form-depresion').reset();
+        resultContainerDepresion.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Reiniciamos también el scroll del contenedor específico
+        depresionInstrumentoScreen.scrollTop = 0;
+        // Y el interno (por si acaso)
+        const internal = depresionInstrumentoScreen.querySelector('.content-padding');
+        if (internal) internal.scrollTop = 0;
     });
 }
