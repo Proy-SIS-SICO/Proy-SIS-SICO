@@ -1,353 +1,388 @@
-/* Se importa la fuente directamente en el CSS para asegurar que cargue */
+/* Importa la fuente Alfa Slab One desde los servidores de Google Fonts para usarla posteriormente en los títulos */
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
-/* --- Estilos Generales --- */
+/* Define los estilos generales para el cuerpo de la página, estableciendo la base visual y estructural */
 body {
-    background-color: #f0f0f0; 
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-    margin: 0;
-    box-sizing: border-box;
+    
+    background-color: #f0f0f0;   /* Establece un color de fondo gris muy claro para toda la página */
+    font-family: Arial, sans-serif;   /* Define la familia de fuentes principal como Arial y una alternativa sans-serif si Arial no está disponible */
+    min-height: 100vh;   /* Asegura que el cuerpo ocupe como mínimo el 100% de la altura de la ventana visible del dispositivo */
+    margin: 0;   /* Elimina el margen predeterminado que los navegadores aplican al body */
+    box-sizing: border-box;   /* Define que el padding y el borde se incluyan en el cálculo del ancho y alto total de los elementos */
 }
 
+/* Contenedor principal que envuelve las pantallas, manejando el diseño flexible y el fondo base */
 .card-container {
-    width: 100%; 
-    min-height: 100vh;
-    overflow: hidden; 
-    display: flex; 
-    flex-direction: column;
-    background-color: #cacaca;
+    width: 100%;   /* Establece el ancho del contenedor al 100% del espacio disponible */
+    min-height: 100vh;   /* Asegura que el contenedor tenga al menos la altura completa de la ventana visible */
+    overflow: hidden;   /* Oculta cualquier contenido que se desborde fuera de los límites del contenedor */
+    display: flex;   /* Activa el modelo de caja flexible para organizar los elementos hijos */
+    flex-direction: column;   /* Organiza los elementos hijos en una columna vertical */
+    background-color: #cacaca;   /* Establece un color de fondo gris medio para el contenedor */
 }
 
-/* --- ======================== --- */
-/* --- PANTALLA DE INICIO (PORTADA) --- */
-/* --- ======================== --- */
+/* Pantalla de inicio o portada, configura la imagen de fondo y el posicionamiento */
 #inicio-screen {
-    height: 100vh; 
-    position: relative; 
-    display: flex; 
-    background-image: url('imag/SIS.jpg'); 
-    background-size: cover;
-    background-position: center;
+    height: 100vh;   /* Establece la altura de este bloque al 100% de la altura de la ventana visible */
+    position: relative;   /* Establece una posición relativa para poder posicionar elementos absolutos dentro de él */
+    display: flex;   /* Activa flexbox para el contenido interno */
+    background-image: url('imag/SIS.jpg');   /* Carga la imagen SIS.jpg ubicada en la carpeta imag como fondo */
+    background-size: cover;   /* Ajusta la imagen de fondo para cubrir todo el contenedor sin deformarse */
+    background-position: center;   /* Centra la imagen de fondo en el contenedor */
 }
 
+/* Crea una capa superpuesta oscura sobre la imagen de fondo para mejorar la legibilidad del texto */
 #inicio-screen::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2); 
-    z-index: 1; 
+    content: '';   /* Necesario para que el pseudo-elemento se renderice, aunque esté vacío */
+    position: absolute;   /* Posiciona el elemento de forma absoluta respecto al padre relativo */
+    top: 0;   /* Alinea el elemento al borde superior del padre */
+    left: 0;   /* Alinea el elemento al borde izquierdo del padre */
+    width: 100%;   /* Establece el ancho al 100% del contenedor padre */
+    height: 100%;   /* Establece la altura al 100% del contenedor padre */
+    background-color: rgba(0, 0, 0, 0.2);   /* Aplica un fondo negro con una opacidad del 20% para oscurecer la imagen */
+    z-index: 1;   /* Coloca esta capa por encima de la imagen de fondo pero debajo del contenido de texto */
 }
 
+/* Contenedor del contenido textual y botones dentro de la portada */
 .card-content {
-    background-color: transparent; 
-    padding: 40px 20px 0 20px; 
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    position: relative; 
-    z-index: 2;
-    box-sizing: border-box; 
+    background-color: transparent;   /* Hace que el fondo sea transparente */
+    padding: 40px 20px 0 20px;   /* Establece un relleno superior de 40px, derecho de 20px, inferior de 0 y izquierdo de 20px */
+    text-align: center;   /* Alinea el texto al centro horizontalmente */
+    height: 100%;   /* Establece la altura al 100% del padre */
+    width: 100%;   /* Establece el ancho al 100% del padre */
+    display: flex;   /* Activa flexbox para distribuir los elementos internos */
+    flex-direction: column;   /* Organiza los elementos en una columna vertical */
+    justify-content: space-between;   /* Distribuye el espacio disponible entre los elementos separándolos al máximo */
+    position: relative;   /* Establece posición relativa para control de z-index */
+    z-index: 2;   /* Coloca este contenido por encima de la capa oscura del pseudo-elemento before */
+    box-sizing: border-box;   /* Incluye el padding y borde en el cálculo del tamaño total */
 }
 
-/* --- TÍTULO INTERACTIVO --- */
+/* Estilos específicos para el título principal H1 dentro de la tarjeta de contenido */
 .card-content h1 {
-    color: #ffffff;
-    font-size: 4.5rem; 
-    font-weight: 700; 
-    margin: 0; 
-    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);
-    letter-spacing: normal; 
-    line-height: 1.1; 
-    margin-left: auto; 
-    margin-right: auto; 
-    margin-top: auto; 
-    margin-bottom: auto; 
-    transition: opacity 0.3s ease; 
+    color: #ffffff;   /* Establece el color del texto en blanco */
+    font-size: 4.5rem;   /* Define el tamaño de la fuente en 4.5 veces el tamaño raíz */
+    font-weight: 700;   /* Establece el grosor de la fuente a 700 o negrita */
+    margin: 0;   /* Elimina los márgenes por defecto */
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);   /* Añade una sombra negra difuminada detrás del texto para mejorar el contraste */
+    letter-spacing: normal;   /* Establece el espaciado entre letras a su valor normal */
+    line-height: 1.1;   /* Define la altura de línea a 1.1 para que el texto esté compacto */
+    margin-left: auto;   /* Margen automático a la izquierda para centrado en flex */
+    margin-right: auto;  /* Margen automático a la derecha para centrado en flex */
+    margin-top: auto;   /* Margen automático arriba para centrado vertical en flex */
+    margin-bottom: auto;   /* Margen automático abajo para centrado vertical en flex */
+    transition: opacity 0.3s ease;   /* Suaviza el cambio de opacidad con una transición de 0.3 segundos */
 }
+
+/* Efecto al pasar el mouse sobre el título H1 */
 .card-content h1:hover {
-    opacity: 0.9;
+    opacity: 0.9;/* Reduce ligeramente la opacidad al 90% */
 }
 
+/* Clase para elementos de título que son interactivos o clicables */
 .title-interactive {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    line-height: 1 !important; 
+    position: relative;/* Establece posición relativa para posicionar elementos hijos absolutos si fuera necesario */
+    display: inline-block;   /* Hace que el elemento se comporte como bloque en línea */
+    cursor: pointer;/* Cambia el cursor a una mano para indicar que es clicable */
+    line-height: 1 !important; /* Fuerza la altura de línea a 1 con alta prioridad */
 }
 
-/* La etiqueta de "Leer información" */
+/* Estilos para la etiqueta visual que invita a leer información */
 .click-hint {
-    display: block; 
-    font-size: 1.6rem; 
-    font-weight: 400;
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.2); 
-    border: 1px solid rgba(255, 255, 255, 0.6); 
-    border-radius: 20px; 
-    padding: 8px 20px;
-    margin-top: 15px;
-    width: fit-content; 
-    margin-left: auto; 
-    margin-right: auto;
-    text-shadow: none; 
-    letter-spacing: 0.5px;
-    animation: pulse-animation 2s infinite;
-    transition: background-color 0.3s ease;
+    display: block;   /* Hace que el elemento se comporte como un bloque */
+    font-size: 1.6rem;   /* Establece el tamaño de fuente en 1.6 rem */
+    font-weight: 400;   /* Establece el peso de la fuente en 400 o normal */
+    color: #ffffff;   /* Establece el color del texto en blanco */
+    background-color: rgba(255, 255, 255, 0.2);   /* Establece un fondo blanco con 20% de opacidad */
+    border: 1px solid rgba(255, 255, 255, 0.6);   /* Añade un borde sólido blanco con 60% de opacidad */
+    border-radius: 20px;   /* Redondea las esquinas con un radio de 20px */
+    padding: 8px 20px;   /* Añade relleno interno de 8px vertical y 20px horizontal */
+    margin-top: 15px;   /* Añade un margen superior de 15px */
+    width: fit-content;  /* Ajusta el ancho al contenido interno */
+    margin-left: auto;   /* Margen automático a la izquierda para centrar */
+    margin-right: auto;   /* Margen automático a la derecha para centrar */
+    text-shadow: none;   /* Elimina la sombra de texto heredada */
+    letter-spacing: 0.5px;   /* Añade un espaciado entre letras de 0.5px */
+    animation: pulse-animation 2s infinite;   /* Aplica una animación llamada pulse-animation que dura 2 segundos y se repite infinitamente */
+    transition: background-color 0.3s ease;   /* Suaviza la transición del color de fondo */
 }
 
-.title-interactive:hover .click-hint {
-    background-color: rgba(255, 255, 255, 0.4);
-    color: #fff;
+/* Efecto al pasar el mouse sobre el contenedor del título interactivo, afectando a la etiqueta hija */
+.title-interactive:hover .click-hint { 
+    background-color: rgba(255, 255, 255, 0.4);   /* Cambia el fondo a blanco con 40% de opacidad */
+    color: #fff;   /* Asegura que el color del texto sea blanco puro */
 }
 
+/* Definición de la animación de pulso para la etiqueta */
 @keyframes pulse-animation {
+    /* Al inicio: escala normal y sin sombra exterior */
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    /* A la mitad: escala al 105% y expande la sombra haciéndola transparente */
     50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    /* Al final: vuelve a la escala normal y sin sombra */
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
+/* Estilos para el subtítulo H3 dentro de la tarjeta de contenido */
 .card-content h3 {
-    font-family: 'Alfa Slab One', cursive;
-    color: #000000; 
-    font-size: 7.5rem;
-    margin: 0;
-    font-weight: 400; 
+    font-family: 'Alfa Slab One', cursive;   /* Aplica la fuente personalizada Alfa Slab One o cursiva por defecto */
+    color: #000000;   /* Establece el color del texto en negro */
+    font-size: 7.5rem;   /* Establece un tamaño de fuente muy grande de 7.5 rem */
+    margin: 0;   /* Elimina los márgenes */
+    font-weight: 400;   /* Establece el peso de la fuente en normal */
 }
 
+/* Estilos para los botones dentro de la tarjeta de contenido */
 .card-content button {
-    background-color: transparent; 
-    color: #ffffff;
-    border: 3px solid #ffffff; 
-    border-radius: 50px; 
-    padding: 30px 65px; 
-    font-size: 2rem; 
-    font-weight: 700;
-    letter-spacing: 1px;
-    cursor: pointer;
-    width: auto; 
-    transition: all 0.3s ease; 
-    max-width: 500px; 
-    margin-left: auto; 
-    margin-right: auto;
-    margin-bottom: 100px; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+    background-color: transparent;   /* Fondo transparente */
+    color: #ffffff;   /* Color de texto blanco */
+    border: 3px solid #ffffff;   /* Borde sólido blanco de 3px de grosor */
+    border-radius: 50px;   /* Bordes muy redondeados de 50px */
+    padding: 30px 65px;   /* Relleno interno generoso de 30px vertical y 65px horizontal */
+    font-size: 2rem;   /* Tamaño de fuente de 2 rem */
+    font-weight: 700;   /* Peso de fuente negrita */
+    letter-spacing: 1px;   /* Espaciado entre letras de 1px */
+    cursor: pointer;   /* Cambia el cursor a mano al pasar por encima */
+    width: auto;   /* El ancho se ajusta automáticamente */
+    transition: all 0.3s ease;  /* Transición suave para todas las propiedades de 0.3 segundos */
+    max-width: 500px;   /* Ancho máximo limitado a 500px */
+    margin-left: auto;   /* Margen izquierdo automático para centrar */
+    margin-right: auto;   /* Margen derecho automático para centrar */
+    margin-bottom: 100px;   /* Margen inferior grande de 100px */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);   /* Sombra suave debajo del botón */
 }
 
+/* Efecto hover para el botón de la tarjeta de contenido */
 .card-content button:hover {
-    background-color: #ffffff; 
-    color: #000000; 
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); 
-    transform: translateY(-2px); 
+    background-color: #ffffff;   /* Cambia el fondo a blanco sólido */
+    color: #000000;   /* Cambia el texto a negro para contraste */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);   /* Aumenta la intensidad de la sombra */
+    transform: translateY(-2px);   /* Mueve el botón ligeramente hacia arriba 2px */
 }
 
-
-/* --- ======================== --- */
-/* --- PANTALLA DE CATEGORÍAS --- */
-/* --- ======================== --- */
-
+/* Pantalla que muestra las categorías principales */
 #categorias-screen {
-    background-color: #fcf9f6; 
-    padding: 0; 
-    display: flex; 
-    flex-direction: column;
-    flex-grow: 1;
-    position: relative; 
-    overflow: hidden; 
+    background-color: #fcf9f6;   /* Color de fondo blanco hueso */
+    padding: 0;   /* Sin relleno interno */
+    display: flex;   /* Activa flexbox */
+    flex-direction: column;   /* Dirección de columna vertical */
+    flex-grow: 1;   /* Permite que el elemento crezca para ocupar el espacio disponible */
+    position: relative;   /* Posición relativa para los elementos decorativos absolutos */
+    overflow: hidden;   /* Oculta el desbordamiento */
 }
+
+/* Pseudo-elementos decorativos circulares para la pantalla de categorías */
 #categorias-screen::before,
 #categorias-screen::after {
-    content: '';
-    position: absolute;
-    background-color: #6b4632; 
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    bottom: -100px; 
-    z-index: 0;
+    content: '';   /* Contenido vacío necesario para renderizar */
+    position: absolute;   /* Posición absoluta */
+    background-color: #6b4632;   /* Color marrón para los círculos */
+    width: 200px;   /* Ancho de 200px */
+    height: 200px;   /* Alto de 200px */
+    border-radius: 50%;   /* Hace que sean círculos perfectos */
+    bottom: -100px;   /* Los coloca parcialmente fuera por abajo */
+    z-index: 0;   /* Los coloca detrás del contenido */
 }
+/* Posiciona el círculo izquierdo */
 #categorias-screen::before { left: -100px; }
+/* Posiciona el círculo derecho */
 #categorias-screen::after { right: -100px; }
 
+/* Estilos para el título H1 de la pantalla de categorías */
 #categorias-screen h1 {
-    background-color: #6b4632; 
-    color: white;
-    padding: 22px 55px;
-    text-align: center;
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin: 40px auto 30px auto; 
-    border-radius: 10px;
-    width: auto; 
-    display: inline-block; 
-    z-index: 1; 
-    position: relative; 
+    background-color: #6b4632;   /* Fondo marrón */
+    color: white;   /* Texto blanco */
+    padding: 22px 55px;   /* Relleno interno de 22px vertical y 55px horizontal */
+    text-align: center;   /* Texto centrado */
+    font-size: 3.5rem;   /* Tamaño de fuente de 3.5 rem */
+    font-weight: 700;   /* Fuente negrita */
+    margin: 40px auto 30px auto;   /* Márgenes superior 40px, laterales automáticos, inferior 30px */
+    border-radius: 10px;   /* Bordes redondeados de 10px */
+    width: auto;   /* Ancho automático */
+    display: inline-block;    /* Comportamiento de bloque en línea */
+    z-index: 1;    /* Asegura que esté por encima de los círculos decorativos */
+    position: relative;   /* Posición relativa para que z-index funcione */
 }
 
+/* Contenedor con padding para los botones de categorías */
 .categorias-padding {
-    padding: 0 5% 30px 5%;
-    flex-grow: 1;
-    overflow-y: auto; 
-    display: flex;
+    padding: 0 5% 30px 5%;   /* Relleno horizontal del 5% y fondo de 30px */
+    flex-grow: 1;   /* Permite crecer para ocupar espacio */
+    overflow-y: auto;   /* Permite scroll vertical si el contenido es muy alto */
+    display: flex;   /* Flexbox vertical */
     flex-direction: column;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1; 
-    position: relative; 
+    width: 100%;   /* Ancho total */
+    box-sizing: border-box;   /* Modelo de caja border-box */
+    z-index: 1;   /* Por encima del fondo decorativo */
+    position: relative;   /* Posición relativa */
 }
 
+/* Estilos base para los botones grandes de categoría */
 .categoria-btn {
-    border-radius: 10px; 
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-bottom: 40px; 
-    min-height: 0; 
-    color: white; 
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease;
-    width: 95%; 
-    max-width: 900px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; 
+    border-radius: 10px;   /* Bordes redondeados de 10px */
+    padding-top: 50px;   /* Relleno superior de 50px */
+    padding-bottom: 50px;   /* Relleno inferior de 50px */
+    padding-left: 30px;   /* Relleno izquierdo de 30px */
+    padding-right: 30px;   /* Relleno derecho de 30px */
+    margin-bottom: 40px;   /* Margen inferior de 40px */
+    min-height: 0;   /* Altura mínima cero para evitar problemas de flexbox */
+    color: white;   /* Texto blanco */
+    cursor: pointer;   /* Cursor de mano */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, width 0.3s ease;   /* Transiciones suaves para transformación, sombra y ancho */
+    width: 95%;   /* Ancho del 95% */
+    max-width: 900px;   /* Ancho máximo de 900px */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);   /* Sombra ligera */
+    box-sizing: border-box;   /* Modelo de caja border-box */
 }
+
+/* Efecto hover en los botones de categoría */
 .categoria-btn:hover {
-    transform: scale(1.03); 
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03);   /* Aumenta la escala al 1.03 */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);   /* Aumenta la sombra */
 }
+
+/* Estilos para el texto dentro del botón de categoría */
 .categoria-btn span {
-    font-size: 3.8rem; 
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-size: 3.8rem;   /* Tamaño de fuente de 3.8 rem */
+    font-weight: 700;   /* Negrita */
+    letter-spacing: 1px;   /* Espaciado de letras de 1px */
 }
 
+/* Estilos específicos para el botón de Estrés */
 .categoria-btn.estres {
-    background: #5a8a9e; 
-    align-self: flex-end; 
-    text-align: left; 
-    padding-left: 60px; 
-    padding-right: 30px;
-}
-.categoria-btn.ansiedad {
-    background: #e9a11a; 
-    align-self: flex-start; 
-    text-align: right; 
-    padding-right: 60px; 
-    padding-left: 30px;
-}
-.categoria-btn.depresion {
-    background: #b99dce; 
-    align-self: flex-end; 
-    text-align: left; 
-    padding-left: 60px; 
-    padding-right: 30px;
+    background: #5a8a9e;   /* Fondo azul grisáceo */
+    align-self: flex-end;   /* Alineación al final del eje transversal (derecha en flex column sin alinear items) */
+    text-align: left;   /* Texto alineado a la izquierda */
+    padding-left: 60px;   /* Padding izquierdo mayor */
+    padding-right: 30px;   /* Padding derecho estándar */
 }
 
+/* Estilos específicos para el botón de Ansiedad */
+.categoria-btn.ansiedad {
+    background: #e9a11a; /* Fondo naranja */
+    align-self: flex-start; /* Alineación al inicio del eje transversal (izquierda) */
+    text-align: right; /* Texto alineado a la derecha */
+    padding-right: 60px; /* Padding derecho mayor */
+    padding-left: 30px;/* Padding izquierdo estándar */
+}
+
+/* Estilos específicos para el botón de Depresión */
+.categoria-btn.depresion {
+    background: #b99dce;   /* Fondo lila */
+    align-self: flex-end;   /* Alineación al final del eje transversal (derecha) */
+    text-align: left;   /* Texto alineado a la izquierda */
+    padding-left: 60px;   /* Padding izquierdo mayor */
+    padding-right: 30px;   /* Padding derecho estándar */
+}
+
+/* Media query para pantallas de escritorio o tabletas grandes */
 @media (min-width: 768px) {
+    /* Ajusta el ancho y ancho máximo de los botones */
     .categoria-btn { width: 90%; max-width: 950px; }
+    /* Ajusta los paddings para estrés y depresión en pantallas grandes */
     .categoria-btn.estres, .categoria-btn.depresion { padding-left: 80px; padding-right: 30px; }
+    /* Ajusta los paddings para ansiedad en pantallas grandes */
     .categoria-btn.ansiedad { padding-right: 80px; padding-left: 30px; }
 }
 
-/* --- ================================== --- */
-/* --- PANTALLA DE MENÚ (Estrés, Ansiedad...) --- */
-/* --- ================================== --- */
-
+/* Configuración de la pantalla de menú genérico */
 .menu-screen {
-    background-color: #fcf9f6; 
-    padding: 0; 
-    display: flex;
+    background-color: #fcf9f6;   /* Fondo blanco hueso */
+    padding: 0;   /* Sin padding */
+    display: flex;   /* Flexbox vertical */
     flex-direction: column;
-    flex-grow: 1;
-    position: relative; 
-    overflow: hidden; 
-    min-height: 100vh;
+    flex-grow: 1;   /* Ocupa el espacio restante */
+    position: relative;   /* Posición relativa */
+    overflow: hidden;   /* Oculta desbordamiento */
+    min-height: 100vh;   /* Altura mínima de la ventana completa */
 }
+
+/* Decoración circular inferior para la pantalla de menú */
 .menu-screen::before, .menu-screen::after {
-    content: '';
-    position: absolute;
-    background-color: #6b4632; 
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    bottom: -100px; 
-    z-index: 0;
+    content: '';   /* Contenido vacío */
+    position: absolute;   /* Posición absoluta */
+    background-color: #6b4632;   /* Color marrón */
+    width: 200px;   /* Ancho 200px */
+    height: 200px;   /* Alto 200px */
+    border-radius: 50%;   /* Circular */
+    bottom: -100px;   /* Posición inferior */
+    z-index: 0;   /* Detrás del contenido */
 }
+/* Círculo izquierdo */
 .menu-screen::before { left: -100px; }
+/* Círculo derecho */
 .menu-screen::after { right: -100px; }
 
+/* Título de la pantalla de menú */
 .menu-screen h1 {
-    background-color: #6b4632; 
-    color: white;
-    padding: 22px 55px;
-    text-align: center;
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin: 40px auto 30px auto; 
-    border-radius: 10px;
-    width: auto; 
-    display: inline-block; 
-    z-index: 1; 
-    position: relative; 
+    background-color: #6b4632;   /* Fondo marrón */
+    color: white;   /* Texto blanco */
+    padding: 22px 55px;   /* Padding interno */
+    text-align: center;   /* Texto centrado */
+    font-size: 3.5rem;   /* Tamaño de fuente grande */
+    font-weight: 700;   /* Fuente negrita */
+    margin: 40px auto 30px auto;   /* Márgenes */
+    border-radius: 10px;   /* Bordes redondeados */
+    width: auto;   /* Ancho automático */
+    display: inline-block;   /* Bloque en línea */
+    z-index: 1;   /* Por encima de la decoración */
+    position: relative;   /* Posición relativa */
 }
 
+/* Contenedor interno del menú con padding */
 .menu-padding {
-    padding: 0 5% 30px 5%;
-    flex-grow: 1;
-    overflow-y: auto; 
-    display: flex;
+    padding: 0 5% 30px 5%;   /* Padding horizontal del 5% */
+    flex-grow: 1;   /* Crece para llenar espacio */
+    overflow-y: auto;   /* Scroll vertical habilitado */
+    display: flex;   /* Flexbox vertical */
     flex-direction: column;
-    align-items: center; 
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1; 
-    position: relative; 
+    align-items: center;   /* Centra los elementos horizontalmente */
+    width: 100%;   /* Ancho total */
+    box-sizing: border-box;   /* Border box */
+    z-index: 1;   /* Por encima del fondo */
+    position: relative;   /* Posición relativa */
 }
 
+/* Botones del menú interior */
 .menu-btn {
-    border-radius: 10px; 
-    padding: 25px 20px;
-    margin-bottom: 30px;
-    min-height: 0; 
-    color: white; 
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box; 
-}
-.menu-btn:hover {
-    transform: scale(1.03); 
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-.menu-btn span {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+    border-radius: 10px;   /* Bordes redondeados */
+    padding: 25px 20px;   /* Padding interno */
+    margin-bottom: 30px;   /* Margen inferior */
+    min-height: 0;   /* Altura mínima 0 */
+    color: white;   /* Texto blanco */
+    cursor: pointer;   /* Cursor de mano */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;   /* Transiciones suaves */
+    width: 80%;   /* Ancho del 80% */
+    max-width: 500px;   /* Ancho máximo de 500px */
+    text-align: center;   /* Texto centrado */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);   /* Sombra suave */
+    box-sizing: border-box;   /* Border box */
 }
 
-/* ========================================= */
-/* PALETA POR DEFECTO Y ESTRÉS (AZULES)      */
-/* ========================================= */
+/* Efecto hover para botones de menú */
+.menu-btn:hover {
+    transform: scale(1.03);   /* Escala al 1.03 */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);   /* Sombra más pronunciada */
+}
+
+/* Texto dentro de los botones de menú */
+.menu-btn span {
+    font-size: 2.5rem;   /* Tamaño de fuente 2.5 rem */
+    font-weight: 700;   /* Negrita */
+    letter-spacing: 1px;   /* Espaciado de letras */
+}
+
+/* Colores específicos para botones en la sección de Estrés (por defecto) y Salud Mental */
 .menu-btn.concepto { background-color: #5a8a9e; }
 .menu-btn.grados { background-color: #3a506b; }
 .menu-btn.sintomas { background-color: #8db5ca; }
 .menu-btn.mitos { background-color: #abc4d2; }
+/* Botón instrumento con fondo claro y texto oscuro */
 .menu-btn.instrumento { background-color: #f0d9b5; color: #3a506b; }
+/* Botón recursos con fondo blanco y borde */
 .menu-btn.recursos { background-color: #FFFFFF; color: #6b4632; border: 1px solid #eee; }
 
-/* ========================================= */
-/* PALETA ANSIEDAD (NUEVA)                   */
-/* ========================================= */
+/* Colores específicos para botones cuando el tema es Ansiedad */
 .tema-ansiedad .menu-btn.concepto { background-color: #632713; }
 .tema-ansiedad .menu-btn.grados { background-color: #A64318; }
 .tema-ansiedad .menu-btn.sintomas { background-color: #EC6426; }
@@ -355,9 +390,7 @@ body {
 .tema-ansiedad .menu-btn.instrumento { background-color: #FCD56A; color: #632713; } 
 .tema-ansiedad .menu-btn.recursos { background-color: #FDE3CF; color: #632713; border: none; }
 
-/* ========================================= */
-/* PALETA DEPRESIÓN (NUEVA)                  */
-/* ========================================= */
+/* Colores específicos para botones cuando el tema es Depresión */
 .tema-depresion .menu-btn.concepto { background-color: #4b1c71; }
 .tema-depresion .menu-btn.grados { background-color: #7f4ca5; }
 .tema-depresion .menu-btn.sintomas { background-color: #b57edc; }
@@ -365,320 +398,353 @@ body {
 .tema-depresion .menu-btn.instrumento { background-color: #fff0ff; color: #4b1c71; }
 .tema-depresion .menu-btn.recursos { background-color: #ffffff; color: #4b1c71; border: 1px solid #eee; }
 
-
-/* --- ================================== --- */
-/* --- ESTILOS PANTALLA CONTENIDO (PDF) --- */
-/* --- ================================== --- */
+/* Estilos para el contenedor de contenido tipo PDF o artículo */
 .content-padding {
-    padding: 0 5% 30px 5%;
-    flex-grow: 1;
-    overflow-y: auto;
-    width: 100%;
-    max-width: 900px; 
-    margin: 0 auto; 
-    box-sizing: border-box;
-    z-index: 1; 
-    position: relative; 
-    text-align: left; 
-    color: #333;
-    font-family: Arial, sans-serif; 
-    overflow: auto; 
+    padding: 0 5% 30px 5%;   /* Padding lateral y fondo */
+    flex-grow: 1;   /* Crece para llenar espacio */
+    overflow-y: auto;   /* Habilita scroll vertical */
+    width: 100%;   /* Ancho total */
+    max-width: 900px;   /* Ancho máximo de 900px */
+    margin: 0 auto;   /* Centrado horizontalmente */
+    box-sizing: border-box;   /* Border box */
+    z-index: 1;   /* Z-index superior */
+    position: relative;   /* Posición relativa */
+    text-align: left;   /* Alineación de texto a la izquierda */
+    color: #333;   /* Color de texto gris oscuro */
+    font-family: Arial, sans-serif;   /* Familia de fuentes Arial */
+    overflow: auto;   /* Desbordamiento automático */
 }
 
-/* Títulos y Subtítulos */
+/* Estilos compartidos para diferentes niveles de títulos dentro del contenido */
 .content-padding h2,
 .content-title-pdf,
 .content-title-pdf-blue,
 .content-padding h3 {
-    color: #6b4632 !important; 
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
+    color: #6b4632 !important;   /* Color marrón forzado */
+    font-family: Arial, sans-serif;   /* Fuente Arial */
+    font-weight: 700;   /* Negrita */
+    line-height: 1.2;   /* Altura de línea de 1.2 */
 }
 
+/* Tamaños y márgenes específicos para títulos H2 y personalizados */
 .content-padding h2,
 .content-title-pdf,
 .content-title-pdf-blue {
-    font-size: 2rem;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    font-size: 2rem;   /* Tamaño 2 rem */
+    margin-top: 30px;   /* Margen superior 30px */
+    margin-bottom: 15px;   /* Margen inferior 15px */
 }
 
+/* Tamaños y márgenes específicos para títulos H3 */
 .content-padding h3 {
-    font-size: 1.6rem;
-    margin-top: 25px;
-    margin-bottom: 10px;
+    font-size: 1.6rem;   /* Tamaño 1.6 rem */
+    margin-top: 25px;   /* Margen superior 25px */
+    margin-bottom: 10px;   /* Margen inferior 10px */
 }
 
+/* Estilos para párrafos dentro del contenido */
 .content-padding p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 1.1rem;   /* Tamaño 1.1 rem */
+    line-height: 1.6;   /* Altura de línea para legibilidad */
+    margin-bottom: 15px;   /* Margen inferior */
 }
+
+/* Estilos para listas dentro del contenido */
 .content-padding ul, .content-padding ol {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    padding-left: 20px;
-    margin-bottom: 15px;
+    font-size: 1.1rem;   /* Tamaño de fuente igual al párrafo */
+    line-height: 1.6;   /* Altura de línea */
+    padding-left: 20px;   /* Padding izquierdo para las viñetas */
+    margin-bottom: 15px;   /* Margen inferior */
 }
+
+/* Tipo de lista con discos */
 .content-padding ul { list-style-type: disc; }
+
+/* Margen inferior para elementos de lista */
 .content-padding li { margin-bottom: 10px; }
+
+/* Estilo para texto en negrita dentro de párrafos */
 .content-padding p strong { font-weight: 700; color: #333; }
 
+/* Estilo para subtítulos descriptivos estilo PDF */
 .content-subtitle-pdf {
-    font-size: 1.1rem;
-    color: #555;
-    font-style: italic;
-    margin-bottom: 25px;
-    line-height: 1.4;
+    font-size: 1.1rem;   /* Tamaño de fuente */
+    color: #555;   /* Color gris medio */
+    font-style: italic;   /* Texto en cursiva */
+    margin-bottom: 25px;   /* Margen inferior mayor */
+    line-height: 1.4;   /* Altura de línea */
 }
 
+/* Línea separadora dentro del contenido */
 .content-separator {
-    border: 0;
-    height: 1px;
-    background-color: #6b4632; 
-    opacity: 0.4; 
-    margin: 40px 0;
+    border: 0;   /* Sin borde predeterminado */
+    height: 1px;   /* Altura de 1px */
+    background-color: #6b4632;   /* Color de fondo marrón */
+    opacity: 0.4;   /* Opacidad reducida */
+    margin: 40px 0;  /* Márgenes verticales de 40px */
 }
 
-/* Imágenes */
+/* Imagen flotante a la izquierda dentro del contenido */
 .content-image-left {
-    display: block;
-    max-width: 40%; 
-    min-width: 200px; 
-    height: auto; 
-    margin: 15px 20px 15px 0; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    float: left; 
+    display: block;   /* Comportamiento de bloque */
+    max-width: 40%;   /* Ancho máximo 40% */
+    min-width: 200px;   /* Ancho mínimo 200px */
+    height: auto;   /* Altura automática */
+    margin: 15px 20px 15px 0;   /* Margen derecho de 20px */
+    border-radius: 10px;   /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);   /* Sombra */
+    float: left;   /* Flota a la izquierda */
 }
 
+/* Imagen flotante a la derecha dentro del contenido */
 .content-image-right {
-    display: block;
-    max-width: 45%; 
-    min-width: 250px;
-    height: auto; 
-    margin: 15px 0 15px 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    float: right; 
+    display: block;   /* Comportamiento de bloque */
+    max-width: 45%;   /* Ancho máximo 45% */
+    min-width: 250px;   /* Ancho mínimo 250px */
+    height: auto;   /* Altura automática */
+    margin: 15px 0 15px 20px;   /* Margen izquierdo de 20px */
+    border-radius: 10px;   /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);   /* Sombra */
+    float: right;   /* Flota a la derecha */
 }
 
+/* Imagen de ancho completo tipo banner */
 .content-image-banner {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 15px auto 25px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: block;   /* Comportamiento de bloque */
+    max-width: 100%;   /* Ancho máximo 100% */
+    height: auto;   /* Altura automática */
+    margin: 15px auto 25px auto;   /* Margen superior e inferior, centrado horizontal */
+    border-radius: 10px;   /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);   /* Sombra */
 }
 
-/* Ajustes específicos de imágenes */
+/* Ajustes específicos para imágenes en ciertas pantallas */
 #estres-concepto-screen .content-image-left { max-width: 45%; min-width: 250px; }
 #salud-mental-screen .content-image-left { max-width: 30%; min-width: 100px; }
+
+/* Imagen específica para la sección de síntomas */
 .content-image-right-sintomas {
-    display: block;
-    max-width: 45%; 
-    min-width: 280px; 
-    height: auto; 
-    margin: 10px 0 15px 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    float: right; 
+    display: block;   /* Bloque */
+    max-width: 45%;    /* Ancho máximo 45% */
+    min-width: 280px;    /* Ancho mínimo 280px */
+    height: auto;   /* Altura automática */
+    margin: 10px 0 15px 20px;   /* Márgenes */
+    border-radius: 10px;   /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);   /* Sombra */
+    float: right;   /* Flota a la derecha */
 }
+
+/* Utilidad para limpiar los flotantes */
 .clearfix { clear: both; }
 
-
-/* --- BOTÓN VOLVER GENÉRICO --- */
+/* Estilo genérico para el botón VOLVER */
 .btn-volver-portada-style {
-    background-color: #6b4632;
-    color: #ffffff;
-    border: 3px solid #6b4632; 
-    border-radius: 50px; 
-    padding: 30px 65px; 
-    font-size: 2rem; 
-    font-weight: 700;
-    letter-spacing: 1px;
-    cursor: pointer;
-    width: auto; 
-    transition: all 0.3s ease; 
-    max-width: 500px; 
-    margin-left: auto; 
+    background-color: #6b4632;   /* Fondo marrón */
+    color: #ffffff;   /* Texto blanco */
+    border: 3px solid #6b4632;   /* Borde marrón */
+    border-radius: 50px;   /* Bordes muy redondeados */
+    padding: 30px 65px;   /* Relleno interno */
+    font-size: 2rem;   /* Fuente grande */
+    font-weight: 700;   /* Fuente negrita */
+    letter-spacing: 1px;   /* Espaciado de letras */
+    cursor: pointer;   /* Cursor de mano */
+    width: auto;   /* Ancho automático */
+    transition: all 0.3s ease;   /* Transición suave */
+    max-width: 500px;   /* Ancho máximo */
+    margin-left: auto;   /* Centrado horizontal con margen auto */
     margin-right: auto; 
-    margin-top: 20px; 
-    margin-bottom: 40px; 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    margin-top: 20px;   /* Margen superior */
+    margin-bottom: 40px;   /* Margen inferior */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);   /* Sombra */
 }
+
+/* Hover del botón VOLVER */
 .btn-volver-portada-style:hover {
-    background-color: #ffffff; 
-    color: #6b4632;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); 
-    transform: translateY(-2px); 
+    background-color: #ffffff;   /* Fondo blanco */
+    color: #6b4632;   /* Texto marrón */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);   /* Sombra más fuerte */
+    transform: translateY(-2px);   /* Mueve hacia arriba */
 }
 
-/* --- SECCIÓN DE RECURSOS (VIDEOS) --- */
+/* Rejilla para mostrar videos */
 .video-grid {
-    display: flex; 
+    display: flex;   /* Flexbox vertical */
     flex-direction: column; 
-    align-items: center; 
-    gap: 40px; 
-    margin-top: 30px;
-    width: 100%; 
+    align-items: center;   /* Centra items */
+    gap: 40px;   /* Espacio entre videos */
+    margin-top: 30px;   /* Margen superior */
+    width: 100%;   /* Ancho total */
 }
-.video-card {
-    width: 100%; 
-    max-width: 700px; 
-    margin: 0 auto; 
+
+/* Tarjeta contenedora de video individual */
+.video-card { 
+    width: 100%;   /* Ancho total */
+    max-width: 700px;   /* Ancho máximo */
+    margin: 0 auto;   /* Centrado */
 }
+
+/* Texto descriptivo del video */
 .video-card p {
-    font-size: 0.95rem;
-    text-align: center;
-    margin-bottom: 10px;
-    color: #333;
+    font-size: 0.95rem;   /* Fuente pequeña */
+    text-align: center;   /* Texto centrado */
+    margin-bottom: 10px;   /* Margen inferior */
+    color: #333;   /* Color oscuro */
 }
+
+/* Contenedor responsivo para el iframe del video */
 .video-wrapper {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    background-color: #000;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: relative;   /* Posición relativa */
+    width: 100%;   /* Ancho total */
+    padding-bottom: 56.25%;   /* Relación de aspecto 16:9 */
+    height: 0;   /* Altura inicial 0 */
+    background-color: #000;   /* Fondo negro */
+    border-radius: 10px;   /* Bordes redondeados */
+    overflow: hidden;   /* Oculta desbordamiento */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);   /* Sombra */
 }
+
+/* Iframe del video ocupando todo el wrapper */
 .video-wrapper iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    position: absolute;   /* Posición absoluta */
+    top: 0; left: 0;   /* Coordenadas 0,0 */
+    width: 100%; height: 100%;   /* Llena el contenedor */
 }
 
-/* --- SECCIÓN DESCARGAS --- */
+/* Contenedor para la sección de descarga centrado */
 .download-container-center {
-    width: 80%; 
-    max-width: 600px; 
-    margin: 40px auto; 
-    display: flex;
+    width: 80%;   /* Ancho 80% */
+    max-width: 600px;   /* Ancho máximo 600px */
+    margin: 40px auto;   /* Margen vertical 40px, horizontal auto */
+    display: flex;   /* Flexbox vertical */
     flex-direction: column; 
-    align-items: center; 
-    text-align: center;
+    align-items: center;   /* Centra items */
+    text-align: center;   /* Texto centrado */
 }
+
+/* Imagen de previsualización de descarga */
 .download-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); 
-    margin-bottom: 25px; 
-    border: 1px solid #ddd; 
+    width: 100%;   /* Ancho total */
+    height: auto;   /* Altura automática */
+    border-radius: 10px;   /* Bordes redondeados */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);   /* Sombra */
+    margin-bottom: 25px;   /* Margen inferior */
+    border: 1px solid #ddd;   /* Borde gris claro */
 }
+
+/* Botón de descarga */
 .btn-descargar {
-    background-color: #6b4632; 
-    color: white;
-    text-decoration: none; 
-    padding: 15px 35px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    text-align: center;
-    border: 2px solid #6b4632;
-    display: inline-block;
-    cursor: pointer;
+    background-color: #6b4632;   /* Fondo marrón */
+    color: white;   /* Texto blanco */
+    text-decoration: none;   /* Sin subrayado */
+    padding: 15px 35px;   /* Relleno */
+    border-radius: 50px;   /* Bordes redondeados */
+    font-weight: 700;   /* Negrita */
+    font-size: 1.2rem;   /* Tamaño fuente */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);   /* Sombra */
+    transition: all 0.3s ease;   /* Transición */
+    text-align: center;   /* Texto centrado */
+    border: 2px solid #6b4632;   /* Borde sólido */
+    display: inline-block;   /* Bloque en línea */
+    cursor: pointer;   /* Cursor de mano */
 }
+
+/* Hover del botón de descarga */
 .btn-descargar:hover {
-    background-color: white;
-    color: #6b4632;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    background-color: white;   /* Fondo blanco */
+    color: #6b4632;   /* Texto marrón */
+    transform: translateY(-3px);   /* Movimiento hacia arriba */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);   /* Sombra aumentada */
 }
 
-/* --- ====================================================================== --- */
-/* --- ESTILOS DEL FORMULARIO DE ESTRÉS Y ANSIEDAD (INSTRUMENTOS) --- */
-/* --- ====================================================================== --- */
-
-/* Ajuste para que el contenido inicie desde arriba al abrir */
+/* Ajustes específicos para las pantallas de instrumentos de evaluación para que inicien desde arriba */
 #estres-instrumento-screen,
 #ansiedad-instrumento-screen,
 #depresion-instrumento-screen { 
+    /* Fuerza justificación al inicio */
     justify-content: flex-start !important; 
+    /* Padding superior */
     padding-top: 10px;
 }
 
+/* Bloque contenedor de cada pregunta del test */
 .question-block {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    background-color: #fff;   /* Fondo blanco */
+    padding: 20px;   /* Padding */
+    border-radius: 10px;   /* Bordes redondeados */
+    margin-bottom: 20px;   /* Margen inferior */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);   /* Sombra muy sutil */
 }
 
-/* AQUÍ SE IGUALA EL TAMAÑO DE LA PREGUNTA AL TEXTO GENERAL (1.3rem) */
+/* Texto de la pregunta dentro del bloque */
 .question-block p {
-    font-size: 1.3rem; 
-    color: #333;
-    margin-bottom: 15px;
+    font-size: 1.3rem;   /* Tamaño de fuente aumentado */
+    color: #333;   /* Color gris oscuro */
+    margin-bottom: 15px;   /* Margen inferior */
 }
 
+/* Grupo de opciones de respuesta horizontal */
 .options-group {
-    display: flex;
-    justify-content: space-between;
-    max-width: 400px;
-    margin: 0 auto; 
+    display: flex;   /* Flexbox para distribuir opciones */
+    justify-content: space-between;   /* Espacio entre opciones */
+    max-width: 400px;   /* Ancho máximo */
+    margin: 0 auto;   /* Centrado */
 }
 
+/* Etiqueta de cada opción de respuesta */
 .options-group label {
-    display: flex;
+    display: flex;   /* Flexbox vertical */
     flex-direction: column;
-    align-items: center;
-    font-weight: bold;
-    color: #6b4632;
-    cursor: pointer;
-    font-size: 1.1rem;
+    align-items: center;   /* Centrado */
+    font-weight: bold;   /* Negrita */
+    color: #6b4632;   /* Color marrón */
+    cursor: pointer;   /* Cursor de mano */
+    font-size: 1.1rem;   /* Tamaño de fuente */
 }
 
+/* Radio button del test */
 .options-group input[type="radio"] {
-    margin-bottom: 5px;
-    transform: scale(1.3); 
-    cursor: pointer;
-    accent-color: #6b4632; 
+    margin-bottom: 5px;   /* Margen inferior */
+    transform: scale(1.3);   /* Escala aumentada */
+    cursor: pointer;   /* Cursor de mano */
+    accent-color: #6b4632;   /* Color de acento marrón */
 }
 
-/* --- ESTILOS ESPECÍFICOS PARA EL TEST DE DEPRESIÓN (BDI) --- */
-
+/* Contenedor de opciones verticales para el test de depresión */
 .options-vertical {
-    display: flex;
+    display: flex;   /* Flexbox vertical */
     flex-direction: column;
-    gap: 12px;
+    gap: 12px;   /* Espacio entre opciones */
 }
 
+/* Etiqueta de opción vertical */
 .options-vertical label {
-    display: flex;
-    align-items: flex-start; /* Alinea el radio arriba si el texto es largo */
-    font-size: 1.1rem;
-    color: #555;
-    cursor: pointer;
-    line-height: 1.4;
-    padding: 5px 0;
+    display: flex;/* Flexbox alineado al inicio */
+    align-items: flex-start; 
+    font-size: 1.1rem;/* Tamaño de fuente */
+    color: #555; /* Color gris */
+    cursor: pointer;/* Cursor de mano */
+    line-height: 1.4;/* Altura de línea */
+    padding: 5px 0;/* Padding vertical */
 }
 
+/* Radio button vertical */
 .options-vertical input[type="radio"] {
-    margin-right: 12px;
-    margin-top: 4px; /* Ajuste visual para alinear con la primera línea de texto */
-    transform: scale(1.3);
-    flex-shrink: 0; /* Evita que el radio se aplaste */
-    accent-color: #6b4632;
+    margin-right: 12px;   /* Margen derecho */
+    margin-top: 4px;   /* Margen superior para alinear con texto */
+    transform: scale(1.3);   /* Escala aumentada */
+    flex-shrink: 0;    /* Evita que se encoja */
+    accent-color: #6b4632;   /* Color de acento */
 }
 
-/* --- ================================== --- */
-/* --- MEDIA QUERY PARA MÓVILES --- */
-/* --- ================================== --- */
+/* Media query para dispositivos móviles con ancho máximo de 767px */
 @media (max-width: 767px) {
 
-    /* Portada */
+    /* Ajustes para el contenido de la portada en móvil */
     .card-content { justify-content: space-evenly; padding: 20px; }
     .card-content h1 { font-size: 3.0rem; margin: 0; }
     .click-hint { font-size: 1.4rem; padding: 8px 20px; margin-top: 15px; }
     .card-content h3 { font-size: 2.5rem; margin-top: 20px; }
+    /* Botón de portada en móvil con fondo semitransparente */
     .card-content button {
         background-color: rgba(0, 0, 0, 0.6); 
         border: none;
@@ -690,21 +756,21 @@ body {
         box-shadow: none;
     }
 
-    /* Categorías */
+    /* Ajustes para pantalla de categorías en móvil */
     #categorias-screen h1 { font-size: 2rem; padding: 20px 40px; }
     .categoria-btn { width: 95%; max-width: 400px; padding: 25px 20px; align-self: center; text-align: center; }
     .categoria-btn.estres, .categoria-btn.ansiedad, .categoria-btn.depresion { align-self: center; text-align: center; padding: 25px 20px; }
     .categoria-btn span { font-size: 2.2rem; }
 
-    /* Menú */
+    /* Ajustes para pantalla de menú en móvil */
     .menu-screen h1 { font-size: 2rem; padding: 20px 40px; }
     .menu-btn { width: 90%; max-width: 450px; padding: 20px 15px; margin-bottom: 20px; }
     .menu-btn span { font-size: 1.8rem; }
     
-    /* Contenido General */
+    /* Ajustes de contenido general en móvil */
     .content-padding { padding: 0 6% 30px 6%; }
     
-    /* SE AGREGA EL SELECTOR DEL INSTRUMENTO PARA TÍTULOS MÓVILES */
+    /* Reducción de tamaño de fuente para títulos en móvil */
     .content-padding h2, .content-title-pdf, .content-title-pdf-blue,
     #estres-instrumento-screen h2,
     #ansiedad-instrumento-screen h2,
@@ -712,9 +778,10 @@ body {
         font-size: 1.6rem; 
     }
 
+    /* Reducción de tamaño de subtítulos en móvil */
     .content-padding h3 { font-size: 1.4rem; }
     
-    /* SE AGREGA EL SELECTOR DEL INSTRUMENTO PARA TEXTO MÓVIL */
+    /* Reducción de tamaño de texto de párrafos y listas en móvil */
     .content-padding p, .content-padding ul, .content-padding ol,
     #estres-instrumento-screen p,
     #ansiedad-instrumento-screen p,
@@ -722,7 +789,7 @@ body {
         font-size: 1.0rem; 
     }
 
-    /* Imágenes Móvil */
+    /* Ajustes para imágenes flotantes en móvil: quita float y centra */
     .content-image-left, .content-image-right, .content-image-right-sintomas { 
         float: none; margin: 20px auto; max-width: 95%; 
     }
@@ -732,12 +799,12 @@ body {
     #estres-sintomas-screen .content-image-left, 
     #estres-sintomas-screen .content-image-right { max-width: 95%; }
 
-    /* Descargas y Botones */
+    /* Ajustes de botones de descarga y volver en móvil */
     .download-container-center { width: 95%; }
     .btn-descargar { width: 100%; padding: 15px 0; }
     .btn-volver-portada-style { padding: 18px 35px; font-size: 1.3rem; }
 
-    /* Ajustes Instrumento Móvil */
+    /* Ajustes de instrumentos/test en móvil */
     .options-group { max-width: 100%; padding: 0 10px; }
     .buttons-row {
         flex-direction: column; 
@@ -749,7 +816,7 @@ body {
     }
 }
 
-/* --- ESTANDARIZACIÓN DE TAMAÑOS (Títulos Grandes en PC) --- */
+/* Estandarización de tamaños de fuente para títulos H2 en pantallas de escritorio */
 #salud-mental-screen h2, #salud-mental-screen .content-title-pdf,
 #ansiedad-concepto-screen h2, #ansiedad-concepto-screen .content-title-pdf,
 #ansiedad-grados-screen h2, #ansiedad-grados-screen .content-title-pdf,
@@ -766,7 +833,6 @@ body {
 #estres-recursos-screen .content-title-pdf,
 #depresion-recursos-screen .content-title-pdf,
 #ansiedad-recursos-screen .content-title-pdf,
-/* Se incluye el instrumento en los títulos grandes */
 #estres-instrumento-screen h2, 
 #estres-instrumento-screen .content-title-pdf,
 #ansiedad-instrumento-screen h2, 
@@ -776,6 +842,7 @@ body {
     font-size: 2.4rem;
 }
 
+/* Estandarización de tamaños de fuente para subtítulos H3 en pantallas de escritorio */
 #salud-mental-screen h3,
 #ansiedad-concepto-screen h3, #ansiedad-grados-screen h3, #ansiedad-sintomas-screen h3, #ansiedad-mitos-screen h3,
 #depresion-concepto-screen h3, #depresion-grados-screen h3, #depresion-sintomas-screen h3, #depresion-mitos-screen h3,
@@ -784,7 +851,7 @@ body {
     font-size: 1.8rem;
 }
 
-/* Texto de Contenido y Listas PC */
+/* Estandarización de tamaños de fuente para párrafos y listas en pantallas de escritorio */
 #salud-mental-screen p, #salud-mental-screen li,
 #ansiedad-concepto-screen p, #ansiedad-concepto-screen li,
 #ansiedad-grados-screen p, #ansiedad-grados-screen li,
@@ -801,13 +868,13 @@ body {
 #estres-recursos-screen p, #estres-recursos-screen ul li,
 #depresion-recursos-screen p, #depresion-recursos-screen ul li,
 #ansiedad-recursos-screen p, #ansiedad-recursos-screen ul li, #ansiedad-recursos-screen ol li,
-/* Se incluye el instrumento en el texto normal */
 #estres-instrumento-screen p,
 #ansiedad-instrumento-screen p,
 #depresion-instrumento-screen p {
     font-size: 1.3rem;
 }
 
+/* Media query para ajustar imagen en síntomas de depresión en pantallas grandes */
 @media (min-width: 768px) {
     #depresion-sintomas-screen .content-image-left {
         max-width: 55%; 
@@ -815,134 +882,142 @@ body {
     }
 }
 
-/* === ESTILOS NUEVOS PARA EL CONTACTO SOF === */
-
-/* Botón Flotante en Portada */
+/* Estilos para el botón flotante de contacto en la portada */
 .btn-contacto-flotante {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background-color: rgba(255, 255, 255, 0.2); /* Transparente sutil */
-    border: 2px solid #fff;
-    color: #fff;
-    padding: 15px 35px; /* AUMENTADO */
-    border-radius: 30px;
-    font-weight: 700;
-    cursor: pointer;
-    z-index: 10; /* Por encima de la capa oscura */
-    font-size: 1.3rem; /* AUMENTADO */
-    backdrop-filter: blur(5px); /* Efecto borroso bonito */
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    font-family: Arial, sans-serif;
+    position: absolute;   /* Posición absoluta en la esquina */
+    top: 30px;   /* Distancia superior 30px */
+    right: 30px;   /* Distancia derecha 30px */
+    background-color: rgba(255, 255, 255, 0.2);   /* Fondo blanco semitransparente */
+    border: 2px solid #fff;   /* Borde blanco */
+    color: #fff;   /* Texto blanco */
+    padding: 15px 35px;   /* Padding interno aumentado */
+    border-radius: 30px;   /* Bordes redondeados */
+    font-weight: 700;   /* Negrita */
+    cursor: pointer;   /* Cursor de mano */
+    z-index: 10;   /* Z-index alto */
+    font-size: 1.3rem;   /* Tamaño de fuente aumentado */
+    backdrop-filter: blur(5px);   /* Efecto de desenfoque en el fondo */
+    transition: all 0.3s ease;   /* Transición suave */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);/* Sombra */
+    font-family: Arial, sans-serif;   /* Fuente Arial */
 }
 
+/* Efecto hover en botón flotante */
 .btn-contacto-flotante:hover {
-    background-color: #fff;
-    color: #000;
-    transform: scale(1.05);
+    background-color: #fff;   /* Fondo blanco sólido */
+    color: #000;   /* Texto negro */
+    transform: scale(1.05);   /* Escala aumentada */
 }
 
-/* Modal (Fondo oscuro) */
+/* Superposición oscura para el modal de contacto */
 .modal-contacto-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro */
-    z-index: 9999; /* Muy por encima de todo */
-    display: flex;
+    position: fixed;   /* Posición fija cubriendo toda la pantalla */
+    top: 0;   /* Arriba */
+    left: 0;   /* Izquierda */
+    width: 100%;   /* Ancho total */
+    height: 100%;   /* Alto total */
+    background-color: rgba(0, 0, 0, 0.85);   /* Fondo negro casi opaco */
+    z-index: 9999;   /* Z-index máximo */
+    display: flex;   /* Flexbox centrado */
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    box-sizing: border-box;
-    animation: fadeIn 0.3s ease;
+    padding: 20px;   /* Padding */
+    box-sizing: border-box;   /* Border box */
+    animation: fadeIn 0.3s ease;   /* Animación de entrada */
 }
 
-/* Caja de contenido del Modal */
+/* Contenido interno del modal de contacto */
 .modal-contacto-content {
-    background-color: #fcf9f6;
-    padding: 40px;
-    border-radius: 20px;
-    max-width: 450px;
-    width: 100%;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-    border: 4px solid #000; /* Estilo borde negro tipo logo */
+   
+    background-color: #fcf9f6;   /* Fondo blanco hueso */
+    padding: 40px;   /* Padding interno */
+    border-radius: 20px;   /* Bordes redondeados */
+    max-width: 450px;   /* Ancho máximo */
+    width: 100%;   /* Ancho total */
+    text-align: center;   /* Texto centrado */
+    position: relative;   /* Posición relativa */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);   /* Sombra fuerte */
+    border: 4px solid #000;   /* Borde negro grueso */
 }
 
-/* Botón cerrar (X) */
+/* Botón de cerrar (X) en el modal */
 .close-modal {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 2.5rem;
-    cursor: pointer;
-    color: #333;
-    font-weight: bold;
-    line-height: 1;
-    transition: color 0.2s;
+    position: absolute;   /* Posición absoluta dentro del modal */
+    top: 10px;   /* Distancia superior */
+    right: 20px;   /* Distancia derecha */
+    font-size: 2.5rem;   /* Tamaño de fuente grande */
+    cursor: pointer;   /* Cursor de mano */
+    color: #333;   /* Color gris */
+    font-weight: bold;   /* Negrita */
+    line-height: 1;   /* Altura de línea */
+    transition: color 0.2s;   /* Transición de color */
 }
+
+/* Hover en botón cerrar */
 .close-modal:hover {
-    color: #d9534f;
+    color: #d9534f;   /* Color rojo */
 }
 
-/* Estilos simulando el Logo */
+/* Título estilo logo SOF */
 .sof-title {
-    font-family: Arial, sans-serif;
-    font-weight: 900;
-    font-size: 4rem;
-    margin: 0;
-    line-height: 1;
-    color: #000;
-    letter-spacing: -2px;
+    font-family: Arial, sans-serif;   /* Fuente Arial */
+    font-weight: 900;   /* Fuente extra negrita */
+    font-size: 4rem;   /* Tamaño muy grande */
+    margin: 0;   /* Sin margen */
+    line-height: 1;   /* Altura de línea 1 */
+    color: #000;   /* Color negro */
+    letter-spacing: -2px;   /* Letras juntas */
 }
+
+/* Subtítulo SOF */
 .sof-subtitle {
-    font-family: Arial, sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    color: #000;
+    font-family: Arial, sans-serif;   /* Fuente Arial */
+    font-weight: 700;   /* Negrita */
+    font-size: 1.5rem;   /* Tamaño medio */
+    margin-top: 5px;   /* Margen superior */
+    margin-bottom: 20px;   /* Margen inferior */
+    color: #000;   /* Color negro */
 }
+
+/* Separador visual negro */
 .sof-separator {
-    border: 0;
-    height: 3px;
-    background: #000;
-    margin: 20px auto;
-    width: 60px;
+    border: 0;   /* Sin borde */
+    height: 3px;   /* Altura 3px */
+    background: #000;   /* Fondo negro */
+    margin: 20px auto;   /* Márgenes automáticos */
+    width: 60px;   /* Ancho 60px */
 }
+
+/* Texto de información de contacto */
 .sof-info p {
-    font-size: 1.2rem;
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    font-family: Arial, sans-serif;
+    font-size: 1.2rem;   /* Tamaño de fuente */
+    color: #333;   /* Color gris oscuro */
+    line-height: 1.6;   /* Altura de línea */
+    margin-bottom: 15px;  /* Margen inferior */
+    font-family: Arial, sans-serif;   /* Fuente Arial */
 }
 
-/* Animación simple */
+/* Definición de la animación de aparición suave */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; }   /* Desde opacidad 0 */
+    to { opacity: 1; }   /* Hasta opacidad 1 */
 }
 
-/* Ajustes Móvil para el modal y botón contacto */
+/* Media query para ajustes del modal en móvil */
 @media (max-width: 767px) {
-    .btn-contacto-flotante {
+    .btn-contacto-flotante {   /* Ajuste botón flotante en móvil */
         top: 20px;
         right: 20px;
-        padding: 12px 25px; /* AUMENTADO */
-        font-size: 1.1rem; /* AUMENTADO */
+        padding: 12px 25px; 
+        font-size: 1.1rem; 
     }
-    .modal-contacto-content {
+    .modal-contacto-content {   /* Ajuste padding modal en móvil */
         padding: 30px 20px;
     }
-    .sof-title {
+    .sof-title {   /* Reducción título SOF en móvil */
         font-size: 3rem;
     }
-    .sof-subtitle {
+    .sof-subtitle {   /* Reducción subtítulo en móvil */
         font-size: 1.2rem;
     }
 }
