@@ -3,7 +3,6 @@
 
 /* Define los estilos generales para el cuerpo de la página, estableciendo la base visual y estructural */
 body {
-    
     background-color: #f0f0f0;   /* Establece un color de fondo gris muy claro para toda la página */
     font-family: Arial, sans-serif;   /* Define la familia de fuentes principal como Arial y una alternativa sans-serif si Arial no está disponible */
     min-height: 100vh;   /* Asegura que el cuerpo ocupe como mínimo el 100% de la altura de la ventana visible del dispositivo */
@@ -43,19 +42,123 @@ body {
     z-index: 1;   /* Coloca esta capa por encima de la imagen de fondo pero debajo del contenido de texto */
 }
 
+/* =========================================
+   NUEVOS BOTONES FLOTANTES (CONTACTO Y PREVENCIÓN)
+   ========================================= */
+
+/* Estilos para el botón flotante de contacto en la portada */
+.btn-contacto-flotante {
+    position: absolute;   /* Posición absoluta en la esquina */
+    top: 30px;   /* Distancia superior 30px */
+    right: 30px;   /* Distancia derecha 30px */
+    background-color: rgba(255, 255, 255, 0.2);   /* Fondo blanco semitransparente */
+    border: 2px solid #fff;   /* Borde blanco */
+    color: #fff;   /* Texto blanco */
+    padding: 15px 35px;   /* Padding interno aumentado */
+    border-radius: 30px;   /* Bordes redondeados */
+    font-weight: 700;   /* Negrita */
+    cursor: pointer;   /* Cursor de mano */
+    z-index: 10;   /* Z-index alto */
+    font-size: 1.3rem;   /* Tamaño de fuente aumentado */
+    backdrop-filter: blur(5px);   /* Efecto de desenfoque en el fondo */
+    transition: all 0.3s ease;   /* Transición suave */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);/* Sombra */
+    font-family: Arial, sans-serif;   /* Fuente Arial */
+}
+
+/* Efecto hover en botón flotante de contacto */
+.btn-contacto-flotante:hover {
+    background-color: #fff;   /* Fondo blanco sólido */
+    color: #000;   /* Texto negro */
+    transform: scale(1.05);   /* Escala aumentada */
+}
+
+/* Nuevo Botón de Prevención - Ubicado en la esquina superior izquierda */
+.btn-prevencion-flotante {
+    position: absolute;
+    top: 30px;
+    left: 30px; /* Mantenemos su posición a la izquierda */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco semitransparente */
+    border: 2px solid #fff; /* Borde blanco */
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.3rem;
+    backdrop-filter: blur(5px); /* Efecto de desenfoque en el fondo */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-prevencion-flotante:hover {
+    background-color: #fff; /* Fondo blanco sólido al pasar el mouse */
+    border-color: #fff;
+    color: #000; /* Texto negro para contrastar */
+    transform: scale(1.05); /* Efecto de crecimiento igual al de contacto */
+}
+
+/* Estilo para la pestaña vertical a la izquierda */
+.pestaña-prevencion-izq {
+    position: fixed;
+    left: 0;
+    top: 50%; /* La centra verticalmente */
+    transform: translateY(-50%) rotate(-90deg); /* La gira para que sea vertical */
+    transform-origin: left top;
+    background-color: #d9534f; /* Rojo de emergencia */
+    color: #ffffff;
+    padding: 12px 25px;
+    font-weight: bold;
+    text-decoration: none;
+    z-index: 2000; /* Para que siempre esté por encima de todo */
+    border-radius: 0 0 15px 15px; /* Redondea los bordes que quedan hacia afuera */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    font-size: 1.1rem;
+    white-space: nowrap; /* Evita que el texto se rompa en dos líneas */
+    transition: all 0.3s ease;
+}
+
+.pestaña-prevencion-izq:hover {
+    background-color: #c9302c;
+    padding-bottom: 35px; /* Efecto de que la pestaña "sale" un poco más al pasar el mouse */
+    color: #fff;
+}
+
+
+/* =========================================
+   CONTENEDOR CENTRAL DE LA PORTADA
+   ========================================= */
+
 /* Contenedor del contenido textual y botones dentro de la portada */
 .card-content {
     background-color: transparent;   /* Hace que el fondo sea transparente */
-    padding: 40px 20px 0 20px;   /* Establece un relleno superior de 40px, derecho de 20px, inferior de 0 y izquierdo de 20px */
+    padding: 20px;   /* Padding equilibrado */
+    padding-bottom: 12vh;   /* Padding inferior aumentado para dar más espacio debajo del botón COMENZAR */
     text-align: center;   /* Alinea el texto al centro horizontalmente */
     height: 100%;   /* Establece la altura al 100% del padre */
     width: 100%;   /* Establece el ancho al 100% del padre */
     display: flex;   /* Activa flexbox para distribuir los elementos internos */
     flex-direction: column;   /* Organiza los elementos en una columna vertical */
-    justify-content: space-between;   /* Distribuye el espacio disponible entre los elementos separándolos al máximo */
+    justify-content: center;   /* Centra todo el contenido verticalmente en la pantalla */
+    align-items: center;       /* Centra todo el contenido horizontalmente */
     position: relative;   /* Establece posición relativa para control de z-index */
-    z-index: 2;   /* Coloca este contenido por encima de la capa oscura del pseudo-elemento before */
+    z-index: 2;   /* Coloca este contenido por encima de la capa oscura */
     box-sizing: border-box;   /* Incluye el padding y borde en el cálculo del tamaño total */
+}
+
+/* Estilos para el nuevo logo en la portada */
+.logo-portada {
+    max-width: 330px; /* Ajusta este número si quieres el logo más grande o chico */
+    height: auto;
+    margin: 0 auto 0px auto; /* Espacio debajo del logo para separarlo del título */
+    display: block;
+    z-index: 2;
 }
 
 /* Estilos específicos para el título principal H1 dentro de la tarjeta de contenido */
@@ -63,15 +166,11 @@ body {
     color: #ffffff;   /* Establece el color del texto en blanco */
     font-size: 4.5rem;   /* Define el tamaño de la fuente en 4.5 veces el tamaño raíz */
     font-weight: 700;   /* Establece el grosor de la fuente a 700 o negrita */
-    margin: 0;   /* Elimina los márgenes por defecto */
-    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);   /* Añade una sombra negra difuminada detrás del texto para mejorar el contraste */
+    margin: -100px 0 10px 0;   /* Margen inferior para separarlo un poco de "Leer información" */
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.4);   /* Añade una sombra negra difuminada detrás del texto */
     letter-spacing: normal;   /* Establece el espaciado entre letras a su valor normal */
     line-height: 1.1;   /* Define la altura de línea a 1.1 para que el texto esté compacto */
-    margin-left: auto;   /* Margen automático a la izquierda para centrado en flex */
-    margin-right: auto;  /* Margen automático a la derecha para centrado en flex */
-    margin-top: auto;   /* Margen automático arriba para centrado vertical en flex */
-    margin-bottom: auto;   /* Margen automático abajo para centrado vertical en flex */
-    transition: opacity 0.3s ease;   /* Suaviza el cambio de opacidad con una transición de 0.3 segundos */
+    transition: opacity 0.3s ease;   /* Suaviza el cambio de opacidad con una transición */
 }
 
 /* Efecto al pasar el mouse sobre el título H1 */
@@ -81,75 +180,62 @@ body {
 
 /* Clase para elementos de título que son interactivos o clicables */
 .title-interactive {
-    position: relative;/* Establece posición relativa para posicionar elementos hijos absolutos si fuera necesario */
-    display: inline-block;   /* Hace que el elemento se comporte como bloque en línea */
-    cursor: pointer;/* Cambia el cursor a una mano para indicar que es clicable */
-    line-height: 1 !important; /* Fuerza la altura de línea a 1 con alta prioridad */
+    position: relative;/* Establece posición relativa para posicionar elementos hijos absolutos */
+    display: flex;   
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;/* Cambia el cursor a una mano */
+    line-height: 1 !important; /* Fuerza la altura de línea a 1 */
 }
 
 /* Estilos para la etiqueta visual que invita a leer información */
 .click-hint {
     display: block;   /* Hace que el elemento se comporte como un bloque */
-    font-size: 1.6rem;   /* Establece el tamaño de fuente en 1.6 rem */
-    font-weight: 400;   /* Establece el peso de la fuente en 400 o normal */
+    font-size: 1.6rem;   /* Establece el tamaño de fuente */
+    font-weight: 400;   /* Establece el peso de la fuente en normal */
     color: #ffffff;   /* Establece el color del texto en blanco */
-    background-color: rgba(255, 255, 255, 0.2);   /* Establece un fondo blanco con 20% de opacidad */
-    border: 1px solid rgba(255, 255, 255, 0.6);   /* Añade un borde sólido blanco con 60% de opacidad */
-    border-radius: 20px;   /* Redondea las esquinas con un radio de 20px */
-    padding: 8px 20px;   /* Añade relleno interno de 8px vertical y 20px horizontal */
-    margin-top: 15px;   /* Añade un margen superior de 15px */
-    width: fit-content;  /* Ajusta el ancho al contenido interno */
-    margin-left: auto;   /* Margen automático a la izquierda para centrar */
-    margin-right: auto;   /* Margen automático a la derecha para centrar */
+    background-color: rgba(255, 255, 255, 0.2);   /* Fondo blanco semitransparente */
+    border: 1px solid rgba(255, 255, 255, 0.6);   /* Borde blanco semitransparente */
+    border-radius: 20px;   /* Redondea las esquinas */
+    padding: 8px 20px;   /* Relleno interno */
+    margin-top: 10px;   /* Separación desde el texto principal hacia la etiqueta */
+    margin-bottom: 20px; /* Separación desde la etiqueta hacia el botón COMENZAR */
+    width: fit-content;  /* Ajusta el ancho al contenido */
     text-shadow: none;   /* Elimina la sombra de texto heredada */
-    letter-spacing: 0.5px;   /* Añade un espaciado entre letras de 0.5px */
-    animation: pulse-animation 2s infinite;   /* Aplica una animación llamada pulse-animation que dura 2 segundos y se repite infinitamente */
-    transition: background-color 0.3s ease;   /* Suaviza la transición del color de fondo */
+    letter-spacing: 0.5px;   /* Espaciado entre letras */
+    animation: pulse-animation 2s infinite;   /* Animación de pulso */
+    transition: background-color 0.3s ease;   /* Transición suave */
 }
 
-/* Efecto al pasar el mouse sobre el contenedor del título interactivo, afectando a la etiqueta hija */
+/* Efecto al pasar el mouse sobre el contenedor del título interactivo */
 .title-interactive:hover .click-hint { 
-    background-color: rgba(255, 255, 255, 0.4);   /* Cambia el fondo a blanco con 40% de opacidad */
+    background-color: rgba(255, 255, 255, 0.4);   /* Cambia el fondo a blanco un poco más sólido */
     color: #fff;   /* Asegura que el color del texto sea blanco puro */
 }
 
 /* Definición de la animación de pulso para la etiqueta */
 @keyframes pulse-animation {
-    /* Al inicio: escala normal y sin sombra exterior */
     0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
-    /* A la mitad: escala al 105% y expande la sombra haciéndola transparente */
     50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
-    /* Al final: vuelve a la escala normal y sin sombra */
     100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
-/* Estilos para el subtítulo H3 dentro de la tarjeta de contenido */
-.card-content h3 {
-    font-family: 'Alfa Slab One', cursive;   /* Aplica la fuente personalizada Alfa Slab One o cursiva por defecto */
-    color: #000000;   /* Establece el color del texto en negro */
-    font-size: 7.5rem;   /* Establece un tamaño de fuente muy grande de 7.5 rem */
-    margin: 0;   /* Elimina los márgenes */
-    font-weight: 400;   /* Establece el peso de la fuente en normal */
-}
-
-/* Estilos para los botones dentro de la tarjeta de contenido */
+/* Estilos para los botones (COMENZAR) dentro de la tarjeta de contenido */
 .card-content button {
     background-color: transparent;   /* Fondo transparente */
     color: #ffffff;   /* Color de texto blanco */
-    border: 3px solid #ffffff;   /* Borde sólido blanco de 3px de grosor */
-    border-radius: 50px;   /* Bordes muy redondeados de 50px */
-    padding: 30px 65px;   /* Relleno interno generoso de 30px vertical y 65px horizontal */
-    font-size: 2rem;   /* Tamaño de fuente de 2 rem */
+    border: 3px solid #ffffff;   /* Borde sólido blanco */
+    border-radius: 50px;   /* Bordes muy redondeados */
+    padding: 30px 65px;   /* Relleno interno generoso */
+    font-size: 2rem;   /* Tamaño de fuente grande */
     font-weight: 700;   /* Peso de fuente negrita */
-    letter-spacing: 1px;   /* Espaciado entre letras de 1px */
-    cursor: pointer;   /* Cambia el cursor a mano al pasar por encima */
+    letter-spacing: 1px;   /* Espaciado entre letras */
+    cursor: pointer;   /* Cambia el cursor a mano */
     width: auto;   /* El ancho se ajusta automáticamente */
-    transition: all 0.3s ease;  /* Transición suave para todas las propiedades de 0.3 segundos */
+    transition: all 0.3s ease;  /* Transición suave */
     max-width: 500px;   /* Ancho máximo limitado a 500px */
-    margin-left: auto;   /* Margen izquierdo automático para centrar */
-    margin-right: auto;   /* Margen derecho automático para centrar */
-    margin-bottom: 100px;   /* Margen inferior grande de 100px */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);   /* Sombra suave debajo del botón */
+    margin: 0;   /* Elimina márgenes forzados para permitir centrado perfecto */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);   /* Sombra suave */
 }
 
 /* Efecto hover para el botón de la tarjeta de contenido */
@@ -740,10 +826,38 @@ body {
 @media (max-width: 767px) {
 
     /* Ajustes para el contenido de la portada en móvil */
-    .card-content { justify-content: space-evenly; padding: 20px; }
+    .card-content { justify-content: center; padding: 20px; }
     .card-content h1 { font-size: 3.0rem; margin: 0; }
-    .click-hint { font-size: 1.4rem; padding: 8px 20px; margin-top: 15px; }
-    .card-content h3 { font-size: 2.5rem; margin-top: 20px; }
+    .click-hint { font-size: 1.4rem; padding: 8px 20px; margin-top: 15px; margin-bottom: 30px; }
+    
+    /* Logo en móvil */
+    .logo-portada { max-width: 180px; margin: 0 auto 20px auto; }
+    
+    /* Botones flotantes (Contacto y Prevención) en móvil */
+    .btn-contacto-flotante { 
+        top: 20px; 
+        right: 20px; 
+        padding: 12px 20px; 
+        font-size: 1.1rem; 
+    }
+    .btn-prevencion-flotante { 
+        top: 20px; 
+        left: 20px; 
+        padding: 12px 20px; 
+        font-size: 1.1rem; 
+    }
+
+    /* Pestaña flotante izquierda en móvil */
+    .pestaña-prevencion-izq {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    /* Modal en móvil */
+    .modal-contacto-content { padding: 30px 20px; }
+    .sof-title { font-size: 3rem; }
+    .sof-subtitle { font-size: 1.2rem; }
+
     /* Botón de portada en móvil con fondo semitransparente */
     .card-content button {
         background-color: rgba(0, 0, 0, 0.6); 
@@ -751,7 +865,7 @@ body {
         border-radius: 0; 
         padding: 20px 40px;
         font-size: 1.5rem;
-        margin: 0 auto 20px auto; 
+        margin: 0 auto; 
         width: 100%; 
         box-shadow: none;
     }
@@ -882,33 +996,6 @@ body {
     }
 }
 
-/* Estilos para el botón flotante de contacto en la portada */
-.btn-contacto-flotante {
-    position: absolute;   /* Posición absoluta en la esquina */
-    top: 30px;   /* Distancia superior 30px */
-    right: 30px;   /* Distancia derecha 30px */
-    background-color: rgba(255, 255, 255, 0.2);   /* Fondo blanco semitransparente */
-    border: 2px solid #fff;   /* Borde blanco */
-    color: #fff;   /* Texto blanco */
-    padding: 15px 35px;   /* Padding interno aumentado */
-    border-radius: 30px;   /* Bordes redondeados */
-    font-weight: 700;   /* Negrita */
-    cursor: pointer;   /* Cursor de mano */
-    z-index: 10;   /* Z-index alto */
-    font-size: 1.3rem;   /* Tamaño de fuente aumentado */
-    backdrop-filter: blur(5px);   /* Efecto de desenfoque en el fondo */
-    transition: all 0.3s ease;   /* Transición suave */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);/* Sombra */
-    font-family: Arial, sans-serif;   /* Fuente Arial */
-}
-
-/* Efecto hover en botón flotante */
-.btn-contacto-flotante:hover {
-    background-color: #fff;   /* Fondo blanco sólido */
-    color: #000;   /* Texto negro */
-    transform: scale(1.05);   /* Escala aumentada */
-}
-
 /* Superposición oscura para el modal de contacto */
 .modal-contacto-overlay {
     position: fixed;   /* Posición fija cubriendo toda la pantalla */
@@ -1001,23 +1088,4 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; }   /* Desde opacidad 0 */
     to { opacity: 1; }   /* Hasta opacidad 1 */
-}
-
-/* Media query para ajustes del modal en móvil */
-@media (max-width: 767px) {
-    .btn-contacto-flotante {   /* Ajuste botón flotante en móvil */
-        top: 20px;
-        right: 20px;
-        padding: 12px 25px; 
-        font-size: 1.1rem; 
-    }
-    .modal-contacto-content {   /* Ajuste padding modal en móvil */
-        padding: 30px 20px;
-    }
-    .sof-title {   /* Reducción título SOF en móvil */
-        font-size: 3rem;
-    }
-    .sof-subtitle {   /* Reducción subtítulo en móvil */
-        font-size: 1.2rem;
-    }
 }
