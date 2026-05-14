@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tekopo - Salud Mental</title>
+    <title>Observatorio de Salud Mental</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css?v=34"> 
+    <link rel="stylesheet" href="style.css?v=35"> 
 </head>
 <body>
 
     <div class="card-container">
         
         <div id="inicio-screen">
-            <button id="btn-open-contacto" class="btn-contacto-flotante">
+            <button id="btn-open-contacto" class="btn-flotante-portada btn-contacto-flotante">
                 📞 CONTACTO SOF
             </button>
+
+            <a href="prevencion/index.html" class="btn-flotante-portada btn-prevencion-flotante">
+                PREVENCIÓN
+            </a>
 
             <div id="modal-contacto" class="modal-contacto-overlay" style="display: none;">
                 <div class="modal-contacto-content">
@@ -29,13 +33,14 @@
                     <h3 class="sof-subtitle">Servicio de Orientación Familiar</h3>
                     <hr class="sof-separator">
                     <div class="sof-info">
-                        <p><strong>Dirección:</strong><br>Charcas Nº 65, Casi esquina Beni.<br>Santa Cruz - Bolivia</p>
-                        <p><strong>Teléfono:</strong><br>3 3365436</p>
+                        <p><strong>Dirección:</strong><br>CLÍNICA SISTÉMICA DE LA FAMILIA - Av. Trinidad # 572, entre Calle: Horacio Rios y J Cronembold, Zona norte 2do anillo Av. Alemana.<br>Santa Cruz - Bolivia</p>
+                        <p><strong>Teléfono:</strong><br>+591 72160914</p>
                     </div>
                 </div>
             </div>
             <div class="card-content">
-                <h3>TEKOPO</h3>
+                
+                <img src="imag/logo.svg" alt="Observatorio de Salud Mental" class="logo-portada">
                 
                 <h1 id="btn-salud-mental-portada" class="title-interactive">
                     SALUD<br>MENTAL
@@ -564,15 +569,15 @@
                 <h2>Ansiedad moderada: el malestar impacta la rutina diaria</h2>
                 <p>En esta fase, la ansiedad comienza a alterar de forma evidente el funcionamiento cotidiano. Aparecen síntomas como tensión muscular marcada, preocupaciones que se prolongan durante horas, irritabilidad constante y despertares nocturnos. Aunque la persona sigue cumpliendo con sus responsabilidades, necesita cada vez más esfuerzo para realizarlas y su rendimiento emocional empieza a resentirse. Investigaciones recientes describen este nivel como un estado que suele requerir intervención psicológica para evitar una escalada mayor.</p>
                 <h2>Ansiedad severa: cuando el malestar domina el día</h2>
-                <p>En este nivel, los síntomas son intensos, persistentes y causan un deterioro mayor en múltiples aspectos de la vida. La persona puede experimentar desde pensamientos catastróficos, crisis de angustia, palpitaciones fuertes, mareos, hasta trastornos graves del sueño. Las investigaciones muestran que los cuadros severos de ansiedad se asocian con un impacto funcional significativo en el trabajo, las relaciones sociales y la vida diaria de la persona.</p>
+                <p>En este nivel, los síntomas son intensos, persistentes y causan un deterioro mayor en multiple aspectos de la vida. La persona puede experimentar desde pensamientos catastróficos, crisis de angustia, palpitaciones fuertes, mareos, hasta trastornos graves del sueño. Las investigaciones muestran que los cuadros severos de ansiedad se asocian con un impacto funcional significativo en el trabajo, las relaciones sociales y la vida diaria de la persona.</p>
                 <p>Reconocer los distintos grados de ansiedad es importante para comprenderla y actuar a tiempo. Este entendimiento favorece la búsqueda de apoyo adecuado y la intervención temprana para evitar que los síntomas se intensifiquen.</p>
                 <hr class="content-separator">
                 <h2>Fuentes</h2>
                 <ul>
                     <li>American Psychiatric Association. (2014). <i>Manual diagnóstico y estadístico de los trastornos mentales</i> (5.ª ed.). Editorial Médica Panamericana.</li>
                     <li>García-Campayo, J., Puebla-Guedea, M., Herrera-Mercadal, P., & Daudén, E. (2019). Cognitive-behavioral therapy for anxious and depressed patients with psoriasis: A randomized controlled trial. <i>Journal of Consulting and Clinical Psychology, 87</i>(8), 719–730.</li>
-                    <li>McKnight, P. E., Monfort, S. S., Kashdan, T. B., Blalock, D. V., & Calton, J. M. (2016). Anxiety symptoms and functional impairment: A systematic review of the correlation between the two measures. <i>Clinical Psychology Review, 45</i>, 115–130. https://doi.org/10.1016/j.cpr.2015.10.005</li>
-                    <li>Velescu, D. R., Popa, D., Rusu, A., & Dobrean, A. (2024). A narrative review of self-reported scales to evaluate depression and anxiety symptoms in adult obstructive sleep apnea patients. <i>Medicina, 60</i>(2), 261. https://doi.org/10.3390/medicina60020261</li>
+                    <li>McKnight, P. E., Monfort, S. S., Kashdan, T. B., Blalock, D. V., & Calton, J. M. (2016). Anxiety symptoms and functional impairment: A systematic review of the correlation between the two measures. <i>Clinical Psychology Review, 45</i>, 115–130.</li>
+                    <li>Velescu, D. R., Popa, D., Rusu, A., & Dobrean, A. (2024). A narrative review of self-reported scales to evaluate depression and anxiety symptoms in adult obstructive sleep apnea patients. <i>Medicina, 60</i>(2), 261.</li>
                 </ul>
             </div>
             <button id="btn-ansiedad-grados-volver" class="btn-volver-portada-style">VOLVER</button>
@@ -815,7 +820,7 @@
                 <hr class="content-separator">
 
                 <h3 class="content-title-pdf">Actividad 2: "Detén el pensamiento ansioso"</h3>
-                <p><strong>Objetivo:</strong> Ayudar al usuario a identificar los pensamientos negativos que surgen durante la ansiedad, distinguir si son reales o imaginarios, reconocer si puede controlarlos o no, y aplicar estrategias de calma frente a ellos.</p>
+                <p><strong>Objetivo:</strong> Ayudar al usuario a identify los pensamientos negativos que surgen durante la ansiedad, distinguir si son reales o imaginarios, reconocer si puede controlarlos o no, y aplicar estrategias de calma frente a ellos.</p>
 
                 <p><strong>Componentes de la Ansiedad</strong><br>
                 La ansiedad está formada por dos componentes principales:</p>
@@ -1263,7 +1268,7 @@
                         <div class="options-vertical">
                             <label><input type="radio" name="bdi19" value="0"> 0. Puedo concentrarme tan bien como siempre.</label>
                             <label><input type="radio" name="bdi19" value="1"> 1. No puedo concentrarme tan bien como habitualmente.</label>
-                            <label><input type="radio" name="bdi19" value="2"> 2. Me es difícil mantener la mente en algo por mucho tiempo.</label>
+                            <label><input type="radio" name="bdi19" value="2"> 2. Me es difícil mantener la minde en algo por mucho tiempo.</label>
                             <label><input type="radio" name="bdi19" value="3"> 3. Encuentro que no puedo concentrarme en nada.</label>
                         </div>
                     </div>
@@ -1422,7 +1427,7 @@
         </div>
 
     </div>
-    <script src="script.js"></script>
+    <script src="script.js?v=35"></script>
 
 </body>
 </html>
